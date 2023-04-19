@@ -15,7 +15,7 @@ const alphabet = [
 let guesses = [];
 let rowState = 1;
 let game = true;
-fetch('svenska-ord.json')
+fetch('../data/svenska-ord.json')
   .then(response => response.json())
   .then(data => {
     const words = data;
