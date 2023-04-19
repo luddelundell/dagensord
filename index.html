@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dagens ord</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="modal" id="modal">
+            <div class="modal__inner">
+                <div class="modal__inner__header">
+                    <div class="logo">
+                        <p>Dagens ord</p>
+                    </div>   
+                </div>
+                <div class="modal__inner__body">
+                    <h2>Ledartavla</h2>
+                    <div class="lb">
+                        <div class="lb__user leader">
+                            <span class="lb__user__position">1</span>
+                            <img src="/images/user_01.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Petter Persson</p>
+                            <p class="lb__user__points">450p</p>
+                        </div>
+                        <div class="lb__user">
+                            <span class="lb__user__position">2</span>
+                            <img src="/images/user_02.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Alex Shcûtter</p>
+                            <p class="lb__user__points">420p</p>
+                        </div>
+                        <div class="lb__user">
+                            <span class="lb__user__position">3</span>
+                            <img src="/images/user_03.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Lisa Larsson</p>
+                            <p class="lb__user__points">380p</p>
+                        </div>
+                        <div class="lb__user">
+                            <span class="lb__user__position">4</span>
+                            <img src="/images/user_04.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Hanna Holmér</p>
+                            <p class="lb__user__points">360p</p>
+                        </div>
+                        <div class="lb__user">
+                            <span class="lb__user__position">5</span>
+                            <img src="/images/user_05.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Kjell Samuelsson</p>
+                            <p class="lb__user__points">310p</p>
+                        </div>
+                        <div class="lb__user">
+                            <span class="lb__user__position">6</span>
+                            <img src="/images/user_06.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Gunilla Röör</p>
+                            <p class="lb__user__points">300p</p>
+                        </div>
+                        <div class="lb__user">
+                            <span class="lb__user__position">7</span>
+                            <img src="/images/user_07.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Henrietta Hoppsansa</p>
+                            <p class="lb__user__points">285p</p>
+                        </div>
+                        <div class="lb__user">
+                            <span class="lb__user__position">8</span>
+                            <img src="/images/user_08.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Jan-Olov Janzzon</p>
+                            <p class="lb__user__points">270p</p>
+                        </div>
+                        <div class="lb__user">
+                            <span class="lb__user__position">9</span>
+                            <img src="/images/user_09.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Kjell Samuelsson</p>
+                            <p class="lb__user__points">310p</p>
+                        </div>
+                        <div class="lb__user">
+                            <span class="lb__user__position">10</span>
+                            <img src="/images/user_10.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Kjell Samuelsson</p>
+                            <p class="lb__user__points">310p</p>
+                        </div>
+                        <div class="lb__user">
+                            <span class="lb__user__position">11</span>
+                            <img src="/images/user_11.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Kjell Samuelsson</p>
+                            <p class="lb__user__points">310p</p>
+                        </div>
+                        <div class="lb__user">
+                            <span class="lb__user__position">12</span>
+                            <img src="/images/user_12.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Hans Holmér</p>
+                            <p class="lb__user__points">310p</p>
+                        </div>
+                        <div class="lb__user">
+                            <span class="lb__user__position">13</span>
+                            <img src="/images/user_13.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Petra Persson-Hansson</p>
+                            <p class="lb__user__points">310p</p>
+                        </div>
+                        <div class="lb__user">
+                            <span class="lb__user__position">14</span>
+                            <img src="/images/user_14.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Hanna Hyvänen</p>
+                            <p class="lb__user__points">310p</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__inner__footer">
+                    <button class="btn btn-primary" onclick="toggleModal()">Stäng</button>
+                    
+                </div>
+            
+            </div>
+        </div>
+        <main>
+            <div class="col col-1">       
+                <article>
+                    <h2>Heading 2</h2>
+                    <p class="env-text">
+                        Utnyttja agila ramverk för att ge en robust sammanfattning för översikter på hög nivå. Iterativa tillvägagångssätt för företagsstrategi främjar samarbetstänkande för att främja det övergripande värdeerbjudandet. Väx organiskt den holistiska världsbilden av disruptiv innovation via arbetsplatsmångfald och egenmakt. Ta fram vinn-vinn-överlevnadsstrategier för att säkerställa proaktiv dominans. I slutet av dagen, framöver, är en ny normal som har utvecklats från generation X på banan på väg mot en strömlinjeformad molnlösning.
+                    </p>
+                    <p class="env-text">
+                        Poddsändning av operativ förändringshantering inuti arbetsflöden för att skapa ett ramverk. 
+                    </p>
+                    <p class="env-text">
+                        Ta sömlösa nyckelprestandaindikatorer offline för att maximera den långa svansen. Håll koll på bollen samtidigt som du gör en djupdykning av start-up-mentaliteten för att få konvergens på plattformsoberoende integration. Administrera bemyndigade marknader i samarbete via plug-and-play-nätverk.
+                    </p>
+                    <input type="text"/>
+                </article>
+                <h2></h2>
+                
+            </div>
+            <div class="col col-2">
+                <div class="posts">
+                    <div class="posts__post">
+                        <div class="posts__post__header">
+                            <img src="/images/user_06.jpeg">
+                            <div class="posts__post__header__name">Frida Frankensteiner<span>3 timmar</span></div>
+                        </div>
+                        <div class="posts__post__body">
+                            <p>
+                                Användargenererat innehåll i realtid kommer att ha flera kontaktpunkter för offshoring. Dra nytta av lågt hängande frukt för att identifiera en mervärdesaktivitet som ska betatestas. Åsidosätt den digitala klyftan med ytterligare klickningar från DevOps. Nedsänkning av nanoteknik längs informationsmotorvägen kommer att stänga slingan för att enbart fokusera på slutresultatet.
+                            </p>
+                        </div>
+                        <div class="posts__post__footer">
+                            <button><img src="/images/icons/thumb-up-like.png"></button>
+                            <button><img src="/images/icons/messages-bubble-square-text.png"></button>
+                            <button><img src="/images/icons/share-2.png"></button>
+                        </div>
+                    </div>
+                    <div class="posts__post">
+                        <div class="posts__post__header">
+                            <img src="/images/user_07.jpeg">
+                            <div class="posts__post__header__name">Sara Sandströmmer<span>3 timmar</span></div>
+                        </div>
+                        <div class="posts__post__body">
+                            <p>
+                                Dynamiskt skjuta upp B2C-användare efter installerade basförmåner. Dramatiskt visualisera kundriktad konvergens utan revolutionerande ROI. Släpp effektivt lös korsmedial information utan tvärmedialt värde. Maximera snabba leveranser för realtidsscheman.  Dramatiskt underhåll klick-och-bruk-lösningar utan funktionella lösningar.
+                            </p>
+                        </div>
+                        <div class="posts__post__footer">
+                            <button><img src="/images/icons/thumb-up-like.png"></button>
+                            <button><img src="/images/icons/messages-bubble-square-text.png"></button>
+                            <button><img src="/images/icons/share-2.png"></button>
+                        </div>
+                    </div>
+                    <div class="posts__post" id="fejkPost">
+                        <div class="posts__post__header">
+                            <img src="/images/user_08.jpeg">
+                            <div class="posts__post__header__name">Kjell Stockstreber<span>Just nu</span></div>
+                        </div>
+                        <div class="posts__post__body" id="fejkPostBody">
+                          
+                        </div>
+                        <div class="posts__post__footer">
+                            <button><img src="/images/icons/thumb-up-like.png"></button>
+                            <button><img src="/images/icons/messages-bubble-square-text.png"></button>
+                            <button><img src="/images/icons/share-2.png"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-3">
+            <div class="wordle" id="wordlgame">
+                <div class="startView" id="startView">
+                    <div class="inner">
+                        <div class="logo">
+                        <p>Dagens ord</p>
+                        </div>                    
+                        <p class="intro">Fem bokstäver i ordet. Sex gissningar. Tävla mot dina kollegor och få den respekt du förtjänar.</p>
+                        <button class="btn btn-primary" onclick="startGame()" id="btnPlayGame">Spela dagens ord</button>
+                        <div class="btn btn-fejk" id="btnComeBackTomorow">I morgon får du ett nytt dagens ord</div>
+                        <h3 class="overline">I toppen just nu</h3>
+                        <div class="lb">
+                            <div class="lb__user leader">
+                                <span class="lb__user__position">1</span>
+                                <img src="/images/user_01.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Petter Persson</p>
+                                <p class="lb__user__points">450p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">2</span>
+                                <img src="/images/user_02.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Alex Shcûtter</p>
+                                <p class="lb__user__points">420p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">3</span>
+                                <img src="/images/user_03.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Lisa Larsson</p>
+                                <p class="lb__user__points">380p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">4</span>
+                                <img src="/images/user_04.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Hanna Holmér</p>
+                                <p class="lb__user__points">360p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">5</span>
+                                <img src="/images/user_05.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Kjell Samuelsson</p>
+                                <p class="lb__user__points">310p</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-link" onclick="toggleModal()">Visa hela ledartavlan</button>
+                    </div>
+                </div>
+                <div class="endView hidden" id="endView">
+                    <div class="inner">
+                    <button class="btn btn-x top-right" onClick="returnToStart()">&times;</button>
+                    <div class="logo">
+                        <p>Dagens ord</p>
+                    </div>
+                    <!--
+                    <h2 class="overline">Statistik</h2>
+                    <div class="stats">
+                        <div class="stats__stat">
+                            <p>6</p>
+                            <p>Spelade</p>
+                        </div>
+                        <div class="stats__stat">
+                            <p>100%</p>
+                            <p>Vinst</p>
+                        </div>
+                        <div class="stats__stat">
+                            <p>5</p>
+                            <p>Segersvit</p>
+                        </div>
+                        <div class="stats__stat">
+                            <p>6</p>
+                            <p>Max svit</p>
+                        </div>
+                    </div>
+
+                    <h2 class="overline">Segersvit</h2>
+                    <div class="results">
+                        <div class="results__result">
+                            <label for="file">1</label>
+                            <div class="progress">0</div>
+                        </div>
+                        <div class="results__result">
+                            <label for="file">2</label>
+                            <div class="progress">0</div>
+                        </div>
+                        <div class="results__result">
+                            <label for="file">3</label>
+                            <div class="progress" style="width:60px">3</div>
+                        </div>
+                        <div class="results__result">
+                            <label for="file">4</label>
+                            <div class="progress" style="width:80px; background-color: lightgreen;">4</div>
+                        </div>
+                        <div class="results__result">
+                            <label for="file">5</label>
+                            <div class="progress" style="width:240px">12</div>
+                        </div>
+                        <div class="results__result">
+                            <label for="file">6</label>
+                            <div class="progress" style="width:80px">4</div>
+                        </div>                                                    
+                    </div>-->
+                    <div class="res">
+                        <div class="res__body">
+                            <div class="res__body__color">  
+                                <p>🟨⬜️🟩⬜️⬜️</p>
+                                <p>🟩🟩🟩⬜️⬜️</p>
+                                <p>🟩🟩🟩🟩🟩</p>
+                            </div>                     
+                            <div class="res__body__points">
+                                <p><span id="noOfAttempts">X</span>/6</p>
+                                <p><span id="scoredPoints">Y</span>p</p>
+                            </div>
+                        </div>
+                        <div class="res__footer">
+                            <buton class="btn btn-primary" onclick="shareResult()">Dela resultat</buton>
+                        </div>
+                        
+                      
+                    </div>
+                    <h2 class="overline">Din placering</h2>
+                    <div class="lb">
+           
+                        <div class="lb__user">
+                            <span class="lb__user__position">4</span>
+                            <img src="/images/user_02.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Alex Shcûtter</p>
+                            <p class="lb__user__points">420p</p>
+                        </div>
+                        <div class="lb__user currentuser">
+                            <span class="lb__user__position">5</span>
+                            <img src="/images/user_08.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Kjell Stockstreber</p>
+                            <p class="lb__user__points">380p</p>
+                        </div>
+                        <div class="lb__user">
+                            <span class="lb__user__position">6</span>
+                            <img src="/images/user_04.jpeg" class="lb__user__img">
+                            <p class="lb__user__name">Hanna Holmér</p>
+                            <p class="lb__user__points">360p</p>
+                        </div>
+               
+                    </div>
+                    <div>
+                         
+                    </div>
+                </div>
+                </div>
+                <div id="message" class="message"><p>All is good</p></div>
+                <button class="btn btn-x top-right" onclick="abortGame()">&times;</button>
+                <div class="logo">
+                    <p>Dagens ord</p>
+                </div>
+               
+                <div class="rows">            
+                    <div class="row" id="row1">
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="row2">
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="row3">
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="row4">
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="row5">
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                    </div>          
+                    <div class="row" id="row6">
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                        <div class="word">
+                            <div class="word__body">
+                                <div class="word__body__front"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+      
+                <div class="keyboard" id="keyboard">
+                    <div class="keyboard__row">
+                        <div class="key" data-key="q" role="button">q</div>
+                        <div class="key" data-key="w" role="button">w</div>
+                        <div class="key" data-key="e" role="button">e</div>
+                        <div class="key" data-key="r" role="button">r</div>
+                        <div class="key" data-key="t" role="button">t</div>
+                        <div class="key" data-key="y" role="button">y</div>
+                        <div class="key" data-key="u" role="button">u</div>
+                        <div class="key" data-key="i" role="button">i</div>
+                        <div class="key" data-key="o" role="button">o</div>
+                        <div class="key" data-key="p" role="button">p</div>
+                        <div class="key" data-key="å" role="button">å</div>
+                    </div>
+                    <div class="keyboard__row">                     
+                        <div class="key" data-key="a" role="button">a</div>
+                        <div class="key" data-key="s" role="button">s</div>
+                        <div class="key" data-key="d" role="button">d</div>
+                        <div class="key" data-key="f" role="button">f</div>
+                        <div class="key" data-key="g" role="button">g</div>
+                        <div class="key" data-key="h" role="button">h</div>
+                        <div class="key" data-key="j" role="button">j</div>
+                        <div class="key" data-key="k" role="button">k</div>
+                        <div class="key" data-key="l" role="button">l</div>    
+                        <div class="key" data-key="ö" role="button">ö</div>
+                        <div class="key" data-key="ä" role="button">ä</div>
+                    </div>
+                    <div class="keyboard__row">
+                        <div class="key primary special" role="button" data-key="Enter">↵</div>                    
+                        <div class="key" data-key="z" role="button">z</div>
+                        <div class="key" data-key="x" role="button">x</div>
+                        <div class="key" data-key="c" role="button">c</div>
+                        <div class="key" data-key="v" role="button">v</div>
+                        <div class="key" data-key="b" role="button">b</div>
+                        <div class="key" data-key="n" role="button">n</div>
+                        <div class="key" data-key="m" role="button">m</div>
+                        <div class="key special" data-key="Backspace" role="button">⇦</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </main>
+        <script src="script.js" async defer></script>
+    </body>
+</html>
