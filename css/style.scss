@@ -258,7 +258,7 @@ main {
         border-radius: 6px;
         border-bottom:1px solid #eee;
         &.leader {
-            background-color: gold;                
+            // background-color: gold;                
         }
         &.currentuser {
             border:2px solid #888;
@@ -266,7 +266,8 @@ main {
         &__position {
             font-size: 27px;
             font-weight: 800;
-            color:#20233044;
+            // color:#20233044;
+            color:#ddd;
             
             img {
                 width: 24px;
@@ -407,9 +408,10 @@ main {
     }
 }
 .res {
-    background-color: #555555;
+    background-color: #f7f7f7;
     border-radius: 12px;
-    color:#fff;
+    color:#202330;
+    margin-bottom: 2em;
     &__body {
         padding:1.5em;    
         display: flex;
@@ -532,4 +534,22 @@ main {
     &.toggle {
         display: flex;
     }
+}
+article { 
+    @include whiteBox();
+    img {
+        border-start-end-radius: 8px;
+        border-start-start-radius: 8px;
+        width:100%;
+        margin-block-end: 20px;
+    }
+    h2, p {
+        padding:0 1.5rem;
+        input {
+            margin:1rem;
+        }
+    }
+}
+.output{
+    max-width: 200px;
 }

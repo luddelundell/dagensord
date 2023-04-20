@@ -281,16 +281,13 @@ main {
   border-radius: 6px;
   border-bottom: 1px solid #eee;
 }
-.lb__user.leader {
-  background-color: gold;
-}
 .lb__user.currentuser {
   border: 2px solid #888;
 }
 .lb__user__position {
   font-size: 27px;
   font-weight: 800;
-  color: rgba(32, 35, 48, 0.2666666667);
+  color: #ddd;
 }
 .lb__user__position img {
   width: 24px;
@@ -441,9 +438,10 @@ main {
 }
 
 .res {
-  background-color: #555555;
+  background-color: #f7f7f7;
   border-radius: 12px;
-  color: #fff;
+  color: #202330;
+  margin-bottom: 2em;
 }
 .res__body {
   padding: 1.5em;
@@ -566,4 +564,26 @@ main {
 }
 .modal.toggle {
   display: flex;
+}
+
+article {
+  box-shadow: 0 0 14px rgba(51, 51, 51, 0.2);
+  border-radius: 8px;
+}
+article img {
+  border-start-end-radius: 8px;
+  border-start-start-radius: 8px;
+  width: 100%;
+  -webkit-margin-after: 20px;
+          margin-block-end: 20px;
+}
+article h2, article p {
+  padding: 0 1.5rem;
+}
+article h2 input, article p input {
+  margin: 1rem;
+}
+
+.output {
+  max-width: 200px;
 }/*# sourceMappingURL=style.css.map */
