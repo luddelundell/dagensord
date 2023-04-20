@@ -12,8 +12,11 @@
     padding:0; margin: 0;
 }
 body {
-    font-family: Mada;
+    font-family: Inter;
     padding:2em;
+    @media screen and (max-width:600px) {
+        padding:4px;
+    }
 }
 @mixin introoutro {
     width:100%;

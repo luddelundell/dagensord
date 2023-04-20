@@ -15,8 +15,13 @@
 }
 
 body {
-  font-family: Mada;
+  font-family: Inter;
   padding: 2em;
+}
+@media screen and (max-width: 600px) {
+  body {
+    padding: 4px;
+  }
 }
 
 p.env-text {
