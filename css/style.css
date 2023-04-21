@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;600&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;600&family=Inconsolata:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap");
 :root {
   --primary-background-color:rgb(31, 113, 167);
   --primary-background-color-dark:rgb(27, 89, 131);
@@ -62,7 +62,6 @@ p.env-text {
 }
 
 .word {
-  border-radius: 2px;
   aspect-ratio: 1/1;
   flex-basis: 20%;
   border: 2px solid #bbb;
@@ -70,6 +69,7 @@ p.env-text {
   font-weight: 600;
   position: relative;
   perspective: 40rem;
+  font-family: "Inconsolata";
 }
 @media screen and (max-width: 600px) {
   .word {
@@ -89,6 +89,7 @@ p.env-text {
 }
 .word__body__front {
   background-color: #e9edfc;
+  transition: background-color 0.3s;
 }
 .word__body__back {
   position: absolute;
@@ -133,6 +134,8 @@ p.env-text {
   padding-block: 1%;
   border-radius: 2px;
   cursor: pointer;
+  font-family: "Inconsolata";
+  font-weight: 700;
   flex-grow: 1;
 }
 .keyboard .key.correct {

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;600&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;600&family=Inconsolata:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap');
 :root {
     --primary-background-color:rgb(31, 113, 167);
     --primary-background-color-dark:rgb(27, 89, 131);
@@ -70,20 +70,19 @@ p.env-text {
 }
 
 .word {
-   border-radius: 2px;
+   
     aspect-ratio: 1/1 ;
     flex-basis: 20%;
     border:2px solid #bbb;
     // font-size: clamp(1rem, 2vw, 3rem);
     font-size: 1.75em;
     @media screen and (max-width:600px) {
-        font-size: 1.25em;
-        
+        font-size: 1.25em;        
     }
     font-weight: 600;
     position: relative;
     perspective: 40rem;
-
+    font-family: 'Inconsolata';
     &__body {
         height: 100%;
         &__front, &__back {
@@ -92,11 +91,11 @@ p.env-text {
             justify-content: center;
             align-items: center;
             height: 100%;
-            text-transform: uppercase;
+            text-transform: uppercase;      
         }
         &__front {
             background-color: #e9edfc;
-            
+            transition: background-color .3s;
         }
         &__back {
             position: absolute;
@@ -139,6 +138,8 @@ p.env-text {
         padding-block: 1%;
         border-radius: 2px;
         cursor: pointer;
+        font-family: 'Inconsolata';
+        font-weight: 700;
         flex-grow: 1;
         // align-self: center;
         &.correct {
