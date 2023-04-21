@@ -212,6 +212,19 @@ p.env-text {
     outline-offset: 4px;
     z-index:888;
 }
+.shake {
+    animation: shake .3s ease forwards;    
+    .word__body__front {
+        background-color: rgb(247, 125, 125);
+    }
+}
+@keyframes shake {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(5px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
+}
 @keyframes victory {
     0% {scale: 100%; }
     50% {scale: 170%;}

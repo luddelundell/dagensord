@@ -179,6 +179,10 @@ fetch('../data/swe-five-letter-words.json')
             }
             else {
                 message(2);
+                document.getElementById('row'+rowState).classList.add('shake');
+                setTimeout(() => {
+                  document.getElementById('row'+rowState).classList.remove('shake');
+                }, 1000);
             }
             setElements();
         }
