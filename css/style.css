@@ -51,7 +51,7 @@ p.env-text {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  max-width: 80%;
+  max-width: 50%;
   margin: 0 auto;
 }
 .rows .row {
@@ -195,13 +195,13 @@ p.env-text {
     opacity: 0;
   }
   to {
-    top: 1px;
+    top: 120px;
     opacity: 1;
   }
 }
 @keyframes moveout {
   from {
-    top: 10px;
+    top: 120px;
   }
   to {
     top: -200px;
@@ -242,19 +242,6 @@ main {
   flex-grow: 2;
 }
 
-.startView {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  z-index: 997;
-  background-color: #fff;
-  border: 1px solid #ddd;
-}
-.startView .inner {
-  padding: 1.5em;
-}
 .startView h3 {
   margin: 2em 0 0.5em 0;
 }
@@ -313,21 +300,8 @@ main {
   margin-left: auto;
 }
 
-.endView {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  z-index: 997;
-  background-color: #fff;
-  border: 1px solid #ddd;
-}
 .endView.hidden {
   display: none;
-}
-.endView .inner {
-  padding: 1.5em;
 }
 .endView button.toggleEndView {
   position: absolute;

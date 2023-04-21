@@ -5,6 +5,8 @@ const endView = document.getElementById("endView");
 const noOfAttempts = document.getElementById("noOfAttempts");
 const scoredPoints = document.getElementById("scoredPoints");
 const output = document.getElementById("output");
+const modalGame = document.getElementById("modalGame");
+const modalLb = document.getElementById("modalLb")
 let lostGame=false;
 const startDate = new Date('2023-04-19, 00:00:00');
 const thisDate = new Date();
@@ -148,6 +150,7 @@ fetch('../data/swe-five-letter-words.json')
             // console.log(rowState);
             guesses.push(userWordString);
             pressedKeysArr = [];
+
             if (userWordString == theWordString) {
               setTimeout(() => {
                 elements.classList.add('win');
@@ -155,17 +158,22 @@ fetch('../data/swe-five-letter-words.json')
                 //   wordBodies[p].classList.add('win');
                 // }              
               }, 500);
-            //  message(5);   
-            game=false;
-            setTimeout(() => {
-              toggleEndView(rowState-1);
-            }, 1500);
-          return;
-            }
+              //  message(5);   
+              game=false;
+              setTimeout(() => {
+                toggleEndView(rowState-1);
+                modalGame.classList.toggle('toggle');
+              }, 1500);
+            return;
+              }
             if (rowState==7) {
-              // message(1);
+              message(1);
               lostGame=true;
               toggleEndView(rowState);
+              setTimeout(() => {
+                // toggleEndView(rowState-1);
+                modalGame.classList.toggle('toggle');
+              }, 1500);
             }
 
             }
@@ -190,7 +198,9 @@ fetch('../data/swe-five-letter-words.json')
       keyPress(key);
     });
     document.addEventListener('keydown', handleKeyPress);
+    modalGame.classList.toggle('toggle');
   }
+
   function handleKeyPress(event) {
     // console.log('Key pressed:', event.key);
     if (event.key == 'Backspace' && pressedKeysArr.length > 0) {
@@ -254,14 +264,15 @@ fetch('../data/swe-five-letter-words.json')
     document.getElementById('fejkPost').style.display="block";
     fejkPostBody.innerHTML=content;
   }
-  function toggleModal(){
-    document.getElementById("modal").classList.toggle('toggle');
+  function toggleModalLb(){
+    modalLb.classList.toggle('toggle');
   }
   const abortGame = () => {
     if (game) {
       const response = confirm('Avsluta spelet? Du kommer att få 0 poäng för detta spel.');
       if (response) {
         startView.classList.toggle('visible');
+        modalGame.classList.toggle('toggle');
         document.removeEventListener('keydown', handleKeyPress);     
       }else {
         return;

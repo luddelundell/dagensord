@@ -19,17 +19,17 @@ body {
     }
 }
 @mixin introoutro {
-    width:100%;
-    position: absolute;
-    top:0;
-    left:0;
-    height: 100%;
-    z-index: 997;
+    // width:100%;
+    // position: absolute;
+    // top:0;
+    // left:0;
+    // height: 100%;
+    // z-index: 997;
     // padding:5%;
-    background-color: #fff;
-    border:1px solid #ddd;
+    // background-color: #fff;
+    // border:1px solid #ddd;
     .inner {        
-        padding:1.5em;
+        // padding:1.5em;
 }
 }
 @mixin whiteBox {
@@ -48,19 +48,17 @@ p.env-text {
 }
 .wordle {
     font-family: Inter;
-    padding:2em;
-    
+    padding:2em;    
     width:24vw;
     min-width:300px;
-    position: relative;
-    
+    position: relative;    
     @include whiteBox();
 }
 .rows {
     display: flex;
     flex-direction: column;
     gap:.5em;
-    max-width: 80%;
+    max-width: 50%;
     margin:0 auto;
     .row {
         display: flex;
@@ -79,6 +77,7 @@ p.env-text {
     font-weight: 600;
     position: relative;
     perspective: 40rem;
+
     &__body {
         height: 100%;
         &__front, &__back {
@@ -195,10 +194,10 @@ p.env-text {
 
 @keyframes movein {
     from { top:-200px; opacity: 0;}
-    to {top:1px; opacity: 1;}
+    to {top:120px; opacity: 1;}
 }
 @keyframes moveout {
-    from { top:10px;}
+    from { top:120px;}
     to {top:-200px;}
 }
 .win {
