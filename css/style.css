@@ -66,10 +66,15 @@ p.env-text {
   aspect-ratio: 1/1;
   flex-basis: 20%;
   border: 2px solid #bbb;
-  font-size: clamp(1rem, 2vw, 3rem);
+  font-size: 1.75em;
   font-weight: 600;
   position: relative;
   perspective: 40rem;
+}
+@media screen and (max-width: 600px) {
+  .word {
+    font-size: 1.25em;
+  }
 }
 .word__body {
   height: 100%;
@@ -242,6 +247,9 @@ main {
   flex-grow: 2;
 }
 
+.startView .inner {
+  background-color: white;
+}
 .startView h3 {
   margin: 2em 0 0.5em 0;
 }
@@ -302,6 +310,9 @@ main {
 
 .endView.hidden {
   display: none;
+}
+.endView .inner {
+  background-color: white;
 }
 .endView button.toggleEndView {
   position: absolute;
@@ -428,7 +439,7 @@ main {
   gap: 1.5em;
 }
 .res__body__color {
-  font-size: 1.25em;
+  font-size: 1em;
 }
 .res__body__points p:first-child {
   font-weight: 600;

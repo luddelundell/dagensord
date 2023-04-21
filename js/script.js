@@ -195,23 +195,27 @@ fetch('../data/swe-five-letter-words.json')
     document.getElementById("btnPlayGame").style.display="none";
     keyboard.addEventListener('click', (e)=> {
       let key = e.target.getAttribute("data-key")
-      keyPress(key);
+      handleKeyPress(key);
     });
     document.addEventListener('keydown', handleKeyPress);
     modalGame.classList.toggle('toggle');
   }
 
+
+
   function handleKeyPress(event) {
-    // console.log('Key pressed:', event.key);
-    if (event.key == 'Backspace' && pressedKeysArr.length > 0) {
+    let k;
+    event.key ? k=event.key : k=event;
+    
+    if (k == 'Backspace' && pressedKeysArr.length > 0) {
       pressedKeysArr.pop();
       wordBodies[pressedKeysArr.length].getElementsByClassName('word__body__front')[0].innerHTML='';
     }
-    if (pressedKeysArr.length<5 && alphabet.includes(event.key) && game) { 
-        pressedKeysArr.push(event.key);
-        wordBodies[pressedKeysArr.length-1].getElementsByClassName('word__body__front')[0].innerHTML=event.key;
+    if (pressedKeysArr.length<5 && alphabet.includes(k) && game) { 
+        pressedKeysArr.push(k);
+        wordBodies[pressedKeysArr.length-1].getElementsByClassName('word__body__front')[0].innerHTML=k;
     }
-    if (event.key == 'Enter') {
+    if (k == 'Enter') {
         if (pressedKeysArr.length == 5) doCheck();
         else message(4);
     }

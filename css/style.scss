@@ -30,6 +30,7 @@ body {
     // border:1px solid #ddd;
     .inner {        
         // padding:1.5em;
+        background-color: white;
 }
 }
 @mixin whiteBox {
@@ -73,7 +74,12 @@ p.env-text {
     aspect-ratio: 1/1 ;
     flex-basis: 20%;
     border:2px solid #bbb;
-    font-size: clamp(1rem, 2vw, 3rem);
+    // font-size: clamp(1rem, 2vw, 3rem);
+    font-size: 1.75em;
+    @media screen and (max-width:600px) {
+        font-size: 1.25em;
+        
+    }
     font-weight: 600;
     position: relative;
     perspective: 40rem;
@@ -416,7 +422,7 @@ main {
         display: flex;
         gap:1.5em;
         &__color {
-            font-size: 1.25em;
+            font-size: 1em;
         }
         &__points {
             p:first-child {
