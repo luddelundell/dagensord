@@ -1,14 +1,16 @@
 let allTheWords, theWord, theWordString, elements, wordBodies, keyboard;
+
 const messageDiv = document.getElementById('message');
 const startView = document.getElementById('startView');
 const endView = document.getElementById("endView");
 const noOfAttempts = document.getElementById("noOfAttempts");
 const scoredPoints = document.getElementById("scoredPoints");
-const output = document.getElementById("output");
+// const output = document.getElementById("output");
 const modalGame = document.getElementById("modalGame");
-const modalLb = document.getElementById("modalLb")
+const modalLb = document.getElementById("modalLb");
+const foo = document.getElementById("foo");
 let lostGame=false;
-const startDate = new Date('2023-04-19, 00:00:00');
+const startDate = new Date('2023-04-19');
 const thisDate = new Date();
 let gameNo = Math.floor((thisDate - startDate)/86400000);
 const alphabet = [
@@ -23,15 +25,21 @@ let guesses = [];
 let rowState = 1;
 let game = true;
 let shareArr=[];
-fetch('../data/swe-five-letter-words.json')
-  .then(response => response.json())
-  .then(data => {
-    allTheWords = data;    
-    wordOfTheDay(data);
-  })
-  .catch(error => {
-    console.error(error);
-  });
+// import data from '../data/swe-five-letter-words.json';
+
+allTheWords=data;
+wordOfTheDay(data);
+
+// fetch('../data/swe-five-letter-words.json')
+//   .then(response => response.json())
+//   .then(data => {
+//     allTheWords = data;    
+//     wordOfTheDay(data);
+//     console.log('fetch OK');
+//   })
+//   .catch(error => {
+//     console.log('error');
+//   });
  
   // function shuffle(array) {
   //   for (let i = array.length - 1; i > 0; i--) {
@@ -48,8 +56,9 @@ fetch('../data/swe-five-letter-words.json')
     // theWordString = arr[randomIndex];
     // theWordString='frysa';
     theWordString = arr[gameNo];
+
     theWord = theWordString.split('');
-    // console.log(theWordString);
+
 
     // let randomArr = shuffle(arr);
     // let text ="["
@@ -80,7 +89,7 @@ fetch('../data/swe-five-letter-words.json')
       }
     }
     shareArr.push(temp);
-    // console.log(shareArr);
+
   }
   function setElements(){
     if (game){
@@ -89,7 +98,6 @@ fetch('../data/swe-five-letter-words.json')
     }
   }
   function message(t){
-    // console.log('t:'+t);
     if (game) {
       let messageTxt = `<p>Unknown error message</p>`;
       if (t==1) {
@@ -115,6 +123,7 @@ fetch('../data/swe-five-letter-words.json')
   setElements();
   function doCheck(){
     if (game) {
+      // foo.innerHTML="doCheck()"
       messageDiv.innerHTML = '';
       let userWord = [];
       // let succesChars = [];
@@ -210,7 +219,7 @@ fetch('../data/swe-five-letter-words.json')
   function handleKeyPress(event) {
     let k;
     event.key ? k=event.key : k=event;
-    
+    // console.log(k);
     if (k == 'Backspace' && pressedKeysArr.length > 0) {
       pressedKeysArr.pop();
       wordBodies[pressedKeysArr.length].getElementsByClassName('word__body__front')[0].innerHTML='';
@@ -220,6 +229,7 @@ fetch('../data/swe-five-letter-words.json')
         wordBodies[pressedKeysArr.length-1].getElementsByClassName('word__body__front')[0].innerHTML=k;
     }
     if (k == 'Enter') {
+      
         if (pressedKeysArr.length == 5) doCheck();
         else message(4);
     }
@@ -245,11 +255,12 @@ fetch('../data/swe-five-letter-words.json')
     startView.classList.toggle('visible');
   }
   
-  function printColorBoxes(arr){
-    let wrappedItems = shareArr.map(item => `<p>${item}</p>`);
-    return wrappedItems.join("");
+  function printColorBoxes(arrq){
+    // console.log('arr: '+arr);
+    let wrappedItems=shareArr.map(item =>`</br>${item} `);
+    return wrappedItems.join("").trim();
   }
-  
+
   function shareResult(){
     let att = () => {
       let nr = () => { 
@@ -265,12 +276,22 @@ fetch('../data/swe-five-letter-words.json')
       if (rowState-1 > 5 && rowState-1 < 7 && !lostGame) return '😐'
       else return '😡';
     }
-    let content = `  <p>${att()} ${points} poäng ${emoji()}</p>
+    let content = `${att()} ${points} 
+    poäng ${emoji()}
     ${printColorBoxes()}
     `;
+    let copyText = `${att()} ${points} poäng ${emoji()}
+     ${printColorBoxes()}`;
+    const mu = document.getElementById('js-output');
+    mu.innerHTML=copyText; 
+    console.log(copyText)
+    // setClipboard(copyText);
+    // setClipboard(document.getElementById("mu").textContent);
     const fejkPostBody=document.getElementById('fejkPostBody');
-    document.getElementById('fejkPost').style.display="block";
-    fejkPostBody.innerHTML=content;
+    document.getElementById("shareFeedback").style.display="block";
+    // document.getElementById('fejkPost').style.display="block";
+    // fejkPostBody.innerHTML=content;
+    bobo();
   }
   function toggleModalLb(){
     modalLb.classList.toggle('toggle');
@@ -288,3 +309,16 @@ fetch('../data/swe-five-letter-words.json')
     }
     game = false;
   }
+
+
+function bobo(){
+try {
+  const content = document.getElementById('js-output').innerHTML;
+  const blobInput = new Blob([content], {type: 'text/html'});
+  const clipboardItemInput = new ClipboardItem({'text/html' : blobInput});
+  navigator.clipboard.write([clipboardItemInput]);
+} catch(e) {
+  // Handle error with user feedback - "Copy failed!" kind of thing
+  console.log(e);
+}
+}

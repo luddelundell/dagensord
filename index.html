@@ -230,6 +230,7 @@
                             <div class="key" data-key="m" role="button">m</div>
                             <div class="key special" data-key="Backspace" role="button">⇦</div>
                         </div>
+                        <!-- <div class="foo" id="foo">foo</div> -->
                     </div>
                 </div>
             </div>
@@ -345,8 +346,9 @@
                     <p class="env-text lead">
                         Iterativa tillvägagångssätt för företagsstrategi främjar samarbetstänkande för att främja det övergripande värdeerbjudandet. Väx organiskt den holistiska världsbilden av disruptiv innovation via arbetsplatsmångfald och egenmakt. Ta fram vinn-vinn-överlevnadsstrategier för att säkerställa proaktiv dominans. I slutet av dagen, framöver, är en ny normal som har utvecklats från generation X på banan på väg mot en strömlinjeformad molnlösning.
                     </p>
-                    <p><input type="text"/></p>
-                    <p><span id="output"></span></p>
+                    <!-- <p><input type="text"/></p> -->
+          <div id="js-output" class="js-output"></div>
+                    <!-- <p><span id="output"></span></p> -->
                 </article>
                 <h2></h2>
                 
@@ -513,6 +515,7 @@
                         </div>
                         <div class="res__footer">
                             <buton class="btn btn-primary" onclick="shareResult()">Dela resultat</buton>
+                            <p id="shareFeedback">Kopierat - klistra in ditt resultat i valfri app!</p>
                         </div>
                         
                       
@@ -549,6 +552,8 @@
             </div>
             </div>
         </main>
+        <div id="mu" class="mu-hidden"></div>
+        <script src="/js/data.js"></script>
         <script src="/js/script.js" async defer></script>
     </body>
 </html>

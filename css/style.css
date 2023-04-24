@@ -51,8 +51,13 @@ p.env-text {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  max-width: 50%;
+  max-width: 300px;
   margin: 0 auto;
+}
+@media screen and (max-width: 600px) {
+  .rows {
+    width: 75%;
+  }
 }
 .rows .row {
   display: flex;
@@ -114,12 +119,12 @@ p.env-text {
           margin-block-start: 2em;
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 0.25em;
 }
 .keyboard__row {
   display: flex;
   justify-content: space-around;
-  gap: 0.5em;
+  gap: 0.25em;
   align-content: stretch;
 }
 .keyboard .key {
@@ -129,7 +134,7 @@ p.env-text {
   line-height: 1.6;
   justify-content: center;
   font-weight: 600;
-  font-size: 1em;
+  font-size: 1.5em;
   text-transform: uppercase;
   padding-block: 1%;
   border-radius: 2px;
@@ -478,6 +483,13 @@ main {
 .res__footer {
   padding: 1em;
   display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.res__footer p {
+  display: none;
+  font-size: 0.875em;
+  color: green;
 }
 
 .posts {
@@ -558,10 +570,9 @@ main {
   left: 0;
 }
 .modal__inner {
-  justify-content: space-between;
   display: flex;
   flex-direction: column;
-  height: 60%;
+  max-height: 800px;
   background-color: #fff;
   width: 700px;
   position: relative;
@@ -575,9 +586,19 @@ main {
   padding: 1.5em;
   overflow-y: scroll;
 }
+@media screen and (max-width: 600px) {
+  .modal__inner__body {
+    padding: 0.5em;
+  }
+}
 .modal__inner__footer {
   border-top: 1px solid #eee;
   padding: 1.5em;
+}
+@media screen and (max-width: 600px) {
+  .modal__inner__footer {
+    padding: 0.5em 1em 2em 1em;
+  }
 }
 .modal.toggle {
   display: flex;
@@ -603,4 +624,10 @@ article h2 input, article p input {
 
 .output {
   max-width: 200px;
+}
+
+.js-output {
+  position: absolute;
+  top: -200px;
+  right: 200px;
 }/*# sourceMappingURL=style.css.map */
