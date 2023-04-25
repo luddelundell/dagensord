@@ -396,12 +396,14 @@ main {
     cursor: pointer;
     &.btn-primary {
         display: block;
-        width: 100%;
         background-color: var(--primary-background-color);
         color: var(--primary-background-contrast-color);
         text-align: center;
         &:hover {
             background-color: var(--primary-background-color-dark);
+        }
+        &.w100 {
+             width: 100%;
         }
     }
     &.btn-fejk {
@@ -458,9 +460,13 @@ main {
         flex-direction: column;
         gap:.5em;
         p {
-            display: none;
+            opacity: 0;
             font-size: .875em;
             color:green;
+            transition: all .2s ease-in;
+            &.toggle {
+                opacity: 1;
+            }
         }
     }
 }

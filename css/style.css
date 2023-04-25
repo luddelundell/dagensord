@@ -425,13 +425,15 @@ main {
 }
 .btn.btn-primary {
   display: block;
-  width: 100%;
   background-color: var(--primary-background-color);
   color: var(--primary-background-contrast-color);
   text-align: center;
 }
 .btn.btn-primary:hover {
   background-color: var(--primary-background-color-dark);
+}
+.btn.btn-primary.w100 {
+  width: 100%;
 }
 .btn.btn-fejk {
   background-color: #eee;
@@ -487,9 +489,13 @@ main {
   gap: 0.5em;
 }
 .res__footer p {
-  display: none;
+  opacity: 0;
   font-size: 0.875em;
   color: green;
+  transition: all 0.2s ease-in;
+}
+.res__footer p.toggle {
+  opacity: 1;
 }
 
 .posts {

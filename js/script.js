@@ -25,48 +25,14 @@ let guesses = [];
 let rowState = 1;
 let game = true;
 let shareArr=[];
-// import data from '../data/swe-five-letter-words.json';
+
 
 allTheWords=data;
 wordOfTheDay(data);
-
-// fetch('../data/swe-five-letter-words.json')
-//   .then(response => response.json())
-//   .then(data => {
-//     allTheWords = data;    
-//     wordOfTheDay(data);
-//     console.log('fetch OK');
-//   })
-//   .catch(error => {
-//     console.log('error');
-//   });
- 
-  // function shuffle(array) {
-  //   for (let i = array.length - 1; i > 0; i--) {
-  //     let j = Math.floor(Math.random() * (i + 1));
-  //     [array[i], array[j]] = [array[j], array[i]];
-  //   }
-  //   return array;
-  // }
-
-
-
   function wordOfTheDay(arr) {
-    // const randomIndex = Math.floor(Math.random() * arr.length);
-    // theWordString = arr[randomIndex];
-    // theWordString='frysa';
-    theWordString = arr[gameNo];
-
+    theWordString='andra';
+    // theWordString = arr[gameNo];
     theWord = theWordString.split('');
-
-
-    // let randomArr = shuffle(arr);
-    // let text ="["
-    // for (i=0; i<randomArr.length; i++){
-    //   text+=`"${randomArr[i]}", `
-    // }
-    // text+="]";
-    // output.innerHTML=text;
   }
   function updateKeyboard(userWord){
     let temp ='';
@@ -123,31 +89,32 @@ wordOfTheDay(data);
   setElements();
   function doCheck(){
     if (game) {
-      // foo.innerHTML="doCheck()"
+      let correctPositions = []
       messageDiv.innerHTML = '';
       let userWord = [];
-      // let succesChars = [];
-      // for (let t=0; t < wordBodies.length; t++) {
-      //   if (theWord.includes(userWord[t])) succesChars.push(userWord[t]);
-      // }
-      // console.log(succesChars);
       for (let i=0; i < wordBodies.length; i++) {
           userWord.push(wordBodies[i].getElementsByClassName('word__body__front')[0].textContent);
       };
       let userWordString = userWord.join('');
-      if (guesses.includes(userWordString)) message(3);
+      if (guesses.includes(userWordString)) message(3);      
       else {
-          if (allTheWords.includes(userWordString)) {
+          if (allTheWords.includes(userWordString)) {            
+            for (let i=0; i < wordBodies.length; i++) {
+              if (userWord[i] == theWord[i]) {
+                correctPositions.push(userWord[i])
+              }
+            }
             for (let i=0; i < wordBodies.length; i++) {
                 let div = document.createElement("div");
                 let cssClass = () => {
-                  // let successList=[];
                   if (userWord[i] == theWord[i]) {
-                    // successList.push(userWord[i]);
                     return 'correct';            
                   }                  
-                  if (theWord.includes(userWord[i])) return 'close'; // skriv om och gör så att samma bokstav inte kan markeras fler gånger (m)a(m)(m)a - > krama
-                    return 'false'
+                  if (theWord.includes(userWord[i])) {
+                    if (!correctPositions.includes(userWord[i])) return 'false';
+                    if (countOccurrences(userWord, userWord[i])>1) return 'close';
+                  }                                    
+                    else return 'false';
                   }
                 div.classList.add('word__body__back', cssClass());
                 div.textContent=userWord[i];            
@@ -156,7 +123,6 @@ wordOfTheDay(data);
             }
             updateKeyboard(userWord);
             rowState++; 
-            // console.log(rowState);
             guesses.push(userWordString);
             pressedKeysArr = [];
 
@@ -199,6 +165,14 @@ wordOfTheDay(data);
   }
   let pressedKeysArr = [];
 
+  const countOccurrences = (arr, val) => {
+    return arr.reduce((acc, elem) => {
+      if (elem === val) {
+        acc++;
+      }
+      return acc;
+    }, 0);
+  }
 
   function startGame(){
     // console.log('startGame');
@@ -288,7 +262,7 @@ wordOfTheDay(data);
     // setClipboard(copyText);
     // setClipboard(document.getElementById("mu").textContent);
     const fejkPostBody=document.getElementById('fejkPostBody');
-    document.getElementById("shareFeedback").style.display="block";
+    document.getElementById("shareFeedback").style.opacity="1";
     // document.getElementById('fejkPost').style.display="block";
     // fejkPostBody.innerHTML=content;
     bobo();
