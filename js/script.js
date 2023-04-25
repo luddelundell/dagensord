@@ -30,8 +30,8 @@ let shareArr=[];
 allTheWords=data;
 wordOfTheDay(data);
   function wordOfTheDay(arr) {
-    theWordString='fiska';
-    // theWordString = arr[gameNo];
+    // theWordString='fiska';
+    theWordString = arr[gameNo];
     theWord = theWordString.split('');
   }
   function updateKeyboard(userWord){
@@ -215,7 +215,7 @@ wordOfTheDay(data);
   function toggleEndView(rs){
     if (rs < 7) {
       noOfAttempts.innerHTML=rs;
-      points = Math.round(100/rs);
+      points = Math.round(110-rs*10);
     } else {
       noOfAttempts.innerHTML='X';
       points=0;
