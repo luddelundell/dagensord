@@ -1,4 +1,4 @@
-let allTheWords, theWord, theWordString, elements, wordBodies, keyboard;
+let allTheWords, theWord, theWordString, elements, wordBodies, keyboard, points;
 
 const messageDiv = document.getElementById('message');
 const startView = document.getElementById('startView');
@@ -30,7 +30,7 @@ let shareArr=[];
 allTheWords=data;
 wordOfTheDay(data);
   function wordOfTheDay(arr) {
-    theWordString='andra';
+    theWordString='fiska';
     // theWordString = arr[gameNo];
     theWord = theWordString.split('');
   }
@@ -43,7 +43,6 @@ wordOfTheDay(data);
         if (userWord[i] == theWord[i]) {
            myButton.classList.add('correct');
            temp+='🟩';
-           //🟩⬜🟨
         }
         else if (theWord.includes(userWord[i])) {
           myButton.classList.add('close');
@@ -76,8 +75,6 @@ wordOfTheDay(data);
       if (t==5) {
         messageTxt = `<p class="success"><span>🎉</span>Rätt svar, grattis!</p>`;
         game=false;
-
-        // toggleEndView();
       }
       messageDiv.innerHTML=messageTxt;
       messageDiv.classList.add('visible');
@@ -101,7 +98,7 @@ wordOfTheDay(data);
           if (allTheWords.includes(userWordString)) {            
             for (let i=0; i < wordBodies.length; i++) {
               if (userWord[i] == theWord[i]) {
-                correctPositions.push(userWord[i])
+                correctPositions.push(userWord[i]); // array med alla bokstäver som sitter rätt
               }
             }
             for (let i=0; i < wordBodies.length; i++) {
@@ -110,11 +107,20 @@ wordOfTheDay(data);
                   if (userWord[i] == theWord[i]) {
                     return 'correct';            
                   }                  
-                  if (theWord.includes(userWord[i])) {
-                    if (!correctPositions.includes(userWord[i])) return 'false';
-                    if (countOccurrences(userWord, userWord[i])>1) return 'close';
+                  else if (theWord.includes(userWord[i])) {
+                    if (countOccurrences(theWord, userWord[i])==countOccurrences(userWord, userWord[i])){
+                      return 'close';
+                    } 
+                    else if (countOccurrences(theWord, userWord[i])>countOccurrences(userWord, userWord[i])) {
+                       return 'close';
+                    }
+                    else {
+                      return 'false';
+                    } 
                   }                                    
-                    else return 'false';
+                    else {
+                      return 'false';
+                    }
                   }
                 div.classList.add('word__body__back', cssClass());
                 div.textContent=userWord[i];            
@@ -175,7 +181,6 @@ wordOfTheDay(data);
   }
 
   function startGame(){
-    // console.log('startGame');
     keyboard = document.getElementById("keyboard");
     startView.classList.toggle('visible');
     document.getElementById("btnComeBackTomorow").style.display="block";
@@ -193,7 +198,6 @@ wordOfTheDay(data);
   function handleKeyPress(event) {
     let k;
     event.key ? k=event.key : k=event;
-    // console.log(k);
     if (k == 'Backspace' && pressedKeysArr.length > 0) {
       pressedKeysArr.pop();
       wordBodies[pressedKeysArr.length].getElementsByClassName('word__body__front')[0].innerHTML='';
@@ -202,14 +206,12 @@ wordOfTheDay(data);
         pressedKeysArr.push(k);
         wordBodies[pressedKeysArr.length-1].getElementsByClassName('word__body__front')[0].innerHTML=k;
     }
-    if (k == 'Enter') {
-      
+    if (k == 'Enter') {      
         if (pressedKeysArr.length == 5) doCheck();
         else message(4);
     }
   }
 
-  let points;
   function toggleEndView(rs){
     if (rs < 7) {
       noOfAttempts.innerHTML=rs;
@@ -230,7 +232,6 @@ wordOfTheDay(data);
   }
   
   function printColorBoxes(arrq){
-    // console.log('arr: '+arr);
     let wrappedItems=shareArr.map(item =>`</br>${item} `);
     return wrappedItems.join("").trim();
   }
@@ -258,14 +259,9 @@ wordOfTheDay(data);
      ${printColorBoxes()}`;
     const mu = document.getElementById('js-output');
     mu.innerHTML=copyText; 
-    console.log(copyText)
-    // setClipboard(copyText);
-    // setClipboard(document.getElementById("mu").textContent);
     const fejkPostBody=document.getElementById('fejkPostBody');
     document.getElementById("shareFeedback").style.opacity="1";
-    // document.getElementById('fejkPost').style.display="block";
-    // fejkPostBody.innerHTML=content;
-    bobo();
+    putTextInClipboard();
   }
   function toggleModalLb(){
     modalLb.classList.toggle('toggle');
@@ -285,14 +281,13 @@ wordOfTheDay(data);
   }
 
 
-function bobo(){
-try {
-  const content = document.getElementById('js-output').innerHTML;
-  const blobInput = new Blob([content], {type: 'text/html'});
-  const clipboardItemInput = new ClipboardItem({'text/html' : blobInput});
-  navigator.clipboard.write([clipboardItemInput]);
-} catch(e) {
-  // Handle error with user feedback - "Copy failed!" kind of thing
-  console.log(e);
-}
+function putTextInClipboard(){
+  try {
+    const content = document.getElementById('js-output').innerHTML;
+    const blobInput = new Blob([content], {type: 'text/html'});
+    const clipboardItemInput = new ClipboardItem({'text/html' : blobInput});
+    navigator.clipboard.write([clipboardItemInput]);
+  } catch(e) {    
+    console.log(e);
+  }
 }

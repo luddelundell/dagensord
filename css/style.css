@@ -5,8 +5,8 @@
   --primary-background-contrast-color:#fff;
   --time: 0.707s;
   --correct:rgb(111,194,111);
-  --close:orange;
-  --incorrect:#bbb;
+  --close:#F5E355;
+  --incorrect:#c0baba;
 }
 
 * {
@@ -69,7 +69,6 @@ p.env-text {
 .word {
   aspect-ratio: 1/1;
   flex-basis: 20%;
-  border: 2px solid #bbb;
   font-size: 1.75em;
   font-weight: 600;
   position: relative;
@@ -91,6 +90,8 @@ p.env-text {
   align-items: center;
   height: 100%;
   text-transform: uppercase;
+  border-radius: 8px;
+  border: 2px solid transparent;
 }
 .word__body__front {
   background-color: #e9edfc;
@@ -128,7 +129,7 @@ p.env-text {
   align-content: stretch;
 }
 .keyboard .key {
-  background-color: #bbb;
+  background-color: #e4e4e4;
   display: flex;
   align-items: center;
   line-height: 1.6;
@@ -144,13 +145,13 @@ p.env-text {
   flex-grow: 1;
 }
 .keyboard .key.correct {
-  background-color: rgb(111, 194, 111) !important;
+  background-color: var(--correct) !important;
 }
 .keyboard .key.close {
-  background-color: rgb(255, 209, 125);
+  background-color: var(--close);
 }
 .keyboard .key.false {
-  background-color: #808080;
+  background-color: var(--incorrect);
 }
 .keyboard .key.primary {
   background-color: var(--primary-background-color);
@@ -163,13 +164,16 @@ p.env-text {
 
 .correct {
   background-color: var(--correct);
+  border-color: var(--correct);
 }
 
 .close {
+  border-color: var(--close);
   background-color: var(--close);
 }
 
 .false {
+  border-color: var(--incorrect);
   background-color: var(--incorrect);
 }
 
