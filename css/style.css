@@ -64,6 +64,7 @@ p.env-text {
   gap: 0.5em;
   align-content: stretch;
   justify-content: space-around;
+  z-index: 20;
 }
 
 .word {
@@ -226,9 +227,11 @@ p.env-text {
 }
 .win {
   animation: victory 0.3s ease-in-out forwards;
-  outline: 2px solid #333;
-  outline-offset: 4px;
-  z-index: 888;
+  outline: 4px solid var(--correct);
+  outline-offset: 2px;
+  z-index: 999;
+  border-radius: 8px;
+  padding: 0.25em;
 }
 
 .shake {

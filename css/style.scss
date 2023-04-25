@@ -70,6 +70,7 @@ p.env-text {
         gap:.5em;
         align-content: stretch;
         justify-content: space-around;
+        z-index: 20;
     }
 }
 
@@ -186,8 +187,7 @@ p.env-text {
     transform:translateX(-50%);
     top:-200px;
     opacity: 0;
-    p{
-        
+    p{        
         background-color: black;
         border-radius: 4px;
         color: white;
@@ -218,9 +218,11 @@ p.env-text {
 }
 .win {
     animation: victory .3s ease-in-out forwards;
-    outline: 2px solid #333;
-    outline-offset: 4px;
-    z-index:888;
+    outline: 4px solid var(--correct);
+    outline-offset: 2px;
+    z-index:999;
+    border-radius: 8px;
+    padding:.25em;
 }
 .shake {
     animation: shake .3s ease forwards;    
