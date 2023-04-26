@@ -144,12 +144,13 @@ function doCheck() {
       );
     }
     let userWordString = userWord.join("");
-    if (guesses.includes(userWordString)) message(3);
+    if (guesses.includes(userWordString)) message(3, 4000);
     else {
       if (allTheWords.includes(userWordString)) {
         for (let i = 0; i < wordBodies.length; i++) {
           if (userWord[i] == theWord[i]) {
             correctPositions.push(userWord[i]); // array med alla bokstäver som sitter rätt
+            console.log(correctPositions);
           }
         }
         for (let i = 0; i < wordBodies.length; i++) {
@@ -172,12 +173,14 @@ function doCheck() {
                 countOccurrences(theWord, userWord[i]) <
                 countOccurrences(userWord, userWord[i])
               ){
+                console.log('fler i svaret än i rätt svar')
                 if (usedChares.includes(userWord[i])){
                   return 'false'
-                } else {
+                } else if (!correctPositions.includes(userWord[i])) {
                   usedChares.push(userWord[i]);
                   return 'close';
                 }
+                else return 'false';
               }              
               else {
                 return "false";
