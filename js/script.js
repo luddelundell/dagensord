@@ -78,6 +78,11 @@ let rowState = 1;
 let game = true;
 let shareArr = [];
 
+// for (let w = 1; w<7; w++) {
+//     let q = 6-w;
+//     console.log((Math.pow(2, q))*10); // 10p, 20p, 40p, 80p
+// }
+
 allTheWords = data;
 wordOfTheDay(data);
 function wordOfTheDay(arr) {
@@ -150,7 +155,6 @@ function doCheck() {
         for (let i = 0; i < wordBodies.length; i++) {
           if (userWord[i] == theWord[i]) {
             correctPositions.push(userWord[i]); // array med alla bokstäver som sitter rätt
-            console.log(correctPositions);
           }
         }
         for (let i = 0; i < wordBodies.length; i++) {
@@ -173,7 +177,6 @@ function doCheck() {
                 countOccurrences(theWord, userWord[i]) <
                 countOccurrences(userWord, userWord[i])
               ){
-                console.log('fler i svaret än i rätt svar')
                 if (usedChares.includes(userWord[i])){
                   return 'false'
                 } else if (!correctPositions.includes(userWord[i])) {
@@ -282,7 +285,7 @@ function handleKeyPress(event) {
 function toggleEndView(rs) {
   if (rs < 7) {
     noOfAttempts.innerHTML = rs;
-    points = Math.round(110 - rs * 10);
+    points=Math.pow(2, 6-rs)*10;
   } else {
     noOfAttempts.innerHTML = "X";
     points = 0;
@@ -309,9 +312,11 @@ function shareResult() {
       if (rowState - 1 < 3) return ":a";
       else return ":e";
     };
-    if (lostGame) return "Jag klarade inte Dagens ord och fick ";
+    // if (lostGame) return `Jag klarade inte <a href="https://joyful-blini-97982a.netlify.app/">Dagens ord</a> och fick `;
+    if (lostGame) return `Jag klarade inte Dagens ord och fick `;
     else
-      return `Jag klarade Dagens ord på ${
+      return `Jag klarade <a href="https://joyful-blini-97982a.netlify.app/">Dagens ord</a> på ${
+        // return `Jag klarade Dagens ord på ${
         rowState - 1
       }${nr()} försöket och fick `;
   };
@@ -329,7 +334,6 @@ function shareResult() {
      ${printColorBoxes()}`;
   const mu = document.getElementById("js-output");
   mu.innerHTML = copyText;
-  const fejkPostBody = document.getElementById("fejkPostBody");
   document.getElementById("shareFeedback").style.opacity = "1";
   putTextInClipboard();
 }

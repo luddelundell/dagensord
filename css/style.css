@@ -27,6 +27,11 @@ body {
 p.env-text {
   margin: 1em 0;
 }
+p.env-text.lead {
+  font-family: "Frank Ruhl Libre";
+  line-height: 1.5;
+  font-weight: 300;
+}
 
 .logo {
   display: flex;
@@ -117,8 +122,8 @@ p.env-text {
 }
 
 .keyboard {
-  -webkit-margin-before: 2em;
-          margin-block-start: 2em;
+  -webkit-margin-before: 0.2em;
+          margin-block-start: 0.2em;
   display: flex;
   flex-direction: column;
   gap: 0.25em;
