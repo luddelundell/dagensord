@@ -3,10 +3,18 @@
   --primary-background-color:rgb(31, 113, 167);
   --primary-background-color-dark:rgb(27, 89, 131);
   --primary-background-contrast-color:#fff;
+  --danger-background-color: rgb(167, 64, 64);
+  --danger-background-color-dark: rgb(117, 40, 40);
   --time: 0.707s;
   --correct:rgb(111,194,111);
   --close:#F5E355;
   --incorrect:#c0baba;
+  --p6:#D0F5E4;
+  --p5:#ABEDCF;
+  --p4:#8DE7BE;
+  --p3:#75E2B0;
+  --p2:#62DEA5;
+  --p1:#52DB9C;
 }
 
 * {
@@ -367,14 +375,57 @@ main {
   padding: 12px;
   border-radius: 50%;
 }
-.endView .stats {
+
+.results {
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+.results__result {
+  display: flex;
+  gap: 0.25em;
+}
+.results__result label {
+  width: 10px;
+}
+.results__result span {
+  font-weight: 800;
+}
+.results__result .progress {
+  background-color: var(--incorrect);
+  min-width: 20px;
+  padding: 0 8px 0 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.results__result .progress.p1 {
+  background-color: var(--p1);
+}
+.results__result .progress.p2 {
+  background-color: var(--p2);
+}
+.results__result .progress.p3 {
+  background-color: var(--p3);
+}
+.results__result .progress.p4 {
+  background-color: var(--p4);
+}
+.results__result .progress.p5 {
+  background-color: var(--p5);
+}
+.results__result .progress.p6 {
+  background-color: var(--p6);
+}
+
+.stats {
   margin: 1em 0;
   display: flex;
   gap: 1em;
   justify-content: space-between;
   align-items: stretch;
 }
-.endView .stats__stat {
+.stats__stat {
   background-color: #f7f8f9;
   border-radius: 8px;
   padding: 8px;
@@ -384,36 +435,16 @@ main {
   flex-grow: 2;
   gap: 0.25em;
 }
-.endView .stats__stat p {
+.stats__stat p {
   text-align: center;
 }
-.endView .stats__stat p:first-child {
-  font-size: 32px;
+.stats__stat p:first-child {
+  font-size: 1.5em;
   letter-spacing: -0.05em;
   font-weight: 600;
 }
-.endView .stats__stat p:last-child {
-  font-size: 14px;
-}
-.endView .results {
-  margin: 1em 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25em;
-}
-.endView .results__result {
-  display: flex;
-  gap: 0.25em;
-}
-.endView .results__result label {
-  width: 10px;
-}
-.endView .results__result .progress {
-  background-color: var(--incorrect);
-  min-width: 20px;
-  padding: 0 8px 0 0;
-  display: flex;
-  justify-content: flex-end;
+.stats__stat p:last-child {
+  font-size: 0.875em;
 }
 
 .overline {
@@ -422,6 +453,11 @@ main {
   font-weight: 600;
   letter-spacing: 2px;
   margin: 0.5em 0 0.25em 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 1em;
 }
 
 .btn {
@@ -434,6 +470,24 @@ main {
   padding: 12px 24px;
   border-radius: 12px;
   cursor: pointer;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background-color: #e3e4e5;
+  transition: background-color 0.2s ease-in-out;
+}
+.btn:hover {
+  background-color: #d3d4d5;
+}
+.btn img {
+  width: 24px;
+}
+.btn.btn-small {
+  font-size: 0.875em;
+  padding: 8px 14px;
+}
+.btn.btn-small img {
+  width: 16px;
 }
 .btn.btn-primary {
   display: block;
@@ -461,8 +515,11 @@ main {
 .btn.btn-x {
   padding: 8px 12px;
   font-weight: 800;
-  font-size: 1.5em;
+  font-size: 0.75em;
   background-color: transparent;
+}
+.btn.btn-x img {
+  width: 18px;
 }
 .btn.btn-x:hover {
   background-color: #eee;
@@ -471,6 +528,19 @@ main {
   position: absolute;
   top: 8px;
   right: 8px;
+}
+.btn.btn-danger {
+  border: 1px solid var(--danger-background-color);
+  color: var(--danger-background-color);
+  background-color: transparent;
+}
+.btn.btn-danger span {
+  font-size: 1.5em;
+}
+.btn.btn-danger:hover {
+  border-color: var(--danger-background-color-dark);
+  background-color: var(--danger-background-color);
+  color: #fff;
 }
 
 .res {
@@ -579,6 +649,8 @@ main {
 .modal {
   z-index: 998;
   background-color: rgba(0, 0, 0, 0.8666666667);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -590,11 +662,12 @@ main {
 .modal__inner {
   display: flex;
   flex-direction: column;
-  max-height: 800px;
+  max-height: 80vh;
+  height: auto;
   background-color: #fff;
   width: 700px;
   position: relative;
-  top: 30px;
+  top: 1vh;
   border-radius: 12px;
 }
 .modal__inner__header {

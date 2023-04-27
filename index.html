@@ -20,7 +20,7 @@
             <div id="message" class="message"><p>All is good</p></div>
             <div class="modal__inner">
                 <div class="modal__inner__header">
-                    <button class="btn btn-x top-right" onclick="abortGame()">&times;</button>
+                    <button class="btn btn-x btn-danger top-right" onclick="abortGame()"><span>&times;</span> Avsluta</button>
                     <div class="logo">
                         <p>Dagens ord</p>
                     </div>
@@ -232,6 +232,77 @@
                         </div>
                         <!-- <div class="foo" id="foo">foo</div> -->
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="modalMs">
+            <div class="modal__inner">
+                <div class="modal__inner__header">
+                    
+                    <div class="logo">
+                        <p>Dagens ord</p>
+                    </div>
+                </div>
+                <div class="modal__inner__body">
+                    <h2>Min statistik</h2>
+                    
+                    
+                    <div class="stats">
+                        <div class="stats__stat">
+                            <p>6</p>
+                            <p>Spelade</p>
+                        </div>
+                        <div class="stats__stat">
+                            <p>100%</p>
+                            <p>Vinst</p>
+                        </div>
+                        <div class="stats__stat">
+                            <p>5</p>
+                            <p>Segersvit</p>
+                        </div>
+                        <div class="stats__stat">
+                            <p>6</p>
+                            <p>Max svit</p>
+                        </div>
+                    </div>
+
+                    <h2 class="overline">Antal försök</h2>
+                    <div class="results">
+                        <div class="results__result">
+                            <label for="file">1</label>
+                            <div class="progress p1"></div>
+                            <span>0</span>
+                        </div>
+                        <div class="results__result">
+                            <label for="file">2</label>
+                            <div class="progress p2"></div>
+                            <span>0</span>
+                        </div>
+                        <div class="results__result">
+                            <label for="file">3</label>
+                            <div class="progress p3" style="width:60px"></div>
+                            <span>3</span>
+                        </div>
+                        <div class="results__result">
+                            <label for="file">4</label>
+                            <div class="progress p4" style="width:80px;"></div>
+                            <span>4</span>
+                        </div>
+                        <div class="results__result">
+                            <label for="file">5</label>
+                            <div class="progress p5" style="width:240px"></div>
+                            <span>12</span>
+                        </div>
+                        <div class="results__result">
+                            <label for="file">6</label>
+                            <div class="progress p6" style="width:80px"></div>
+                            <span>4</span>
+                        </div>                                                    
+                    </div>
+                </div>
+                <div class="modal__inner__footer">
+                    <button class="btn btn-primary" onclick="toggleModalMs()">Stäng</button>
+                    
                 </div>
             </div>
         </div>
@@ -447,7 +518,10 @@
                                 <p class="lb__user__points">68,6p</p>
                             </div>
                         </div>
-                        <button class="btn btn-link" onclick="toggleModalLb()">Visa hela ledartavlan</button>
+                        <div class="buttons">
+                            <button class="btn btn-small" onclick="toggleModalLb()"><img src="/images/icons/ranking-people-first.png"> Ledartavla</button>
+                            <button class="btn btn-small" onclick="toggleModalMs()"><img src="/images/icons/single-neutral-stats.png"> Min statistik</button>
+                        </div>
                     </div>
                 </div>
                 <div class="endView hidden" id="endView">
@@ -456,54 +530,7 @@
                     <div class="logo">
                         <p>Dagens ord</p>
                     </div>
-                    <!--
-                    <h2 class="overline">Statistik</h2>
-                    <div class="stats">
-                        <div class="stats__stat">
-                            <p>6</p>
-                            <p>Spelade</p>
-                        </div>
-                        <div class="stats__stat">
-                            <p>100%</p>
-                            <p>Vinst</p>
-                        </div>
-                        <div class="stats__stat">
-                            <p>5</p>
-                            <p>Segersvit</p>
-                        </div>
-                        <div class="stats__stat">
-                            <p>6</p>
-                            <p>Max svit</p>
-                        </div>
-                    </div>
-
-                    <h2 class="overline">Segersvit</h2>
-                    <div class="results">
-                        <div class="results__result">
-                            <label for="file">1</label>
-                            <div class="progress">0</div>
-                        </div>
-                        <div class="results__result">
-                            <label for="file">2</label>
-                            <div class="progress">0</div>
-                        </div>
-                        <div class="results__result">
-                            <label for="file">3</label>
-                            <div class="progress" style="width:60px">3</div>
-                        </div>
-                        <div class="results__result">
-                            <label for="file">4</label>
-                            <div class="progress" style="width:80px; background-color: lightgreen;">4</div>
-                        </div>
-                        <div class="results__result">
-                            <label for="file">5</label>
-                            <div class="progress" style="width:240px">12</div>
-                        </div>
-                        <div class="results__result">
-                            <label for="file">6</label>
-                            <div class="progress" style="width:80px">4</div>
-                        </div>                                                    
-                    </div>-->
+                    
                     <div class="res">
                         <div class="res__body">
                             <div class="res__body__color" id="resBodyColor">                                 

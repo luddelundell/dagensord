@@ -8,6 +8,7 @@ const scoredPoints = document.getElementById("scoredPoints");
 // const output = document.getElementById("output");
 const modalGame = document.getElementById("modalGame");
 const modalLb = document.getElementById("modalLb");
+const modalMs = document.getElementById("modalMs");
 const foo = document.getElementById("foo");
 let lostGame = false;
 const startDate = new Date("2023-04-19");
@@ -86,8 +87,8 @@ let shareArr = [];
 allTheWords = data;
 wordOfTheDay(data);
 function wordOfTheDay(arr) {
-  // theWordString='fiska';
-  theWordString = arr[gameNo];
+  theWordString='jimmy';
+  // theWordString = arr[gameNo];
   theWord = theWordString.split("");
 }
 function updateKeyboard(userWord) {
@@ -339,6 +340,9 @@ function shareResult() {
 }
 function toggleModalLb() {
   modalLb.classList.toggle("toggle");
+}
+function toggleModalMs() {
+  modalMs.classList.toggle("toggle");
 }
 const abortGame = () => {
   if (game) {
