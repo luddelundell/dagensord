@@ -617,7 +617,8 @@ main {
         display: flex;
         flex-direction: column;
         max-height: 80vh;
-        height: auto;
+        // height: auto;
+        
         background-color: #fff;
         width:700px;
         position: relative;
@@ -633,10 +634,11 @@ main {
                 padding:.5em;                
             }
             overflow-y: scroll;
+            flex-shrink: 2;
         }    
         &__footer {        
             border-top:1px solid #eee;
-            padding: 1.5em;
+            // padding: 1.5em;
             @media screen and (max-width:600px) {
                 padding:.5em 1em 2em 1em;                
             }

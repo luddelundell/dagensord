@@ -663,7 +663,6 @@ main {
   display: flex;
   flex-direction: column;
   max-height: 80vh;
-  height: auto;
   background-color: #fff;
   width: 700px;
   position: relative;
@@ -676,6 +675,7 @@ main {
 .modal__inner__body {
   padding: 1.5em;
   overflow-y: scroll;
+  flex-shrink: 2;
 }
 @media screen and (max-width: 600px) {
   .modal__inner__body {
@@ -684,7 +684,6 @@ main {
 }
 .modal__inner__footer {
   border-top: 1px solid #eee;
-  padding: 1.5em;
 }
 @media screen and (max-width: 600px) {
   .modal__inner__footer {
