@@ -87,8 +87,8 @@ let shareArr = [];
 allTheWords = data;
 wordOfTheDay(data);
 function wordOfTheDay(arr) {
-  // theWordString='jimmy';
   theWordString = arr[gameNo];
+  console.log(theWordString);
   theWord = theWordString.split("");
 }
 function updateKeyboard(userWord) {
