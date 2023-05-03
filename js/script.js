@@ -79,18 +79,12 @@ let rowState = 1;
 let game = true;
 let shareArr = [];
 
-// for (let w = 1; w<7; w++) {
-//     let q = 6-w;
-//     console.log((Math.pow(2, q))*10); // 10p, 20p, 40p, 80p
-// }
-
 allTheWords = data;
 wordOfTheDay(data);
 function wordOfTheDay(arr) {
-  // theWordString = arr[gameNo];
-theWordString="Gabon";
+  theWordString = arr[gameNo];
   console.log(theWordString);
-  theWord = theWordString.toLowerCase().split("");
+  theWord = theWordString.split("");
 }
 function updateKeyboard(userWord) {
   let temp = "";
