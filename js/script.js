@@ -83,7 +83,7 @@ allTheWords = data;
 wordOfTheDay(data);
 function wordOfTheDay(arr) {
   theWordString = arr[gameNo];
-  console.log(theWordString);
+  // console.log(theWordString);
   theWord = theWordString.split("");
 }
 function updateKeyboard(userWord) {
@@ -94,16 +94,16 @@ function updateKeyboard(userWord) {
     let myButton = document.querySelector("[data-key=" + key + "]");
     if (userWord[i] == theWord[i]) {
       myButton.classList.add("correct");
-      temp += "🟩";
+      // temp += "🟩";
     } else if (theWord.includes(userWord[i])) {
       myButton.classList.add("close");
-      temp += "🟨";
+      // temp += "🟨";
     } else {
       myButton.classList.add("false");
-      temp += "⬜";
+      // temp += "⬜";
     }
   }
-  shareArr.push(temp);
+  // shareArr.push(temp);
 }
 function setElements() {
   if (game) {
@@ -139,6 +139,7 @@ function doCheck() {
     messageDiv.innerHTML = "";
     let userWord = [];
     let usedChares = [];
+    let pluppar ="";
     for (let i = 0; i < wordBodies.length; i++) {
       userWord.push(
         wordBodies[i].getElementsByClassName("word__body__front")[0].textContent
@@ -157,17 +158,20 @@ function doCheck() {
           let div = document.createElement("div");
           let cssClass = () => {
             if (userWord[i] == theWord[i]) {
+              pluppar += "🟩";
               return "correct";
             } else if (theWord.includes(userWord[i])) {
               if (
                 countOccurrences(theWord, userWord[i]) ==
                 countOccurrences(userWord, userWord[i])
               ) {
+                pluppar+= "🟨";
                 return "close";
               } else if (
                 countOccurrences(theWord, userWord[i]) >
                 countOccurrences(userWord, userWord[i])
               ) {
+                pluppar += "🟨";
                 return "close";
               } else if (
                 countOccurrences(theWord, userWord[i]) <
@@ -177,22 +181,32 @@ function doCheck() {
                   return 'false'
                 } else if (!correctPositions.includes(userWord[i])) {
                   usedChares.push(userWord[i]);
+                  pluppar+= "🟨";
                   return 'close';
                 }
-                else return 'false';
+                else {
+                  pluppar+= "⬜";
+                  return 'false';
+                }
               }              
               else {
+                pluppar+= "⬜";
                 return "false";
               }
             } else {
+              pluppar+= "⬜";
               return "false";
             }
           };
+          
+       
           div.classList.add("word__body__back", cssClass());
           div.textContent = userWord[i];
           wordBodies[i].appendChild(div);
           wordBodies[i].classList.add("flip");
-        }
+        }   
+        shareArr.push(pluppar);
+        console.log(shareArr);
         updateKeyboard(userWord);
         rowState++;
         guesses.push(userWordString);
@@ -255,6 +269,7 @@ function startGame() {
   });
   document.addEventListener("keydown", handleKeyPress);
   modalGame.classList.toggle("toggle");
+
 }
 
 function handleKeyPress(event) {
