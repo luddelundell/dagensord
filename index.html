@@ -11,6 +11,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/switch.css">
         <link rel="icon" type="image/png" href="/images/favicon16x16.png" sizes="16x16">
         <link rel="icon" type="image/png" href="/images/favicon32x32.png" sizes="32x32">
         <link rel="icon" type="image/png" href="/images/favicon96x96.png" sizes="96x96">
@@ -18,7 +19,16 @@
         <meta property="og:description" content="Fem bokstäver i ordet. Sex gissningar. Tävla mot dina kollegor och få den respekt du förtjänar." />
         <meta property="og:image" content="https://joyful-blini-97982a.netlify.app/images/OGimg.png" />
     </head>
-    <body>
+    <body class="lightMode">
+        <header>
+            <div class="switchContainer">
+                <p>Dark mode</p>
+                <label for="modeToggle" class="switch">
+                    <input type="checkbox" id="modeToggle" onClick="modeToggle()">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </header>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -427,6 +437,7 @@
                         Iterativa tillvägagångssätt för företagsstrategi främjar samarbetstänkande för att främja det övergripande värdeerbjudandet. Väx organiskt den holistiska världsbilden av disruptiv innovation via arbetsplatsmångfald och egenmakt. Ta fram vinn-vinn-överlevnadsstrategier för att säkerställa proaktiv dominans. I slutet av dagen, framöver, är en ny normal som har utvecklats från generation X på banan på väg mot en strömlinjeformad molnlösning.
                     </p>
                     <p>&nbsp;</p>
+                  
                     <!-- <p><input type="text"/></p> -->
           <div id="js-output" class="js-output"></div>
                     <!-- <p><span id="output"></span></p> -->
@@ -447,9 +458,10 @@
                             </p>
                         </div>
                         <div class="posts__post__footer">
-                            <button><img src="/images/icons/thumb-up-like.png"></button>
-                            <button><img src="/images/icons/messages-bubble-square-text.png"></button>
-                            <button><img src="/images/icons/share-2.png"></button>
+                                 <button><span class="icon">like</span></button>  
+                                 <button><span class="icon">comment</span></button>    
+                             <button><span class="icon">share</span></button>  
+                         
                         </div>
                     </div>
                     <div class="posts__post">
@@ -463,9 +475,9 @@
                             </p>
                         </div>
                         <div class="posts__post__footer">
-                            <button><img src="/images/icons/thumb-up-like.png"></button>
-                            <button><img src="/images/icons/messages-bubble-square-text.png"></button>
-                            <button><img src="/images/icons/share-2.png"></button>
+                            <button><span class="icon">like</span></button>  
+                            <button><span class="icon">comment</span></button>                            
+                            <button><span class="icon">share</span></button>  
                         </div>
                     </div>
                     <div class="posts__post" id="fejkPost">
@@ -478,7 +490,7 @@
                         </div>
                         <div class="posts__post__footer">
                             <button><img src="/images/icons/thumb-up-like.png"></button>
-                            <button><img src="/images/icons/messages-bubble-square-text.png"></button>
+                            <button><span class="icon">comment</span></button>
                             <button><img src="/images/icons/share-2.png"></button>
                         </div>
                     </div>
@@ -528,14 +540,14 @@
                             </div>
                         </div>
                         <div class="buttons">
-                            <button class="btn btn-small" onclick="toggleModalLb()"><img src="/images/icons/ranking-people-first.png"> Ledartavla</button>
-                            <button class="btn btn-small" onclick="toggleModalMs()"><img src="/images/icons/single-neutral-stats.png"> Min statistik</button>
+                            <button class="btn btn-small" onclick="toggleModalLb()"><span class="icon">ranking-winner</span> Ledartavla</button>
+                            <button class="btn btn-small" onclick="toggleModalMs()"><span class="icon">personal-stats</span> Min statistik</button>
                         </div>
                     </div>
                 </div>
                 <div class="endView hidden" id="endView">
                     <div class="inner">
-                    <button class="btn btn-x top-right" onClick="returnToStart()">&times;</button>
+                    <button class="btn btn-x top-right btn-lg" onClick="returnToStart()">&times;</button>
                     <div class="logo">
                         <p>Dagens ord</p>
                     </div>

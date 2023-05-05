@@ -1,5 +1,5 @@
 let allTheWords, theWord, theWordString, elements, wordBodies, keyboard, points;
-
+let darkMode=false;
 const messageDiv = document.getElementById("message");
 const startView = document.getElementById("startView");
 const endView = document.getElementById("endView");
@@ -185,16 +185,16 @@ function doCheck() {
                   return 'close';
                 }
                 else {
-                  pluppar+= "⬜";
+                  if (!darkMode) pluppar+= "⬜"; else pluppar+="⬛️";
                   return 'false';
                 }
               }              
               else {
-                pluppar+= "⬜";
+                if (!darkMode) pluppar+= "⬜"; else pluppar+="⬛️";
                 return "false";
               }
             } else {
-              pluppar+= "⬜";
+              if (!darkMode) pluppar+= "⬜"; else pluppar+="⬛️";
               return "false";
             }
           };
@@ -380,3 +380,67 @@ function putTextInClipboard() {
     console.log(e);
   }
 }
+function modeToggle(){
+  const checkBox = document.getElementById("modeToggle");
+  const body = document.body;
+  if (checkBox.checked == false){
+    body.classList.remove('darkMode');
+    body.classList.add('lightMode');
+    darkMode=false;
+
+  } else {
+    body.classList.add('darkMode');
+    body.classList.remove('lightMode');
+    darkMode=true;
+  }
+}
+const ies = document.querySelectorAll('.icon');
+function doIcons(){
+  
+ const comment = `
+<svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
+  <path class="cls-1" d="m21.75,18.75h-10.5l-6,4.5v-4.5h-3c-.83,0-1.5-.67-1.5-1.5V2.25c0-.83.67-1.5,1.5-1.5h19.5c.83,0,1.5.67,1.5,1.5v15c0,.83-.67,1.5-1.5,1.5Z"/>
+  <path class="cls-1" d="m5.25,7.5h13.5"/>
+  <path class="cls-1" d="m5.25,12h10.5"/>
+</svg>`;
+const share =`
+<svg id="Lager_2" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
+<path class="cls-1" d="m21.75,5.25h-8.25c-1.66,0-3,1.34-3,3v3.75"/>
+<path class="cls-1" d="m17.25,9.75l4.5-4.5L17.25.75"/>
+<path class="cls-1" d="m18.75,14.25v7.5c0,.83-.67,1.5-1.5,1.5H3.75c-.83,0-1.5-.67-1.5-1.5v-12c0-.83.67-1.5,1.5-1.5h2.25"/>
+</svg>`;
+const like=`
+<svg id="Lager_3" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
+  <path class="cls-1" d="m.77,8.01h1.96c.26,0,.51.1.69.29.18.18.29.43.29.69v11.74c0,.26-.1.51-.29.69-.18.18-.43.29-.69.29H.77"/>
+  <path class="cls-1" d="m3.71,19.12c4.01,2.28,6.83,3.42,12.98,3.42,3.71,0,7-7.43,6.49-11.1-.17-1.26-.57-2.1-1.85-2.11h-4.8c-1.26,0-2.21-1.23-1.89-2.46l.86-3.27c.46-1.76-1.95-2.88-2.99-1.39l-4.78,6.78c-.18.26-.42.47-.7.61-.28.14-.59.22-.9.22h-2.41"/>
+</svg>
+`;
+const personalStats = `
+<svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
+<g>
+  <path class="cls-1" d="m8.24,3.74v-2c0-.55.45-1,1-1h12.97c.55,0,1,.45,1,1v8.98c0,.55-.45,1-1,1h-7.4"/>
+  <polyline class="cls-1" points="12.34 5.17 14.38 4.05 16.15 9 18.09 5.25 21.22 4.05"/>
+</g>
+<g>
+  <path class="cls-1" d="m4.01,10.83c0,2.09,1.69,3.78,3.78,3.78s3.78-1.69,3.78-3.78-1.69-3.78-3.78-3.78-3.78,1.69-3.78,3.78Z"/>
+  <path class="cls-1" d="m.77,23.25c0-3.88,3.14-7.02,7.02-7.02s7.02,3.14,7.02,7.02"/>
+</g>
+</svg>`;
+const rankingWinner = `
+<svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
+  <path class="cls-1" d="m10.5,5.25h.75c.41,0,.75.34.75.75v4.5"/>
+  <path class="cls-1" d="m10.5,10.5h3"/>
+  <path class="cls-1" d="m16.5,23.25H7.5V2.25c0-.83.67-1.5,1.5-1.5h6c.83,0,1.5.67,1.5,1.5v21Z"/>
+  <path class="cls-1" d="m23.25,21.75c0,.83-.67,1.5-1.5,1.5h-5.25v-9.75h5.25c.83,0,1.5.67,1.5,1.5v6.75Z"/>
+  <path class="cls-1" d="m7.5,23.25H2.25c-.83,0-1.5-.67-1.5-1.5v-11.25c0-.83.67-1.5,1.5-1.5h5.25v14.25Z"/>
+</svg>
+`;
+ies.forEach(ie => {
+  if (ie.textContent=='comment') ie.innerHTML=comment;
+  if  (ie.textContent=='share') ie.innerHTML=share;
+  if  (ie.textContent=='like') ie.innerHTML=like;
+  if  (ie.textContent=='personal-stats') ie.innerHTML=personalStats;
+  if  (ie.textContent=='ranking-winner') ie.innerHTML=rankingWinner;
+})
+}
+doIcons();
