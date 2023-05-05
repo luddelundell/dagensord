@@ -537,7 +537,7 @@ main {
             width: 18px;
         }
         &:hover {
-            background-color: #eee;
+            background-color: var(--element-background-color);
         }
         &.top-right {
             position: absolute;
@@ -545,6 +545,9 @@ main {
             right:8px;
             
         }
+    }
+    &.btn-lg {
+        font-size: 1.5em;
     }
     &.btn-danger {
         border:1px solid var(--danger-background-color);

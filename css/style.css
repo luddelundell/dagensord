@@ -579,12 +579,15 @@ main {
   width: 18px;
 }
 .btn.btn-x:hover {
-  background-color: #eee;
+  background-color: var(--element-background-color);
 }
 .btn.btn-x.top-right {
   position: absolute;
   top: 8px;
   right: 8px;
+}
+.btn.btn-lg {
+  font-size: 1.5em;
 }
 .btn.btn-danger {
   border: 1px solid var(--danger-background-color);
