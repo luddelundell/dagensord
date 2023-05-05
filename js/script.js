@@ -387,16 +387,27 @@ function modeToggle(){
     body.classList.remove('darkMode');
     body.classList.add('lightMode');
     darkMode=false;
+    localStorage.setItem("mode", "light");
 
   } else {
     body.classList.add('darkMode');
     body.classList.remove('lightMode');
     darkMode=true;
+    localStorage.setItem("mode", "dark");
   }
 }
+if (!localStorage.getItem("mode")) {
+  localStorage.setItem("mode", "light");
+}
+else {
+  if (localStorage.getItem("mode")=="dark") {
+    document.getElementById("modeToggle").checked = true;
+    modeToggle();
+  }
+}
+
 const ies = document.querySelectorAll('.icon');
-function doIcons(){
-  
+function doIcons(){  
  const comment = `
 <svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
   <path class="cls-1" d="m21.75,18.75h-10.5l-6,4.5v-4.5h-3c-.83,0-1.5-.67-1.5-1.5V2.25c0-.83.67-1.5,1.5-1.5h19.5c.83,0,1.5.67,1.5,1.5v15c0,.83-.67,1.5-1.5,1.5Z"/>
