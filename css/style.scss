@@ -693,15 +693,18 @@ main {
         width:700px;
         position: relative;
         border-radius: 12px;
+        @media screen and (max-width:600px) {
+            max-height: 99vh;        
+        }
         &__header{
             padding-top:1.5em;
         }
         &__body {
             padding:1.5em;
+            overflow-y: scroll;
             @media screen and (max-width:600px) {
                 padding:.5em;                
             }
-            overflow-y: scroll;
         }    
         &__footer {        
             border-top:1px solid var(--borderColor);

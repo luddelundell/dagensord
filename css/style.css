@@ -736,6 +736,11 @@ main {
   position: relative;
   border-radius: 12px;
 }
+@media screen and (max-width: 600px) {
+  .modal__inner {
+    max-height: 99vh;
+  }
+}
 .modal__inner__header {
   padding-top: 1.5em;
 }
