@@ -118,9 +118,9 @@ function message(t, time) {
       messageTxt = `<p>Nu är det slut på gissningar! Ordet vi sökte är ${theWordString}</p>`;
       game = false;
     }
-    if (t == 2) messageTxt = "<p>Ordet finns inte i listan</p>";
-    if (t == 3) messageTxt = `<p>Du har redan gissat på det här ordet</p>`;
-    if (t == 4) messageTxt = `<p>För få bokstäver</p>`;
+    if (t == 2) messageTxt = "<p><span>🤔</span>Ordet finns inte i listan</p>";
+    if (t == 3) messageTxt = `<p><span>🤯</span>Du har redan gissat på det här ordet</p>`;
+    if (t == 4) messageTxt = `<p><span>🫣</span>Ordet har för få bokstäver</p>`;
     if (t == 5) {
       messageTxt = `<p class="success"><span>🎉</span>Rätt svar, grattis!</p>`;
       game = false;
@@ -243,7 +243,7 @@ function doCheck() {
         document.getElementById("row" + rowState).classList.add("shake");
         setTimeout(() => {
           document.getElementById("row" + rowState).classList.remove("shake");
-        }, 1000);
+        }, 2000);
       }
       setElements();
     }

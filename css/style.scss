@@ -30,7 +30,8 @@
     --borderColor:#eee;
     --keyBackgroundColor:#efefef;
     --keyTextColor:var(--textColor);
-    --correct:rgb(111,194,111);
+    --correct:#6fc26f;
+    --correct-light:#6fc26f77;
     --close:#F5E355;
     --incorrect:#c0baba;
     --success:green;
@@ -38,6 +39,8 @@
     --element-background-color-dark: rgb(210, 210, 210);
     --element-font-color:#202330;
     --keyShadow:#cdcdcd;
+    --error:#f77d7d;
+    --error-contrast:#fff;
 }
 .darkMode {
     --headerBackgroundColor:var(--sectionBackgroundColor);
@@ -55,7 +58,8 @@
     --borderColor:#505050;
     --keyBackgroundColor:rgb(69, 69, 69);
     --keyTextColor:#fff;
-    --correct:rgb(55, 105, 55);
+    --correct:#376937;
+    --correct-light:#37693757;
     --close:#b4690c;
     --incorrect:#141414;
     --success:rgb(90, 228, 90);
@@ -63,6 +67,8 @@
     --element-background-color:#3e3e3e;
     --element-background-color-dark:#464646;
     --keyShadow:#323232;
+    --error:#f77d7d;
+    --error-contrast:#fff;
 }
 * {
     padding:0; margin: 0;
@@ -257,15 +263,24 @@ p.env-text {
     z-index: 999;
     left:50%;
     transform:translateX(-50%);
-    top:-200px;
+    // top:-200px;
     opacity: 0;
     p{        
-        background-color: black;
+        background-color: var(--error);
         border-radius: 4px;
-        color: white;
+        color: #000;
         padding:1em;
         font-size: 14px;
         font-weight: 600;  
+        text-align: center;
+        display: flex;
+        gap:.5em;
+        align-items: center;
+        span{
+            text-align: center;
+          
+            font-size: 2em;
+        }
         &.success {
             background-color: rgb(89, 151, 89);
             span {
@@ -277,29 +292,31 @@ p.env-text {
     }
 }
 .visible{
-    animation: movein 0.5s ease forwards, moveout .3s ease 1.5s forwards;
+    animation: movein 0.5s ease forwards, moveout .3s ease 2.25s forwards;
 }
 
 @keyframes movein {
-    from { top:-200px; opacity: 0;}
-    to {top:120px; opacity: 1;}
+    from { top:-100px; opacity: 0;}
+    to {top:20px; opacity: 1;}
 }
 @keyframes moveout {
-    from { top:120px;}
-    to {top:-200px;}
+    from { top:20px;}
+    to {top:-100px; opacity: 0;}
 }
 .win {
     animation: victory .3s ease-in-out forwards;
-    outline: 4px solid var(--correct);
-    outline-offset: 2px;
+    // outline: 4px solid var(--correct);
+    // outline-offset: 2px;
     z-index:999;
     border-radius: 8px;
-    padding:.25em;
+    padding:.5em;
+    background-color: var(--correct-light);
+    
 }
 .shake {
     animation: shake .3s ease forwards;    
     .word__body__front {
-        background-color: rgb(247, 125, 125);
+        background-color: var(--error);
     }
 }
 @keyframes shake {
