@@ -157,8 +157,10 @@ function doCheck() {
         for (let i = 0; i < wordBodies.length; i++) {
           let div = document.createElement("div");
           let cssClass = () => {
+            
             if (userWord[i] == theWord[i]) {
               pluppar += "🟩";
+              console.log('häpp');
               return "correct";
             } else if (theWord.includes(userWord[i])) {
               if (
@@ -178,6 +180,7 @@ function doCheck() {
                 countOccurrences(userWord, userWord[i])
               ){
                 if (usedChares.includes(userWord[i])){
+                  if (!darkMode) pluppar+= "⬜"; else pluppar+="⬛️";
                   return 'false'
                 } else if (!correctPositions.includes(userWord[i])) {
                   usedChares.push(userWord[i]);
