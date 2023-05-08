@@ -23,6 +23,9 @@
   --sectionBackgroundColor:#fff;
   --primary-background-color:#2863bc;
   --primary-background-color-dark:#204f94;
+  --secondary-background-color:#4b4e5f;
+  --secondary-background-color-dark:#3d3d3d;
+  --secondary-background-contrast-color:#cad1d9;
   --modalBackgroundColor:#fff;
   --borderColor:#eee;
   --keyBackgroundColor:#efefef;
@@ -46,6 +49,9 @@
   --sectionBackgroundColor:#222222;
   --primary-background-color:#5c2060;
   --primary-background-color-dark:#702976;
+  --secondary-background-color:#101010;
+  --secondary-background-color-dark:#434343;
+  --secondary-background-contrast-color:#989898;
   --modalBackgroundColor:#272727;
   --borderColor:#505050;
   --keyBackgroundColor:rgb(69, 69, 69);
@@ -563,6 +569,16 @@ main {
 }
 .btn.btn-primary.w100 {
   width: 100%;
+}
+.btn.btn-secondary {
+  background-color: var(--secondary-background-color);
+  color: var(--secondary-background-contrast-color);
+}
+.btn.btn-secondary .icon {
+  stroke: var(--secondary-background-contrast-color);
+}
+.btn.btn-secondary:hover {
+  background-color: var(--secondary-background-color-dark);
 }
 .btn.btn-fejk {
   background-color: var(--element-background-color);
