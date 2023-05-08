@@ -160,7 +160,6 @@ function doCheck() {
             
             if (userWord[i] == theWord[i]) {
               pluppar += "🟩";
-              console.log('häpp');
               return "correct";
             } else if (theWord.includes(userWord[i])) {
               if (
@@ -209,7 +208,7 @@ function doCheck() {
           wordBodies[i].classList.add("flip");
         }   
         shareArr.push(pluppar);
-        console.log(shareArr);
+        // console.log(shareArr);
         updateKeyboard(userWord);
         rowState++;
         guesses.push(userWordString);
