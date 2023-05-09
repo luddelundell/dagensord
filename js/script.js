@@ -14,6 +14,8 @@ let lostGame = false;
 const startDate = new Date("2023-04-19");
 const thisDate = new Date();
 let gameNo = Math.floor((thisDate - startDate) / 86400000);
+const nowDate = new Date();
+let gameDate = nowDate.getFullYear()+''+nowDate.getMonth()+''+nowDate.getDay();
 const alphabet = [
   "a",
   "b",
@@ -83,9 +85,12 @@ allTheWords = data;
 wordOfTheDay(data);
 function wordOfTheDay(arr) {
   theWordString = arr[gameNo];
-  // console.log(theWordString);
   theWord = theWordString.split("");
 }
+if (localStorage.getItem("gd")==gameDate){
+  document.getElementById("btnComeBackTomorow").style.display = "block";
+  document.getElementById("btnPlayGame").style.display = "none";
+};
 function updateKeyboard(userWord) {
   let temp = "";
   for (let i = 0; i < userWord.length; i++) {
@@ -208,7 +213,6 @@ function doCheck() {
           wordBodies[i].classList.add("flip");
         }   
         shareArr.push(pluppar);
-        // console.log(shareArr);
         updateKeyboard(userWord);
         rowState++;
         guesses.push(userWordString);
@@ -217,15 +221,12 @@ function doCheck() {
         if (userWordString == theWordString) {
           setTimeout(() => {
             elements.classList.add("win");
-            // for (p=0; p<wordBodies.length; p++) {
-            //   wordBodies[p].classList.add('win');
-            // }
           }, 500);
-          //  message(5);
           game = false;
           setTimeout(() => {
             toggleEndView(rowState - 1);
-            modalGame.classList.toggle("toggle");
+            // modalGame.classList.toggle("toggle");
+            document.getElementById("modalGameInner").innerHTML=document.getElementById("endView").innerHTML;
           }, 1500);
           return;
         }
@@ -271,6 +272,7 @@ function startGame() {
   });
   document.addEventListener("keydown", handleKeyPress);
   modalGame.classList.toggle("toggle");
+  localStorage.setItem("gd", gameDate);
 
 }
 
@@ -310,6 +312,7 @@ function toggleEndView(rs) {
 }
 
 function returnToStart() {
+  modalGame.classList.toggle("toggle");
   endView.classList.toggle("hidden");
   startView.classList.toggle("visible");
 }

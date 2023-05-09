@@ -197,8 +197,7 @@ p.env-text {
 .keyboard {
     margin-block-start: .2em;
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;    
     gap:.25em;
     &__row {
         display: flex;
@@ -413,11 +412,19 @@ main {
         }
     }
 }
+.endViewInner {
+    padding:3em 3em;
+}
 .endView {    
+
     &.hidden {
         display: none;
     }
     @include introoutro();
+    .inner {
+        padding:0 1.5em;
+        background-color: red;
+    }
     button.toggleEndView{
         position: absolute;
         top:-5px;

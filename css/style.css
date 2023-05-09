@@ -432,11 +432,19 @@ main {
   margin-left: auto;
 }
 
+.endViewInner {
+  padding: 3em 3em;
+}
+
 .endView.hidden {
   display: none;
 }
 .endView .inner {
   background-color: var(--sectionBackgroundColor);
+}
+.endView .inner {
+  padding: 0 1.5em;
+  background-color: red;
 }
 .endView button.toggleEndView {
   position: absolute;
