@@ -33,6 +33,7 @@
   --correct:#6fc26f;
   --correct-light:#6fc26f77;
   --close:#F5E355;
+  --close:#ff9100;
   --incorrect:#c0baba;
   --success:green;
   --element-background-color: rgb(227,228,229);
@@ -61,7 +62,7 @@
   --keyTextColor:#fff;
   --correct:#376937;
   --correct-light:#37693757;
-  --close:#b4690c;
+  --close:#c87100;
   --incorrect:#141414;
   --success:rgb(90, 228, 90);
   --element-font-color: rgb(227,228,229);
@@ -88,6 +89,12 @@ header {
   padding: 1em;
   display: flex;
   justify-content: flex-end;
+}
+
+.section {
+  background-color: var(--blockBackgroundColor);
+  padding: 1.5em;
+  border-radius: 6px;
 }
 
 p.env-text {
@@ -849,4 +856,41 @@ article h2 input, article p input {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.5px;
+}
+
+.help-example {
+  padding: 1em 0;
+  display: flex;
+  gap: 0.5em;
+}
+.help-example span {
+  color: var(--keyTextColor);
+  padding: 12px 18px;
+  background-color: var(--incorrect);
+  font-family: "Inconsolata";
+  font-weight: 700;
+  font-size: 2em;
+  border-radius: 4px;
+}
+.help-example span:nth-child(2) {
+  background-color: var(--close);
+}
+.help-example span:last-child {
+  background-color: var(--correct);
+}
+
+.help-word {
+  font-weight: 600;
+  color: var(--keyTextColor);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.help-word.help-word-correct {
+  background-color: var(--correct);
+}
+.help-word.help-word-close {
+  background-color: var(--close);
+}
+.help-word.help-word-incorrect {
+  background-color: var(--incorrect);
 }/*# sourceMappingURL=style.css.map */

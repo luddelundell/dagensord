@@ -450,9 +450,9 @@
                             </p>
                         </div>
                         <div class="posts__post__footer">
-                            <button><span class="icon">like</span></button>  
-                            <button><span class="icon">comment</span></button>    
-                            <button><span class="icon">share</span></button>                           
+                            <button><span class="icon" data-icon="like"></span></button>  
+                            <button><span class="icon" data-icon="comment"></span></button>    
+                            <button><span class="icon" data-icon="share"></span></button>                           
                         </div>
                     </div>
                     <div class="posts__post">
@@ -466,12 +466,12 @@
                             </p>
                         </div>
                         <div class="posts__post__footer">
-                            <button><span class="icon">like</span></button>  
-                            <button><span class="icon">comment</span></button>                            
-                            <button><span class="icon">share</span></button>  
+                            <button><span class="icon" data-icon="like"></span></button>  
+                            <button><span class="icon" data-icon="comment"></span></button>    
+                            <button><span class="icon" data-icon="share"></span></button>  
                         </div>
                     </div>
-                    <div class="posts__post" id="fejkPost">
+                    <!-- <div class="posts__post" id="fejkPost">
                         <div class="posts__post__header">
                             <img src="/images/user_08.jpeg">
                             <div class="posts__post__header__name">Kjell Stockstreber<span>Just nu</span></div>
@@ -484,7 +484,7 @@
                             <button><span class="icon">comment</span></button>
                             <button><img src="/images/icons/share-2.png"></button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col col-3">
@@ -534,8 +534,9 @@
                                 </div>
                             </div>
                             <div class="buttons">
-                                <button class="btn btn-small btn-secondary" onclick="toggleModalLb()"><span class="icon">ranking-winner</span> Ledartavla</button>
-                                <button class="btn btn-small btn-secondary" onclick="toggleModalMs()"><span class="icon">personal-stats</span> Min statistik</button>
+                                <button class="btn btn-small btn-secondary" onclick="toggleModalLb()"><span class="icon" data-icon="ranking-winner"></span> Ledartavla</button>
+                                <button class="btn btn-small btn-secondary" onclick="toggleModalMs()"><span class="icon" data-icon="personal-stats"></span> Min statistik</button>
+                                <button class="btn btn-small btn-secondary" onclick="toggleModalHelp()"><span class="icon" data-icon="question-circle"></span> Hjälp</button>
                             </div>
                         </div>
                     </div>
@@ -597,6 +598,34 @@
             </div>
         </div>
         </main>
+        <div class="modal" id="modalHelp">
+            <div class="modal__inner">
+                <div class="modal__inner__header"></div>
+                <div class="modal__inner__body">
+                    <h2>Så spelar du</h2>
+                    <p class="env-text">Gissa dagens ord på max 6 försök!</p>
+                    <p class="env-text">Du måste gissa på riktiga svenska ord med 5 bokstäver.</p>
+                    <p class="env-text">Varje gissning ger ledtrådar som hjälper dig hitta svaret.</p>
+                    <div class="section">
+                        <h3>Exempel på gissning</h3>
+                        <div class="help-example">
+                            <span>Ö</span><span>N</span><span>S</span><span>K</span><span>A</span>
+                        </div>
+                        <p class="env-text">En <span class="help-word help-word-correct">grön</span> ruta betyder att bokstaven är korrekt och på rätt plats.</p>
+                        <p class="env-text">En <span class="help-word help-word-close">orange</span> ruta betyder att bokstaven är korrekt men på fel plats.</p>
+                        <p class="env-text">En <span class="help-word help-word-incorrect">svart</span> ruta betyder att bokstaven inte är med i ordet.</p>
+                        <p class="env-text">PS. Tänk på att samma bokstav kan finnas med i ordet mer än en gång!</p>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+                <div class="modal__inner__footer">
+                    <button class="btn btn-primary" onclick="toggleModalHelp()">Stäng</button>
+                </div>
+            </div>
+        </div>
         <div id="mu" class="mu-hidden"></div>
         <script src="/js/data.js"></script>
         <script src="/js/script.js" async defer></script>

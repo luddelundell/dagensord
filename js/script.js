@@ -6,6 +6,7 @@ const endView = document.getElementById("endView");
 const noOfAttempts = document.getElementById("noOfAttempts");
 const scoredPoints = document.getElementById("scoredPoints");
 const modalGame = document.getElementById("modalGame");
+const modalHelp = document.getElementById("modalHelp");
 const modalLb = document.getElementById("modalLb");
 const modalMs = document.getElementById("modalMs");
 const foo = document.getElementById("foo");
@@ -355,6 +356,9 @@ function shareResult() {
 function toggleModalLb() {
   modalLb.classList.toggle("toggle");
 }
+function toggleModalHelp() {
+  modalHelp.classList.toggle("toggle");
+}
 function toggleModalMs() {
   modalMs.classList.toggle("toggle");
 }
@@ -450,12 +454,25 @@ const rankingWinner = `
   <path class="cls-1" d="m7.5,23.25H2.25c-.83,0-1.5-.67-1.5-1.5v-11.25c0-.83.67-1.5,1.5-1.5h5.25v14.25Z"/>
 </svg>
 `;
+const questionCircle = `
+<svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
+  <path class="cls-3" d="m9,9c0-.55.15-1.09.44-1.56.29-.47.7-.85,1.18-1.1.49-.25,1.04-.37,1.59-.33.55.04,1.08.23,1.53.54.45.32.8.75,1.02,1.26.22.5.29,1.06.22,1.6-.08.54-.3,1.06-.65,1.48s-.81.75-1.32.93c-.29.1-.55.3-.73.55-.18.25-.28.56-.27.87v1.01"/>
+  <path class="cls-2" d="m12.19,18c-.21,0-.38-.17-.38-.38s.17-.38.38-.38"/>
+  <path class="cls-2" d="m11.81,18c.21,0,.38-.17.38-.38s-.17-.38-.38-.38"/>
+  <path class="cls-1" d="m12,23.25c6.21,0,11.25-5.04,11.25-11.25S18.21.75,12,.75.75,5.79.75,12s5.04,11.25,11.25,11.25Z"/>
+</svg>
+`;
 ies.forEach(ie => {
-  if (ie.textContent=='comment') ie.innerHTML=comment;
-  if  (ie.textContent=='share') ie.innerHTML=share;
-  if  (ie.textContent=='like') ie.innerHTML=like;
-  if  (ie.textContent=='personal-stats') ie.innerHTML=personalStats;
-  if  (ie.textContent=='ranking-winner') ie.innerHTML=rankingWinner;
+  let iconAttribute = ie.getAttribute("data-icon");
+  switch (iconAttribute) {
+    case "comment":ie.innerHTML=comment; break;
+    case "share":ie.innerHTML=share; break;
+    case "like":ie.innerHTML=like; break;
+    case "personal-stats":ie.innerHTML=personalStats; break;
+    case "ranking-winner":ie.innerHTML=rankingWinner; break;
+    case "question-circle":ie.innerHTML=questionCircle; break;
+
+  }
 })
 }
 doIcons();
