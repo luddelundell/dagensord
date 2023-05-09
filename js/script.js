@@ -80,7 +80,7 @@ let guesses = [];
 let rowState = 1;
 let game = true;
 let shareArr = [];
-const devMode = true;
+const devMode = false;
 allTheWords = data;
 wordOfTheDay(data);
 function wordOfTheDay(arr) {
