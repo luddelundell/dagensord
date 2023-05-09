@@ -79,16 +79,18 @@ let guesses = [];
 let rowState = 1;
 let game = true;
 let shareArr = [];
-
+const devMode = false;
 allTheWords = data;
 wordOfTheDay(data);
 function wordOfTheDay(arr) {
   theWordString = arr[gameNo];
   theWord = theWordString.split("");
 }
-if (localStorage.getItem("gd")==gameDate){
+if (localStorage.getItem("gd")==gameDate && !devMode ){  
   document.getElementById("btnComeBackTomorow").style.display = "block";
-  document.getElementById("btnPlayGame").style.display = "none";
+} else {
+  const startButton=`<button class="btn btn-primary w100" onclick="startGame()" id="btnPlayGame">Spela dagens ord</button>`;
+  document.getElementById("startButton").innerHTML=startButton;
 };
 function updateKeyboard(userWord) {
   let temp = "";
