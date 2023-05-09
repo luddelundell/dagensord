@@ -5,7 +5,6 @@ const startView = document.getElementById("startView");
 const endView = document.getElementById("endView");
 const noOfAttempts = document.getElementById("noOfAttempts");
 const scoredPoints = document.getElementById("scoredPoints");
-// const output = document.getElementById("output");
 const modalGame = document.getElementById("modalGame");
 const modalLb = document.getElementById("modalLb");
 const modalMs = document.getElementById("modalMs");
