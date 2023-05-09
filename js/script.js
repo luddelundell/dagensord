@@ -204,8 +204,6 @@ function doCheck() {
               return "false";
             }
           };
-          
-       
           div.classList.add("word__body__back", cssClass());
           div.textContent = userWord[i];
           wordBodies[i].appendChild(div);
