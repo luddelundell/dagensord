@@ -1,3 +1,4 @@
+const devMode = false;
 let allTheWords, theWord, theWordString, elements, wordBodies, keyboard, points;
 let darkMode=false;
 const messageDiv = document.getElementById("message");
@@ -80,7 +81,6 @@ let guesses = [];
 let rowState = 1;
 let game = true;
 let shareArr = [];
-const devMode = false;
 allTheWords = data;
 wordOfTheDay(data);
 function wordOfTheDay(arr) {
@@ -231,12 +231,12 @@ function doCheck() {
           return;
         }
         if (rowState == 7) {
-          message(1, 4000);
+          message(1, 6000);
           lostGame = true;
           toggleEndView(rowState);
-          setTimeout(() => {
-            // toggleEndView(rowState-1);
-            modalGame.classList.toggle("toggle");
+          setTimeout(() => {          
+            // modalGame.classList.toggle("toggle");
+            document.getElementById("modalGameInner").innerHTML=document.getElementById("endView").innerHTML;
           }, 1500);
         }
       } else {
