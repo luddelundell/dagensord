@@ -357,7 +357,7 @@ p.env-text.lead {
     scale: 100%;
   }
   50% {
-    scale: 170%;
+    scale: 140%;
   }
   100% {
     scale: 100%;
@@ -937,4 +937,14 @@ nav a.active .icon {
 }
 .content.active {
   display: block;
+}
+
+.lp {
+  position: absolute;
+  margin: 0 auto;
+  z-index: 1;
+  display: none;
+}
+.lp lottie-player {
+  margin-right: calc(50% - 650px);
 }/*# sourceMappingURL=style.css.map */

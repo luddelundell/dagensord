@@ -335,7 +335,7 @@ p.env-text {
 }
 @keyframes victory {
     0% {scale: 100%; }
-    50% {scale: 170%;}
+    50% {scale: 140%;}
     100% {scale: 100%;}
 }
 main {
@@ -875,4 +875,14 @@ nav {
     &.active{
         display: block;
     }
+}
+.lp {
+    position: absolute;
+    margin: 0 auto;
+    lottie-player {
+        margin-right:calc(50% - 650px);
+    }
+    z-index: 1;
+    display: none;
+
 }

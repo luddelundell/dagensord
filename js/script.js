@@ -1,4 +1,4 @@
-const devMode = false;
+const devMode = true;
 let allTheWords, theWord, theWordString, elements, wordBodies, keyboard, points;
 let darkMode=false;
 const messageDiv = document.getElementById("message");
@@ -223,11 +223,15 @@ function doCheck() {
             elements.classList.add("win");
           }, 500);
           game = false;
+          document.getElementById("lottieSuccess").style.display="block";
+          setTimeout(() => {
+            document.getElementById("lottieSuccess").style.display="none";
+          }, 4000);
           setTimeout(() => {
             toggleEndView(rowState - 1);
             // modalGame.classList.toggle("toggle");
             document.getElementById("modalGameInner").innerHTML=document.getElementById("endView").innerHTML;
-          }, 1500);
+          }, 2500);
           return;
         }
         if (rowState == 7) {
@@ -511,3 +515,4 @@ tabs.onclick = e => {
     element.classList.add("active");
   }
 }
+// const player = document.querySelector("lottie-player");
