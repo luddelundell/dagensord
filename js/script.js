@@ -8,7 +8,6 @@ const noOfAttempts = document.getElementById("noOfAttempts");
 const scoredPoints = document.getElementById("scoredPoints");
 const modalGame = document.getElementById("modalGame");
 const modalHelp = document.getElementById("modalHelp");
-// const modalLb = document.getElementById("modalLb");
 const modalMs = document.getElementById("modalMs");
 const foo = document.getElementById("foo");
 let lostGame = false;
@@ -97,20 +96,15 @@ function updateKeyboard(userWord) {
   let temp = "";
   for (let i = 0; i < userWord.length; i++) {
     let key = userWord[i];
-
     let myButton = document.querySelector("[data-key=" + key + "]");
     if (userWord[i] == theWord[i]) {
       myButton.classList.add("correct");
-      // temp += "🟩";
     } else if (theWord.includes(userWord[i])) {
       myButton.classList.add("close");
-      // temp += "🟨";
     } else {
       myButton.classList.add("false");
-      // temp += "⬜";
     }
   }
-  // shareArr.push(temp);
 }
 function setElements() {
   if (game) {
@@ -122,12 +116,12 @@ function message(t, time) {
   if (game) {
     let messageTxt = `<p>Unknown error message</p>`;
     if (t == 1) {
-      messageTxt = `<p>Nu är det slut på gissningar! Ordet vi sökte är ${theWordString}</p>`;
+      messageTxt = `<p class="no-flex">Nu är det slut på gissningar! Ordet vi sökte är <span class="letter">${theWord[0]}</span><span class="letter">${theWord[1]}</span><span class="letter">${theWord[2]}</span><span class="letter">${theWord[3]}</span><span class="letter">${theWord[4]}</span></p>`;
       game = false;
     }
-    if (t == 2) messageTxt = "<p><span>🤔</span>Ordet finns inte i listan</p>";
-    if (t == 3) messageTxt = `<p><span>🤯</span>Du har redan gissat på det här ordet</p>`;
-    if (t == 4) messageTxt = `<p><span>🫣</span>Ordet har för få bokstäver</p>`;
+    if (t == 2) messageTxt = `<p><span class="emoji">🤔</span>Ordet finns inte i listan</p>`;
+    if (t == 3) messageTxt = `<p><span class="emoji">🤯</span>Du har redan gissat på det här ordet</p>`;
+    if (t == 4) messageTxt = `<p><span class="emoji">🫣</span>Ordet har för få bokstäver</p>`;
     if (t == 5) {
       messageTxt = `<p class="success"><span>🎉</span>Rätt svar, grattis!</p>`;
       game = false;
@@ -139,6 +133,7 @@ function message(t, time) {
     }, time);
   }
 }
+
 setElements();
 function doCheck() {
   if (game) {
@@ -163,8 +158,7 @@ function doCheck() {
         }
         for (let i = 0; i < wordBodies.length; i++) {
           let div = document.createElement("div");
-          let cssClass = () => {
-            
+          let cssClass = () => {            
             if (userWord[i] == theWord[i]) {
               pluppar += "🟩";
               return "correct";
@@ -217,7 +211,6 @@ function doCheck() {
         rowState++;
         guesses.push(userWordString);
         pressedKeysArr = [];
-
         if (userWordString == theWordString) {
           setTimeout(() => {
             elements.classList.add("win");
@@ -229,7 +222,6 @@ function doCheck() {
           }, 4000);
           setTimeout(() => {
             toggleEndView(rowState - 1);
-            // modalGame.classList.toggle("toggle");
             document.getElementById("modalGameInner").innerHTML=document.getElementById("endView").innerHTML;
           }, 2500);
           return;
@@ -239,7 +231,6 @@ function doCheck() {
           lostGame = true;
           toggleEndView(rowState);
           setTimeout(() => {          
-            // modalGame.classList.toggle("toggle");
             document.getElementById("modalGameInner").innerHTML=document.getElementById("endView").innerHTML;
           }, 1500);
         }
@@ -277,12 +268,13 @@ function startGame() {
   document.addEventListener("keydown", handleKeyPress);
   modalGame.classList.toggle("toggle");
   localStorage.setItem("gd", gameDate);
-
+  // message(1, 4000); // TA BORT MIG!
 }
 
 function handleKeyPress(event) {
   let k;
   event.key ? (k = event.key) : (k = event);
+  if (k== "Escape") abortGame();
   if (k == "Backspace" && pressedKeysArr.length > 0) {
     pressedKeysArr.pop();
     wordBodies[pressedKeysArr.length].getElementsByClassName(
@@ -332,11 +324,9 @@ function shareResult() {
       if (rowState - 1 < 3) return ":a";
       else return ":e";
     };
-    // if (lostGame) return `Jag klarade inte <a href="https://joyful-blini-97982a.netlify.app/">Dagens ord</a> och fick `;
     if (lostGame) return `Jag klarade inte Dagens ord och fick `;
     else
       return `Jag klarade <a href="https://joyful-blini-97982a.netlify.app/">Dagens ord</a> på ${
-        // return `Jag klarade Dagens ord på ${
         rowState - 1
       }${nr()} försöket och fick `;
   };
@@ -357,9 +347,6 @@ function shareResult() {
   document.getElementById("shareFeedback").style.opacity = "1";
   putTextInClipboard();
 }
-// function toggleModalLb() {
-//   modalLb.classList.toggle("toggle");
-// }
 function toggleModalHelp() {
   modalHelp.classList.toggle("toggle");
 }
@@ -439,7 +426,7 @@ const like=`
 </svg>
 `;
 const personalStats = `
-<svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
+<svg id="Lager_4" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
   <path class="cls-1" d="m11.52,23c0-2.91-2.35-5.26-5.26-5.26-2.91,0-5.26,2.35-5.26,5.26,0,0,0,0,0,0"/>
   <ellipse class="cls-1" cx="6.26" cy="12.44" rx="3.68" ry="3.7"/>
   <path class="cls-1" d="m12.69,14.12h9.38c.52,0,.94-.42.94-.94V1.94c0-.52-.42-.94-.94-.94h-13.13c-.52,0-.94.42-.94.94h0v4.69"/>
@@ -449,7 +436,7 @@ const personalStats = `
   <line class="cls-1" x1="16" y1="8.91" x2="16" y2="10.97"/>
 </svg>`;
 const rankingWinner = `
-<svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
+<svg id="Lager_5" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
   <path class="cls-1" d="m10.5,5.25h.75c.41,0,.75.34.75.75v4.5"/>
   <path class="cls-1" d="m10.5,10.5h3"/>
   <path class="cls-1" d="m16.5,23.25H7.5V2.25c0-.83.67-1.5,1.5-1.5h6c.83,0,1.5.67,1.5,1.5v21Z"/>
@@ -458,7 +445,7 @@ const rankingWinner = `
 </svg>
 `;
 const questionCircle = `
-<svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
+<svg id="Lager_6" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
   <path class="cls-3" d="m9,9c0-.55.15-1.09.44-1.56.29-.47.7-.85,1.18-1.1.49-.25,1.04-.37,1.59-.33.55.04,1.08.23,1.53.54.45.32.8.75,1.02,1.26.22.5.29,1.06.22,1.6-.08.54-.3,1.06-.65,1.48s-.81.75-1.32.93c-.29.1-.55.3-.73.55-.18.25-.28.56-.27.87v1.01"/>
   <path class="cls-2" d="m12.19,18c-.21,0-.38-.17-.38-.38s.17-.38.38-.38"/>
   <path class="cls-2" d="m11.81,18c.21,0,.38-.17.38-.38s-.17-.38-.38-.38"/>
@@ -466,7 +453,7 @@ const questionCircle = `
 </svg>
 `;
 const analyticsGraphBar = `
-<svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
+<svg id="Lager_7" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
   <g>
     <line class="cls-1" x1="6.88" y1="5.12" x2="2.87" y2="9.13"/>
     <line class="cls-1" x1="14.31" y1="6.32" x2="9.64" y2="5.08"/>
