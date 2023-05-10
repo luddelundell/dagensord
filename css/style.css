@@ -20,6 +20,7 @@
   --boxShadow:0 0 14px #33333322;
   --backgroundColor:#f7f7f7;
   --textColor:#202330;
+  --textColor-muted:#20233099;
   --sectionBackgroundColor:#fff;
   --primary-background-color:#2863bc;
   --primary-background-color-dark:#204f94;
@@ -50,9 +51,10 @@
   --boxShadow:0 0 14px #00000033;
   --backgroundColor:#121212;
   --textColor:#c6c6c6;
+  --textColor-muted:#8a8a8a;
   --sectionBackgroundColor:#222222;
-  --primary-background-color:#5c2060;
-  --primary-background-color-dark:#702976;
+  --primary-background-color:#7b1382;
+  --primary-background-color-dark:#a418ae;
   --secondary-background-color:#101010;
   --secondary-background-color-dark:#434343;
   --secondary-background-contrast-color:#989898;
@@ -399,7 +401,7 @@ main {
 }
 
 .lb {
-  margin-bottom: 1em;
+  margin: 1em 0;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
@@ -545,6 +547,7 @@ main {
 .buttons {
   display: flex;
   gap: 1em;
+  flex-flow: wrap;
 }
 .buttons .btn {
   display: flex;
@@ -797,6 +800,14 @@ main {
     padding: 0.5em;
   }
 }
+.modal__inner__body.contentWrapper {
+  height: 50vh;
+}
+@media screen and (max-width: 600px) {
+  .modal__inner__body.contentWrapper {
+    height: auto;
+  }
+}
 .modal__inner__footer {
   border-top: 1px solid var(--borderColor);
   padding: 1.5em;
@@ -893,4 +904,37 @@ article h2 input, article p input {
 }
 .help-word.help-word-incorrect {
   background-color: var(--incorrect);
+}
+
+nav {
+  padding: 0 1.5em;
+  display: flex;
+  gap: 1em;
+  border-bottom: 1px solid var(--borderColor);
+}
+nav a {
+  text-decoration: none;
+  color: var(--textColor);
+  padding: 2px 4px 8px 4px;
+  display: flex;
+  gap: 0.5em;
+}
+nav a span.icon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--textColor);
+}
+nav a.active {
+  color: var(--textColor);
+  border-bottom: 4px solid var(--primary-background-color);
+}
+nav a.active .icon {
+  stroke: var(--textColor);
+}
+
+.content {
+  display: none;
+}
+.content.active {
+  display: block;
 }/*# sourceMappingURL=style.css.map */

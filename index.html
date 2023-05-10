@@ -253,72 +253,168 @@
             <div class="modal__inner">
                 <div class="modal__inner__header">                    
                     <div class="logo">
-                        <p>Dagens ord</p>
+                        <p>Statistik</p>
                     </div>
+                    <nav id="tabs">
+                        <a href="#" data-id="myStats" class="tab active"><span class="icon" data-icon="personal-stats"></span> Min statistik</a>
+                        <a href="#" data-id="lbStats" class="tab"><span class="icon" data-icon="ranking-winner"></span>Ledartavla</a>
+                    </nav>
                 </div>
-                <div class="modal__inner__body">
-                    <h2>Min statistik</h2>                    
-                    <div class="stats">
-                        <div class="stats__stat">
-                            <p>6</p>
-                            <p>Spelade</p>
+              
+                <div class="modal__inner__body contentWrapper">
+                    <div id="myStats" class="content active">
+                        <h2>Min statistik</h2>                    
+                        <div class="stats">
+                            <div class="stats__stat">
+                                <p>6</p>
+                                <p>Spelade</p>
+                            </div>
+                            <div class="stats__stat">
+                                <p>100%</p>
+                                <p>Vinst</p>
+                            </div>
+                            <div class="stats__stat">
+                                <p>5</p>
+                                <p>Segersvit</p>
+                            </div>
+                            <div class="stats__stat">
+                                <p>6</p>
+                                <p>Max svit</p>
+                            </div>
                         </div>
-                        <div class="stats__stat">
-                            <p>100%</p>
-                            <p>Vinst</p>
+                        <h2 class="overline">Antal försök</h2>
+                        <div class="results">
+                            <div class="results__result">
+                                <label for="file">1</label>
+                                <div class="progress p1"></div>
+                                <span>0</span>
+                            </div>
+                            <div class="results__result">
+                                <label for="file">2</label>
+                                <div class="progress p2"></div>
+                                <span>0</span>
+                            </div>
+                            <div class="results__result">
+                                <label for="file">3</label>
+                                <div class="progress p3" style="width:60px"></div>
+                                <span>3</span>
+                            </div>
+                            <div class="results__result">
+                                <label for="file">4</label>
+                                <div class="progress p4" style="width:80px;"></div>
+                                <span>4</span>
+                            </div>
+                            <div class="results__result">
+                                <label for="file">5</label>
+                                <div class="progress p5" style="width:240px"></div>
+                                <span>12</span>
+                            </div>
+                            <div class="results__result">
+                                <label for="file">6</label>
+                                <div class="progress p6" style="width:80px"></div>
+                                <span>4</span>
+                            </div>                                                    
                         </div>
-                        <div class="stats__stat">
-                            <p>5</p>
-                            <p>Segersvit</p>
-                        </div>
-                        <div class="stats__stat">
-                            <p>6</p>
-                            <p>Max svit</p>
+                        <p>
+                            Användargenererat innehåll i realtid kommer att ha flera kontaktpunkter för offshoring. Dra nytta av lågt hängande frukt för att identifiera en mervärdesaktivitet som ska betatestas. Åsidosätt den digitala klyftan med ytterligare klickningar från DevOps. Nedsänkning av nanoteknik längs informationsmotorvägen kommer att stänga slingan för att enbart fokusera på slutresultatet.
+                        </p>
+                    </div>
+                    <div id="lbStats" class="content">
+                        <h2>Ledartavla</h2>
+                        <div class="lb">
+                            <div class="lb__user leader">
+                                <span class="lb__user__position">1</span>
+                                <img src="/images/user_01.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Petter Persson</p>
+                                <p class="lb__user__points">45p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">2</span>
+                                <img src="/images/user_02.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Alex Shcûtter</p>
+                                <p class="lb__user__points">42,3p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">3</span>
+                                <img src="/images/user_03.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Lisa Larsson</p>
+                                <p class="lb__user__points">38,3p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">4</span>
+                                <img src="/images/user_04.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Hanna Holmér</p>
+                                <p class="lb__user__points">36p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">5</span>
+                                <img src="/images/user_05.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Kjell Samuelsson</p>
+                                <p class="lb__user__points">35,3p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">6</span>
+                                <img src="/images/user_06.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Gunilla Röör</p>
+                                <p class="lb__user__points">30p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">7</span>
+                                <img src="/images/user_07.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Henrietta Hoppsansa</p>
+                                <p class="lb__user__points">28,5p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">8</span>
+                                <img src="/images/user_08.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Jan-Olov Janzzon</p>
+                                <p class="lb__user__points">27p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">9</span>
+                                <img src="/images/user_09.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Kjell Samuelsson</p>
+                                <p class="lb__user__points">31,2p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">10</span>
+                                <img src="/images/user_10.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Kjell Samuelsson</p>
+                                <p class="lb__user__points">31,0p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">11</span>
+                                <img src="/images/user_11.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Kjell Samuelsson</p>
+                                <p class="lb__user__points">31p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">12</span>
+                                <img src="/images/user_12.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Hans Holmér</p>
+                                <p class="lb__user__points">30,2p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">13</span>
+                                <img src="/images/user_13.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Petra Persson-Hansson</p>
+                                <p class="lb__user__points">29p</p>
+                            </div>
+                            <div class="lb__user">
+                                <span class="lb__user__position">14</span>
+                                <img src="/images/user_14.jpeg" class="lb__user__img">
+                                <p class="lb__user__name">Hanna Hyvänen</p>
+                                <p class="lb__user__points">28,6p</p>
+                            </div>
                         </div>
                     </div>
-                    <h2 class="overline">Antal försök</h2>
-                    <div class="results">
-                        <div class="results__result">
-                            <label for="file">1</label>
-                            <div class="progress p1"></div>
-                            <span>0</span>
-                        </div>
-                        <div class="results__result">
-                            <label for="file">2</label>
-                            <div class="progress p2"></div>
-                            <span>0</span>
-                        </div>
-                        <div class="results__result">
-                            <label for="file">3</label>
-                            <div class="progress p3" style="width:60px"></div>
-                            <span>3</span>
-                        </div>
-                        <div class="results__result">
-                            <label for="file">4</label>
-                            <div class="progress p4" style="width:80px;"></div>
-                            <span>4</span>
-                        </div>
-                        <div class="results__result">
-                            <label for="file">5</label>
-                            <div class="progress p5" style="width:240px"></div>
-                            <span>12</span>
-                        </div>
-                        <div class="results__result">
-                            <label for="file">6</label>
-                            <div class="progress p6" style="width:80px"></div>
-                            <span>4</span>
-                        </div>                                                    
-                    </div>
-                    <p>
-                        Användargenererat innehåll i realtid kommer att ha flera kontaktpunkter för offshoring. Dra nytta av lågt hängande frukt för att identifiera en mervärdesaktivitet som ska betatestas. Åsidosätt den digitala klyftan med ytterligare klickningar från DevOps. Nedsänkning av nanoteknik längs informationsmotorvägen kommer att stänga slingan för att enbart fokusera på slutresultatet.
-                    </p>
                 </div>
                 <div class="modal__inner__footer">
                     <button class="btn btn-primary" onclick="toggleModalMs()">Stäng</button>                    
                 </div>
             </div>
         </div>
-        <div class="modal" id="modalLb">
+        <!-- <div class="modal" id="modalLb">
             <div class="modal__inner">
                 <div class="modal__inner__header">
                     <div class="logo">
@@ -326,93 +422,7 @@
                     </div>   
                 </div>
                 <div class="modal__inner__body">
-                    <h2>Ledartavla</h2>
-                    <div class="lb">
-                        <div class="lb__user leader">
-                            <span class="lb__user__position">1</span>
-                            <img src="/images/user_01.jpeg" class="lb__user__img">
-                            <p class="lb__user__name">Petter Persson</p>
-                            <p class="lb__user__points">45p</p>
-                        </div>
-                        <div class="lb__user">
-                            <span class="lb__user__position">2</span>
-                            <img src="/images/user_02.jpeg" class="lb__user__img">
-                            <p class="lb__user__name">Alex Shcûtter</p>
-                            <p class="lb__user__points">42,3p</p>
-                        </div>
-                        <div class="lb__user">
-                            <span class="lb__user__position">3</span>
-                            <img src="/images/user_03.jpeg" class="lb__user__img">
-                            <p class="lb__user__name">Lisa Larsson</p>
-                            <p class="lb__user__points">38,3p</p>
-                        </div>
-                        <div class="lb__user">
-                            <span class="lb__user__position">4</span>
-                            <img src="/images/user_04.jpeg" class="lb__user__img">
-                            <p class="lb__user__name">Hanna Holmér</p>
-                            <p class="lb__user__points">36p</p>
-                        </div>
-                        <div class="lb__user">
-                            <span class="lb__user__position">5</span>
-                            <img src="/images/user_05.jpeg" class="lb__user__img">
-                            <p class="lb__user__name">Kjell Samuelsson</p>
-                            <p class="lb__user__points">35,3p</p>
-                        </div>
-                        <div class="lb__user">
-                            <span class="lb__user__position">6</span>
-                            <img src="/images/user_06.jpeg" class="lb__user__img">
-                            <p class="lb__user__name">Gunilla Röör</p>
-                            <p class="lb__user__points">30p</p>
-                        </div>
-                        <div class="lb__user">
-                            <span class="lb__user__position">7</span>
-                            <img src="/images/user_07.jpeg" class="lb__user__img">
-                            <p class="lb__user__name">Henrietta Hoppsansa</p>
-                            <p class="lb__user__points">28,5p</p>
-                        </div>
-                        <div class="lb__user">
-                            <span class="lb__user__position">8</span>
-                            <img src="/images/user_08.jpeg" class="lb__user__img">
-                            <p class="lb__user__name">Jan-Olov Janzzon</p>
-                            <p class="lb__user__points">27p</p>
-                        </div>
-                        <div class="lb__user">
-                            <span class="lb__user__position">9</span>
-                            <img src="/images/user_09.jpeg" class="lb__user__img">
-                            <p class="lb__user__name">Kjell Samuelsson</p>
-                            <p class="lb__user__points">31,2p</p>
-                        </div>
-                        <div class="lb__user">
-                            <span class="lb__user__position">10</span>
-                            <img src="/images/user_10.jpeg" class="lb__user__img">
-                            <p class="lb__user__name">Kjell Samuelsson</p>
-                            <p class="lb__user__points">31,0p</p>
-                        </div>
-                        <div class="lb__user">
-                            <span class="lb__user__position">11</span>
-                            <img src="/images/user_11.jpeg" class="lb__user__img">
-                            <p class="lb__user__name">Kjell Samuelsson</p>
-                            <p class="lb__user__points">31p</p>
-                        </div>
-                        <div class="lb__user">
-                            <span class="lb__user__position">12</span>
-                            <img src="/images/user_12.jpeg" class="lb__user__img">
-                            <p class="lb__user__name">Hans Holmér</p>
-                            <p class="lb__user__points">30,2p</p>
-                        </div>
-                        <div class="lb__user">
-                            <span class="lb__user__position">13</span>
-                            <img src="/images/user_13.jpeg" class="lb__user__img">
-                            <p class="lb__user__name">Petra Persson-Hansson</p>
-                            <p class="lb__user__points">29p</p>
-                        </div>
-                        <div class="lb__user">
-                            <span class="lb__user__position">14</span>
-                            <img src="/images/user_14.jpeg" class="lb__user__img">
-                            <p class="lb__user__name">Hanna Hyvänen</p>
-                            <p class="lb__user__points">28,6p</p>
-                        </div>
-                    </div>
+    
                 </div>
                 <div class="modal__inner__footer">
                     <button class="btn btn-primary" onclick="toggleModalLb()">Stäng</button>
@@ -420,7 +430,7 @@
                 </div>
             
             </div>
-        </div>
+        </div> -->
         <main>
             <div class="col col-1">       
                 <article>
@@ -533,9 +543,8 @@
                                     <p class="lb__user__points">68,6p</p>
                                 </div>
                             </div>
-                            <div class="buttons">
-                                <button class="btn btn-small btn-secondary" onclick="toggleModalLb()"><span class="icon" data-icon="ranking-winner"></span> Ledartavla</button>
-                                <button class="btn btn-small btn-secondary" onclick="toggleModalMs()"><span class="icon" data-icon="personal-stats"></span> Min statistik</button>
+                            <div class="buttons">                                
+                                <button class="btn btn-small btn-secondary" onclick="toggleModalMs()"><span class="icon" data-icon="analytics-graph-bar"></span> Statistik</button>
                                 <button class="btn btn-small btn-secondary" onclick="toggleModalHelp()"><span class="icon" data-icon="question-circle"></span> Hjälp</button>
                             </div>
                         </div>
@@ -600,9 +609,12 @@
         </main>
         <div class="modal" id="modalHelp">
             <div class="modal__inner">
-                <div class="modal__inner__header"></div>
+                <div class="modal__inner__header">
+                    <div class="logo">
+                        <p>Så spelar du</p>
+                    </div>   
+                </div>
                 <div class="modal__inner__body">
-                    <h2>Så spelar du</h2>
                     <p class="env-text">Gissa dagens ord på max 6 försök!</p>
                     <p class="env-text">Du måste gissa på riktiga svenska ord med 5 bokstäver.</p>
                     <p class="env-text">Varje gissning ger ledtrådar som hjälper dig hitta svaret.</p>

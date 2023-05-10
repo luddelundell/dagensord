@@ -7,7 +7,7 @@ const noOfAttempts = document.getElementById("noOfAttempts");
 const scoredPoints = document.getElementById("scoredPoints");
 const modalGame = document.getElementById("modalGame");
 const modalHelp = document.getElementById("modalHelp");
-const modalLb = document.getElementById("modalLb");
+// const modalLb = document.getElementById("modalLb");
 const modalMs = document.getElementById("modalMs");
 const foo = document.getElementById("foo");
 let lostGame = false;
@@ -353,9 +353,9 @@ function shareResult() {
   document.getElementById("shareFeedback").style.opacity = "1";
   putTextInClipboard();
 }
-function toggleModalLb() {
-  modalLb.classList.toggle("toggle");
-}
+// function toggleModalLb() {
+//   modalLb.classList.toggle("toggle");
+// }
 function toggleModalHelp() {
   modalHelp.classList.toggle("toggle");
 }
@@ -436,14 +436,13 @@ const like=`
 `;
 const personalStats = `
 <svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
-<g>
-  <path class="cls-1" d="m8.24,3.74v-2c0-.55.45-1,1-1h12.97c.55,0,1,.45,1,1v8.98c0,.55-.45,1-1,1h-7.4"/>
-  <polyline class="cls-1" points="12.34 5.17 14.38 4.05 16.15 9 18.09 5.25 21.22 4.05"/>
-</g>
-<g>
-  <path class="cls-1" d="m4.01,10.83c0,2.09,1.69,3.78,3.78,3.78s3.78-1.69,3.78-3.78-1.69-3.78-3.78-3.78-3.78,1.69-3.78,3.78Z"/>
-  <path class="cls-1" d="m.77,23.25c0-3.88,3.14-7.02,7.02-7.02s7.02,3.14,7.02,7.02"/>
-</g>
+  <path class="cls-1" d="m11.52,23c0-2.91-2.35-5.26-5.26-5.26-2.91,0-5.26,2.35-5.26,5.26,0,0,0,0,0,0"/>
+  <ellipse class="cls-1" cx="6.26" cy="12.44" rx="3.68" ry="3.7"/>
+  <path class="cls-1" d="m12.69,14.12h9.38c.52,0,.94-.42.94-.94V1.94c0-.52-.42-.94-.94-.94h-13.13c-.52,0-.94.42-.94.94h0v4.69"/>
+  <path class="cls-1" d="m19.92,3.45c-2.56,1.85-5.57,2.99-8.72,3.29"/>
+  <line class="cls-1" x1="19.5" y1="7.06" x2="19.5" y2="10.97"/>
+  <line class="cls-1" x1="13" y1="10.31" x2="13" y2="10.97"/>
+  <line class="cls-1" x1="16" y1="8.91" x2="16" y2="10.97"/>
 </svg>`;
 const rankingWinner = `
 <svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
@@ -462,6 +461,23 @@ const questionCircle = `
   <path class="cls-1" d="m12,23.25c6.21,0,11.25-5.04,11.25-11.25S18.21.75,12,.75.75,5.79.75,12s5.04,11.25,11.25,11.25Z"/>
 </svg>
 `;
+const analyticsGraphBar = `
+<svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" class="myIcon" viewBox="0 0 24 24">
+  <g>
+    <line class="cls-1" x1="6.88" y1="5.12" x2="2.87" y2="9.13"/>
+    <line class="cls-1" x1="14.31" y1="6.32" x2="9.64" y2="5.08"/>
+    <line class="cls-1" x1="20.39" y1="2.89" x2="16.81" y2="5.69"/>
+  </g>
+  <circle class="cls-1" cx="8.25" cy="4.5" r="1.5"/>
+  <circle class="cls-1" cx="21.75" cy="2.25" r="1.5"/>
+  <circle class="cls-1" cx="15.75" cy="6.75" r="1.5"/>
+  <circle class="cls-1" cx="2.25" cy="10.5" r="1.5"/>
+  <line class="cls-1" x1=".75" y1="23.25" x2="23.25" y2="23.25"/>
+  <path class="cls-1" d="m6,17.75h-3c-.41,0-.74.34-.75.75v4.75h4.5v-4.75c0-.41-.34-.75-.75-.75Z"/>
+  <path class="cls-1" d="m13.5,10.75h-3c-.41,0-.74.34-.75.75v11.75h4.5v-11.75c0-.41-.34-.75-.75-.75Z"/>
+  <path class="cls-1" d="m21,14.75h-3c-.41,0-.74.34-.75.75v7.75h4.5v-7.75c0-.41-.34-.75-.75-.75Z"/>
+</svg>
+`;
 ies.forEach(ie => {
   let iconAttribute = ie.getAttribute("data-icon");
   switch (iconAttribute) {
@@ -471,8 +487,27 @@ ies.forEach(ie => {
     case "personal-stats":ie.innerHTML=personalStats; break;
     case "ranking-winner":ie.innerHTML=rankingWinner; break;
     case "question-circle":ie.innerHTML=questionCircle; break;
-
+    case "analytics-graph-bar":ie.innerHTML=analyticsGraphBar; break;
   }
 })
 }
 doIcons();
+const tabs = document.getElementById("tabs");
+const tabButton = document.querySelectorAll(".tab");
+const contents = document.querySelectorAll(".content");
+
+tabs.onclick = e => {
+  const id = e.target.dataset.id;
+  if (id) {
+    tabButton.forEach(btn => {
+      btn.classList.remove("active");
+    });
+    e.target.classList.add("active");
+
+    contents.forEach(content => {
+      content.classList.remove("active");
+    });
+    const element = document.getElementById(id);
+    element.classList.add("active");
+  }
+}

@@ -22,6 +22,9 @@
     right: 0;
     bottom: 0;
     background-color: #ccc;
+    &:hover {
+      background-color: #aaa;
+    }
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -43,6 +46,9 @@
   input:checked + .slider {
     background-color: #2196F3;
     background-color: var(--primary-background-color);
+    &:hover {
+      background-color: var(--primary-background-color-dark);
+    }
   }
   
   input:focus + .slider {
