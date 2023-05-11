@@ -135,6 +135,7 @@ function message(t, time) {
 }
 
 setElements();
+
 function doCheck() {
   if (game) {
     let correctPositions = [];
@@ -144,7 +145,7 @@ function doCheck() {
     let pluppar ="";
     for (let i = 0; i < wordBodies.length; i++) {
       userWord.push(
-        wordBodies[i].getElementsByClassName("word__body__front")[0].textContent
+        wordBodies[i].getElementsByClassName("word__body__front")[0].textContent.toLowerCase()
       );
     }
     let userWordString = userWord.join("");
