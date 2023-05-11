@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;600&family=Inconsolata:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Pacifico&display=swap");
 :root {
   --primary-background-color:rgb(31, 113, 167);
   --primary-background-color-dark:rgb(27, 89, 131);
@@ -45,23 +45,25 @@
   --error:#f77d7d;
   --error-contrast:#fff;
   --tooltip-background-color:#333;
+  --backdropBackgroundColor:#000000dd;
 }
 
 .darkMode {
   --headerBackgroundColor:var(--sectionBackgroundColor);
-  --blockBackgroundColor:#2d2d2d;
+  --blockBackgroundColor:#3D3D4A;
   --boxShadow:0 0 14px #00000033;
-  --backgroundColor:#121212;
-  --textColor:#c6c6c6;
+  --backgroundColor:#262733;
+  --backdropBackgroundColor:#10101eee;
+  --textColor:#e5e5f1;
   --textColor-muted:#8a8a8a;
-  --sectionBackgroundColor:#222222;
-  --primary-background-color:#7b1382;
-  --primary-background-color-dark:#a418ae;
-  --secondary-background-color:#101010;
-  --secondary-background-color-dark:#434343;
-  --secondary-background-contrast-color:#989898;
-  --modalBackgroundColor:#272727;
-  --borderColor:#505050;
+  --sectionBackgroundColor:#31313D;
+  --primary-background-color:#23897f;
+  --primary-background-color-dark:#18625b;
+  --modalBackgroundColor:var(--backgroundColor);
+  --secondary-background-color:#262733;
+  --secondary-background-color-dark:#1D1D26;
+  --secondary-background-contrast-color:var(--primary-background-color);
+  --borderColor:#3D3D4A;
   --keyBackgroundColor:rgb(69, 69, 69);
   --keyTextColor:#fff;
   --correct:#376937;
@@ -86,7 +88,7 @@
 body {
   color: var(--textColor);
   background-color: var(--backgroundColor);
-  font-family: Inter;
+  font-family: "Manrope";
 }
 
 header {
@@ -106,9 +108,9 @@ p.env-text {
   margin: 1em 0;
 }
 p.env-text.lead {
-  font-family: "Frank Ruhl Libre";
   line-height: 1.5;
   font-weight: 300;
+  font-size: 0.875em;
 }
 
 .logo {
@@ -118,6 +120,12 @@ p.env-text.lead {
           margin-block-end: 0.5em;
   font-family: Pacifico;
   font-size: 2em;
+  /* test */
+  font-family: var(--key-font);
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 6px;
+  font-size: 1.75em;
 }
 
 .wordle {
@@ -408,7 +416,8 @@ main {
 }
 .startView .intro {
   margin: 0.75em 0;
-  font-family: "Frank Ruhl Libre";
+  line-height: 1.5;
+  font-size: 0.875em;
 }
 .startView button {
   margin: 0.5em 0;
@@ -438,7 +447,7 @@ main {
 .lb__user__position {
   font-size: 27px;
   font-weight: 800;
-  color: #ddd;
+  color: var(--textcolor);
 }
 .lb__user__position img {
   width: 24px;
@@ -734,7 +743,7 @@ main {
   border-radius: 6px;
 }
 .posts__post__header__name {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
 }
 .posts__post__header__name span {
@@ -744,10 +753,10 @@ main {
   display: block;
 }
 .posts__post__body {
-  padding: 0.5em 1.5em;
+  padding: 0.5em 1.5em 1.5em 1.5em;
 }
 .posts__post__body p {
-  line-height: 1.5;
+  line-height: 1.55;
 }
 .posts__post__footer {
   border-top: 1px solid var(--borderColor);
@@ -780,7 +789,7 @@ main {
 
 .modal {
   z-index: 998;
-  background-color: rgba(0, 0, 0, 0.8666666667);
+  background-color: var(--backdropBackgroundColor);
   -webkit-backdrop-filter: blur(4px);
           backdrop-filter: blur(4px);
   width: 100vw;

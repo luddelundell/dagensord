@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;600&family=Inconsolata:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;600&family=Inconsolata:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Pacifico&display=swap');
 :root {
     --primary-background-color:rgb(31, 113, 167);
     --primary-background-color-dark:rgb(27, 89, 131);
@@ -44,22 +45,24 @@
     --error:#f77d7d;
     --error-contrast:#fff;
     --tooltip-background-color:#333;
+    --backdropBackgroundColor:#000000dd;
 }
 .darkMode {
     --headerBackgroundColor:var(--sectionBackgroundColor);
-    --blockBackgroundColor:#2d2d2d;
+    --blockBackgroundColor:#3D3D4A;
     --boxShadow:0 0 14px #00000033;
-    --backgroundColor:#121212;
-    --textColor:#c6c6c6;
+    --backgroundColor:#262733;
+    --backdropBackgroundColor:#10101eee;
+    --textColor:#e5e5f1;
     --textColor-muted:#8a8a8a;
-    --sectionBackgroundColor:#222222;
-    --primary-background-color:#7b1382;
-    --primary-background-color-dark:#a418ae;
-    --secondary-background-color:#101010;
-    --secondary-background-color-dark:#434343;
-    --secondary-background-contrast-color:#989898;
-    --modalBackgroundColor:#272727;
-    --borderColor:#505050;
+    --sectionBackgroundColor:#31313D;
+    --primary-background-color:#23897f;
+    --primary-background-color-dark:#18625b;
+    --modalBackgroundColor:var(--backgroundColor);
+    --secondary-background-color:#262733;
+    --secondary-background-color-dark:#1D1D26;
+    --secondary-background-contrast-color:var(--primary-background-color);
+    --borderColor:#3D3D4A;
     --keyBackgroundColor:rgb(69, 69, 69);
     --keyTextColor:#fff;
     --correct:#376937;
@@ -81,7 +84,7 @@
 body {
     color:var(--textColor);
     background-color: var(--backgroundColor);
-    font-family: Inter;
+    font-family: 'Manrope';
 }
 header {
     background-color: var(--headerBackgroundColor);
@@ -117,9 +120,10 @@ header {
 p.env-text {
     margin:1em 0;
     &.lead {
-        font-family: 'Frank Ruhl Libre';
+        // font-family: 'Frank Ruhl Libre';
         line-height: 1.5;
         font-weight: 300;
+        font-size: .875em;
     }
 }
 .logo {
@@ -128,6 +132,12 @@ p.env-text {
     margin-block-end: .5em;
     font-family: Pacifico;
     font-size: 2em;
+    /* test */
+    font-family: var(--key-font);
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 6px;
+    font-size: 1.75em;
 }
 .wordle {
     font-family: Inter;
@@ -157,11 +167,8 @@ p.env-text {
 }
 
 .word {
-//    border-radius: 8px;
     aspect-ratio: 1/1 ;
     flex-basis: 20%;
-    // border:2px solid #bbb;
-    // font-size: clamp(1rem, 2vw, 3rem);
     font-size: 1.75em;
     @media screen and (max-width:600px) {
         font-size: 1.25em;        
@@ -197,9 +204,6 @@ p.env-text {
 .word__body{
     transform-style: preserve-3d;
     transition: var(--time) transform;
-    // .word:hover &{
-    //     transform: rotateY(-180deg);
-    // }
 }
 .flip {
     transform: rotateY(-180deg);
@@ -231,7 +235,6 @@ p.env-text {
         font-weight: 700;
         flex-grow: 1;
         color: var(--keyTextColor);
-        // align-self: center;
         &:active {
             box-shadow: inset 0 0 10px var(--keyShadow);
             transform: scale(90%);
@@ -272,7 +275,6 @@ p.env-text {
     z-index: 999;
     left:50%;
     transform:translateX(-50%);
-    // top:-200px;
     opacity: 0;
     p{        
         background-color: var(--error);
@@ -328,8 +330,6 @@ p.env-text {
 }
 .win {
     animation: victory .3s ease-in-out forwards;
-    // outline: 4px solid var(--correct);
-    // outline-offset: 2px;
     z-index:999;
     border-radius: 8px;
     padding:.5em;
@@ -367,20 +367,19 @@ main {
     }
 }
 .col {
-    // background-color: #f7f7f7;
-    // padding:2em;
     flex-grow: 2;
 }
 .startView {
     @include introoutro();
     // display: none;
-
     h3 {
         margin:2em 0 .5em 0;
     }
     .intro {
         margin:.75em 0;
-        font-family: 'Frank Ruhl Libre';
+        line-height: 1.5;
+        font-size: .875em;
+        // font-family: 'Frank Ruhl Libre';
     }
     button {
         margin:.5em 0;
@@ -397,12 +396,10 @@ main {
     gap:.5em;
     &__user {
         position: relative;
-        // background-color: var(--blockBackgroundColor);
         padding:.25em .75em;
         display: flex;
         align-items: center;
         gap:.5em;
-        // border-radius: 6px;
         border-bottom:1px solid var(--borderColor);
         &.currentuser {
             border:2px solid #888;
@@ -410,9 +407,7 @@ main {
         &__position {
             font-size: 27px;
             font-weight: 800;
-            // color:#20233044;
-            color:#ddd;
-            
+            color:var(--textcolor);                  
             img {
                 width: 24px;
                 // margin-top:6px;
@@ -689,7 +684,7 @@ main {
                 border-radius: 6px;
             }
             &__name {
-                font-size: 18px;
+                font-size: 17px;
                 font-weight: 600;
                 span {
                     opacity: .65;
@@ -700,9 +695,9 @@ main {
             }
         }
         &__body {
-            padding:.5em 1.5em;
+            padding:.5em 1.5em 1.5em 1.5em;
             p {
-                line-height: 1.5;
+                line-height: 1.55;
             }
         }
         &__footer {
@@ -737,7 +732,7 @@ main {
 
 .modal {
     z-index:998;
-    background-color: #000000dd;
+    background-color:var(--backdropBackgroundColor);
     backdrop-filter: blur(4px);
     width:100vw;
     height: 100vh;
