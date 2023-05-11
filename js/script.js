@@ -502,5 +502,6 @@ tabs.onclick = e => {
     const element = document.getElementById(id);
     element.classList.add("active");
   }
+  e.preventDefault();
 }
 // const player = document.querySelector("lottie-player");
