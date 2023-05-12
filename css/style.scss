@@ -97,7 +97,7 @@ header {
         padding:6px;
         border-radius: 6px;
         background-color: transparent;
-        opacity: .2;
+        opacity: .02;
         color:var(--textColor);
     }
 }
@@ -107,17 +107,7 @@ header {
     border-radius: 6px;
 }
 @mixin introoutro {
-    // width:100%;
-    // position: absolute;
-    // top:0;
-    // left:0;
-    // height: 100%;
-    // z-index: 997;
-    // padding:5%;
-    // background-color: #fff;
-    // border:1px solid #ddd;
     .inner {        
-        // padding:1.5em;
         background-color: var(--sectionBackgroundColor);
 }
 }
@@ -129,7 +119,6 @@ header {
 p.env-text {
     margin:1em 0;
     &.lead {
-        // font-family: 'Frank Ruhl Libre';
         line-height: 1.5;
         font-weight: 300;
         font-size: .875em;
