@@ -537,13 +537,13 @@ const shareData = {
 };
 
 
-const resultPara = document.getElementById("result");
-const btn = document.getElementById("testBtn");
-btn.addEventListener("click", async () => {
+// const resultPara = document.getElementById("result");
+const shareButton = document.getElementById("testBtn");
+shareButton.addEventListener("click", async () => {
   try {
-    await navigator.share(shareData);
-    resultPara.textContent = "MDN shared successfully";
+    await navigator.share({ title: "Example Page", url: "" });
+    console.log("Data was shared successfully");
   } catch (err) {
-    resultPara.textContent = `Error: ${err}`;
+    console.error("Share failed:", err.message);
   }
 });
