@@ -522,9 +522,11 @@ button.addEventListener('click', () => {
   .then(showNotification)
 });
 function showNotification(permission){
+  console.log(permission);
   if (permission != 'granted') return;
+   console.log(permission);
   let notification = new Notification('My Title', {
-    body: "Hi, how are you today",
+    body: 'Hi, how are you today',
     icon: './images/apple-touch-icon.png'
   })
   notification.onclick = () => {
