@@ -1,11 +1,11 @@
-const devMode = true;
-let allTheWords, theWord, theWordString, elements, wordBodies, keyboard, points;
+const devMode = false;
+let allTheWords, theWord, theWordString, elements, wordBodies, keyboard, points, scoredPoints, noOfAttempts;
 let darkMode=false;
 const messageDiv = document.getElementById("message");
 const startView = document.getElementById("startView");
 const endView = document.getElementById("endView");
-const noOfAttempts = document.getElementById("noOfAttempts");
-const scoredPoints = document.getElementById("scoredPoints");
+// const noOfAttempts = document.getElementById("noOfAttempts");
+// const scoredPoints = document.getElementById("scoredPoints");
 const modalGame = document.getElementById("modalGame");
 const modalHelp = document.getElementById("modalHelp");
 const modalMs = document.getElementById("modalMs");
@@ -207,6 +207,7 @@ function doCheck() {
           wordBodies[i].appendChild(div);
           wordBodies[i].classList.add("flip");
         }   
+        pluppar+='\n';
         shareArr.push(pluppar);
         updateKeyboard(userWord);
         rowState++;
@@ -296,26 +297,42 @@ function handleKeyPress(event) {
 
 function toggleEndView(rs) {
   if (rs < 7) {
-    noOfAttempts.innerHTML = rs;
+    noOfAttempts = rs;
     points=Math.pow(2, 6-rs)*10;
   } else {
-    noOfAttempts.innerHTML = "X";
+    noOfAttempts = "X";
     points = 0;
   }
-  scoredPoints.innerHTML = points;
-  endView.classList.toggle("hidden");
-  document.getElementById("resBodyColor").innerHTML = `${printColorBoxes()}`;
   document.removeEventListener("keydown", handleKeyPress);
+  let result = `
+  <div class="res">
+  <div class="res__body">
+      <div class="res__body__color" id="resBodyColor">${printColorBoxesWithBreak()}</div>                     
+      <div class="res__body__points">
+          <p><span id="noOfAttempts">${noOfAttempts}</span>/6</p>
+          <p><span id="scoredPoints">${points}</span>p</p>
+      </div>
+  </div>
+  <div class="res__footer">
+      <button class="btn btn-primary" onclick="shareResult()">Dela resultat</button>
+      <p id="shareFeedback">Kopierat - klistra in ditt resultat i valfri app!</p>
+  </div>                                              
+</div>
+  `;
+    document.getElementById("res").innerHTML=result;
 }
 
 function returnToStart() {
   modalGame.classList.toggle("toggle");
-  endView.classList.toggle("hidden");
   startView.classList.toggle("visible");
 }
+function printColorBoxesWithBreak() {
+  let wrappedItems = shareArr.map((item) => `${item}<br>`);
+  return wrappedItems.join("").trim();
+}
 
-function printColorBoxes(arrq) {
-  let wrappedItems = shareArr.map((item) => `</br>${item} `);
+function printColorBoxes() {
+  let wrappedItems = shareArr.map((item)=>`${item}`);
   return wrappedItems.join("").trim();
 }
 
@@ -325,11 +342,11 @@ function shareResult() {
       if (rowState - 1 < 3) return ":a";
       else return ":e";
     };
-    if (lostGame) return `Jag klarade inte Dagens ord och fick `;
+    if (lostGame) return `Jag klarade inte Dagens ord och fick`;
     else
       return `Jag klarade Dagens ord på ${
         rowState - 1
-      }${nr()} försöket och fick `;
+      }${nr()} försöket och fick`;
   };
   let emoji = () => {
     if (rowState - 1 < 3) return "😁";
@@ -337,17 +354,9 @@ function shareResult() {
     if (rowState - 1 > 5 && rowState - 1 < 7 && !lostGame) return "😐";
     else return "😡";
   };
-  let content = `${att()} ${points} 
-    poäng ${emoji()}
-    ${printColorBoxes()}
-    `;
-  let copyText = `${att()} ${points} poäng ${emoji()}
-     ${printColorBoxes()}`;
-     console.log(copyText);
-  const mu = document.getElementById("js-output");
-  mu.innerHTML = copyText;
+  let copyText = `${att()} ${points} poäng ${emoji()}\n${printColorBoxes()}`;
   document.getElementById("shareFeedback").style.opacity = "1";
-  putTextInClipboard();
+  putTextInClipboard(copyText);
 }
 function toggleModalHelp() {
   modalHelp.classList.toggle("toggle");
@@ -371,12 +380,9 @@ const abortGame = () => {
   game = false;
 };
 
-function putTextInClipboard() {
+function putTextInClipboard(content) {
   try {
-    const content = document.getElementById("js-output").innerHTML;
-    const blobInput = new Blob([content], { type: "text/html" });
-    const clipboardItemInput = new ClipboardItem({ "text/html": blobInput });
-    navigator.clipboard.write([clipboardItemInput]);
+    navigator.clipboard.writeText(content);
   } catch (e) {
     console.log(e);
   }
@@ -505,45 +511,3 @@ tabs.onclick = e => {
   }
   e.preventDefault();
 }
-// const player = document.querySelector("lottie-player");
-
-
-// const shareText =
-// "Ordel #" +
-// gameState.gameId +
-// " " +
-// (winningWord ? gameState.guesses.length : "X") +
-// "/6" +
-// (winningWord ? " " + shareSymbol : "") +
-// "\n" +
-// gameState.guesses
-//   .map((g) =>
-//     g.result.map((c) => (c === -1 ? "⬛" : c === 0 ? "🟪" : "🟩")).join("")
-//   )
-//   .join("\n");
-{/* <CopyToClipboard
-text={shareText}
-onCopy={() => setCopied(true)}
-options={{ format: "text/plain" }}
->
-<button className="share">
-  <ShareIcon /> Dela mitt resultat
-</button>
-</CopyToClipboard> */}
-const shareData = {
-  title: "MDN",
-  text: "Learn web development on MDN!",
-  url: "https://developer.mozilla.org",
-};
-
-
-// const resultPara = document.getElementById("result");
-const shareButton = document.getElementById("testBtn");
-shareButton.addEventListener("click", async () => {
-  try {
-    await navigator.share({ title: "Example Page", url: "" });
-    console.log("Data was shared successfully");
-  } catch (err) {
-    console.error("Share failed:", err.message);
-  }
-});

@@ -16,15 +16,13 @@
         <link rel="icon" type="image/png" href="/images/favicon32x32.png" sizes="32x32">
         <link rel="icon" type="image/png" href="/images/favicon96x96.png" sizes="96x96">
         <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-        <!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script> -->
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
         <meta property="og:title" content="Dagens ord" />
         <meta property="og:description" content="Fem bokstäver i ordet. Sex gissningar. Tävla mot dina kollegor och få den respekt du förtjänar." />
         <meta property="og:image" content="https://joyful-blini-97982a.netlify.app/images/OGimg.png" />
     </head>
     <body class="lightMode">
         <header>
-            <button id="testBtn">Share</button>
-            <div id="result"></div>
             <div class="switchContainer">
                 <p>Dark mode</p>
                 <label for="modeToggle" class="switch">
@@ -34,7 +32,6 @@
             </div>
         </header>
         <div class="modal" id="modalGame">     
-
             <div class="modal__inner" id="modalGameInner">
                 <div id="message" class="message"><p>All is good</p></div>
                 <div class="modal__inner__header">
@@ -247,8 +244,7 @@
                             <div class="key" data-key="n" role="button">n</div>
                             <div class="key" data-key="m" role="button">m</div>
                             <div class="key special" data-key="Backspace" role="button">⇦</div>
-                        </div>
-                        <!-- <div class="foo" id="foo">foo</div> -->
+                        </div>                     
                     </div>
                 </div>
             </div>
@@ -266,8 +262,7 @@
                         <a href="#" data-id="myStats" class="tab active"><span class="icon" data-icon="personal-stats"></span> Min statistik</a>
                         <a href="#" data-id="lbStats" class="tab"><span class="icon" data-icon="ranking-winner"></span>Ledartavla</a>
                     </nav>
-                </div>
-              
+                </div>              
                 <div class="modal__inner__body contentWrapper">
                     <div id="myStats" class="content active">
                         <h2>Min statistik</h2>                    
@@ -421,27 +416,7 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="modal" id="modalLb">
-            <div class="modal__inner">
-                <div class="modal__inner__header">
-                    <div class="logo">
-                        <p>Dagens ord</p>
-                    </div>   
-                </div>
-                <div class="modal__inner__body">
-    
-                </div>
-                <div class="modal__inner__footer">
-                    <button class="btn btn-primary" onclick="toggleModalLb()">Stäng</button>
-                    
-                </div>
-            
-            </div>
-        </div> -->
         <main>
-
-
-           
             <div class="col col-1">       
                 <article>
                     <img src="/images/pexels-thisisengineering-3862634.webp">
@@ -449,11 +424,7 @@
                     <p class="env-text lead">
                         Iterativa tillvägagångssätt för företagsstrategi främjar samarbetstänkande för att främja det övergripande värdeerbjudandet. Väx organiskt den holistiska världsbilden av disruptiv innovation via arbetsplatsmångfald och egenmakt. Ta fram vinn-vinn-överlevnadsstrategier för att säkerställa proaktiv dominans. I slutet av dagen, framöver, är en ny normal som har utvecklats från generation X på banan på väg mot en strömlinjeformad molnlösning.
                     </p>
-                    <p>&nbsp;</p>
-                  
-                    <!-- <p><input type="text"/></p> -->
-          <template id="js-output" class="js-output"></template>
-                    <!-- <p><span id="output"></span></p> -->
+                    <p>&nbsp;</p>            
                 </article>
                 <h2></h2>                
             </div>
@@ -491,20 +462,6 @@
                             <button><span class="icon" data-icon="share"></span></button>  
                         </div>
                     </div>
-                    <!-- <div class="posts__post" id="fejkPost">
-                        <div class="posts__post__header">
-                            <img src="/images/user_08.webp">
-                            <div class="posts__post__header__name">Kjell Stockstreber<span>Just nu</span></div>
-                        </div>
-                        <div class="posts__post__body" id="fejkPostBody">
-                          
-                        </div>
-                        <div class="posts__post__footer">
-                            <button><img src="/images/icons/thumb-up-like.png"></button>
-                            <button><span class="icon">comment</span></button>
-                            <button><img src="/images/icons/share-2.png"></button>
-                        </div>
-                    </div> -->
                 </div>
             </div>
             <div class="col col-3">
@@ -515,10 +472,7 @@
                             <p>Dagens ord</p>
                             </div>                    
                             <p class="intro">Fem bokstäver i ordet. Sex gissningar. Tävla mot dina kollegor och få den respekt du förtjänar.</p>
-                            <div id="startButton">
-                                
-                                
-                            </div>
+                            <div id="startButton"></div>
                             <div class="btn btn-fejk" id="btnComeBackTomorow">I morgon får du ett nytt dagens ord</div>
                             <h3 class="overline">I toppen just nu</h3>
                             <div class="lb">
@@ -565,53 +519,40 @@
                         <div class="logo">
                             <p>Dagens ord</p>
                         </div>                    
-                        <div class="res">
-                            <div class="res__body">
-                                <div class="res__body__color" id="resBodyColor"></div>                     
-                                <div class="res__body__points">
-                                    <p><span id="noOfAttempts">X</span>/6</p>
-                                    <p><span id="scoredPoints">Y</span>p</p>
-                                </div>
-                            </div>
-                            <div class="res__footer">
-                                <button class="btn btn-primary" onclick="shareResult()">Dela resultat</button>
-                                <p id="shareFeedback">Kopierat - klistra in ditt resultat i valfri app!</p>
-                            </div>                                              
+                    <div id="res"></div>
+                    <h2 class="overline">Din placering</h2>
+                    <div class="lb">    
+                        <div class="lb__user">
+                            <span class="lb__user__position">3</span>
+                            <img src="/images/user_10.webp" class="lb__user__img">
+                            <p class="lb__user__name">Frank Frankensteiner</p>
+                            <p class="lb__user__points">125p</p>
+                        </div>       
+                        <div class="lb__user">
+                            <span class="lb__user__position">4</span>
+                            <img src="/images/user_02.webp" class="lb__user__img">
+                            <p class="lb__user__name">Alex Shcûtter</p>
+                            <p class="lb__user__points">120p</p>
                         </div>
-                        <h2 class="overline">Din placering</h2>
-                        <div class="lb">    
-                            <div class="lb__user">
-                                <span class="lb__user__position">3</span>
-                                <img src="/images/user_10.webp" class="lb__user__img">
-                                <p class="lb__user__name">Frank Frankensteiner</p>
-                                <p class="lb__user__points">125p</p>
-                            </div>       
-                            <div class="lb__user">
-                                <span class="lb__user__position">4</span>
-                                <img src="/images/user_02.webp" class="lb__user__img">
-                                <p class="lb__user__name">Alex Shcûtter</p>
-                                <p class="lb__user__points">120p</p>
-                            </div>
-                            <div class="lb__user currentuser">
-                                <span class="lb__user__position">5</span>
-                                <img src="/images/user_08.webp" class="lb__user__img">
-                                <p class="lb__user__name">Kjell Stockstreber</p>
-                                <p class="lb__user__points">115p</p>
-                            </div>
-                            <div class="lb__user">
-                                <span class="lb__user__position">6</span>
-                                <img src="/images/user_04.webp" class="lb__user__img">
-                                <p class="lb__user__name">Hanna Holmér</p>
-                                <p class="lb__user__points">110p</p>
-                            </div>         
-                            <div class="lb__user">
-                                <span class="lb__user__position">7</span>
-                                <img src="/images/user_07.webp" class="lb__user__img">
-                                <p class="lb__user__name">Petra Petersén</p>
-                                <p class="lb__user__points">110p</p>
-                            </div>        
+                        <div class="lb__user currentuser">
+                            <span class="lb__user__position">5</span>
+                            <img src="/images/user_08.webp" class="lb__user__img">
+                            <p class="lb__user__name">Kjell Stockstreber</p>
+                            <p class="lb__user__points">115p</p>
                         </div>
-                    <div></div>
+                        <div class="lb__user">
+                            <span class="lb__user__position">6</span>
+                            <img src="/images/user_04.webp" class="lb__user__img">
+                            <p class="lb__user__name">Hanna Holmér</p>
+                            <p class="lb__user__points">110p</p>
+                        </div>         
+                        <div class="lb__user">
+                            <span class="lb__user__position">7</span>
+                            <img src="/images/user_07.webp" class="lb__user__img">
+                            <p class="lb__user__name">Petra Petersén</p>
+                            <p class="lb__user__points">110p</p>
+                        </div>        
+                    </div>
                     </div>
                 </div>             
             </div>
@@ -637,10 +578,6 @@
                         <p class="env-text">En <span class="help-word help-word-close">orange</span> ruta betyder att bokstaven är korrekt men på fel plats.</p>
                         <p class="env-text">En <span class="help-word help-word-incorrect">mörk</span> ruta betyder att bokstaven inte är med i ordet.</p>
                         <p class="env-text">PS. Tänk på att samma bokstav kan finnas med i ordet mer än en gång!</p>
-                        
-                        
-                        
-                        
                     </div>
                 </div>
                 <div class="modal__inner__footer">
@@ -648,7 +585,6 @@
                 </div>
             </div>
         </div>
-        <div id="mu" class="mu-hidden"></div>
         <script src="/js/data.js"></script>
         <script src="/js/script.js" async defer></script>
     </body>
