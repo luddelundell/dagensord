@@ -1,4 +1,4 @@
-const devMode = false;
+const devMode = true;
 let allTheWords, theWord, theWordString, elements, wordBodies, keyboard, points;
 let darkMode=false;
 const messageDiv = document.getElementById("message");
@@ -327,7 +327,7 @@ function shareResult() {
     };
     if (lostGame) return `Jag klarade inte Dagens ord och fick `;
     else
-      return `Jag klarade <a href="https://joyful-blini-97982a.netlify.app/">Dagens ord</a> på ${
+      return `Jag klarade Dagens ord på ${
         rowState - 1
       }${nr()} försöket och fick `;
   };
@@ -343,6 +343,7 @@ function shareResult() {
     `;
   let copyText = `${att()} ${points} poäng ${emoji()}
      ${printColorBoxes()}`;
+     console.log(copyText);
   const mu = document.getElementById("js-output");
   mu.innerHTML = copyText;
   document.getElementById("shareFeedback").style.opacity = "1";
@@ -505,3 +506,44 @@ tabs.onclick = e => {
   e.preventDefault();
 }
 // const player = document.querySelector("lottie-player");
+
+
+// const shareText =
+// "Ordel #" +
+// gameState.gameId +
+// " " +
+// (winningWord ? gameState.guesses.length : "X") +
+// "/6" +
+// (winningWord ? " " + shareSymbol : "") +
+// "\n" +
+// gameState.guesses
+//   .map((g) =>
+//     g.result.map((c) => (c === -1 ? "⬛" : c === 0 ? "🟪" : "🟩")).join("")
+//   )
+//   .join("\n");
+{/* <CopyToClipboard
+text={shareText}
+onCopy={() => setCopied(true)}
+options={{ format: "text/plain" }}
+>
+<button className="share">
+  <ShareIcon /> Dela mitt resultat
+</button>
+</CopyToClipboard> */}
+const shareData = {
+  title: "MDN",
+  text: "Learn web development on MDN!",
+  url: "https://developer.mozilla.org",
+};
+
+
+const resultPara = document.getElementById("result");
+const btn = document.getElementById("testBtn");
+btn.addEventListener("click", async () => {
+  try {
+    await navigator.share(shareData);
+    resultPara.textContent = "MDN shared successfully";
+  } catch (err) {
+    resultPara.textContent = `Error: ${err}`;
+  }
+});
