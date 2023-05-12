@@ -90,7 +90,16 @@ header {
     background-color: var(--headerBackgroundColor);
     padding:1em;
     display: flex;
-    justify-content: flex-end;
+    justify-content:space-between;
+    .invisible {
+        appearance: none;
+        border:1px solid var(--textColor);
+        padding:6px;
+        border-radius: 6px;
+        background-color: transparent;
+        opacity: .2;
+        color:var(--textColor);
+    }
 }
 .section {
     background-color: var(--blockBackgroundColor);
@@ -319,7 +328,9 @@ p.env-text {
 .visible{
     animation: movein 0.5s ease forwards, moveout .3s ease 2.25s forwards;
 }
-
+.visible-long{
+    animation: movein 0.5s ease forwards, moveout .3s ease 4.25s forwards;
+}
 @keyframes movein {
     from { top:-100px; opacity: 0;}
     to {top:20px; opacity: 1;}
@@ -657,8 +668,10 @@ main {
         p {
             opacity: 0;
             font-size: .875em;
+            font-weight: 600;
             color:var(--success);
             transition: all .2s ease-in;
+            text-align: center;
             &.toggle {
                 opacity: 1;
             }

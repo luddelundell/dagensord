@@ -95,7 +95,18 @@ header {
   background-color: var(--headerBackgroundColor);
   padding: 1em;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+header .invisible {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 1px solid var(--textColor);
+  padding: 6px;
+  border-radius: 6px;
+  background-color: transparent;
+  opacity: 0.2;
+  color: var(--textColor);
 }
 
 .section {
@@ -325,6 +336,10 @@ p.env-text.lead {
 
 .visible {
   animation: movein 0.5s ease forwards, moveout 0.3s ease 2.25s forwards;
+}
+
+.visible-long {
+  animation: movein 0.5s ease forwards, moveout 0.3s ease 4.25s forwards;
 }
 
 @keyframes movein {
@@ -712,8 +727,10 @@ main {
 .res__footer p {
   opacity: 0;
   font-size: 0.875em;
+  font-weight: 600;
   color: var(--success);
   transition: all 0.2s ease-in;
+  text-align: center;
 }
 .res__footer p.toggle {
   opacity: 1;

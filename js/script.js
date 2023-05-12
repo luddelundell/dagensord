@@ -113,11 +113,13 @@ function setElements() {
   }
 }
 function message(t, time) {
+  let className = 'visible';
   if (game) {
     let messageTxt = `<p>Unknown error message</p>`;
     if (t == 1) {
       messageTxt = `<p class="no-flex">Nu är det slut på gissningar! Ordet vi sökte är <span class="letter">${theWord[0]}</span><span class="letter">${theWord[1]}</span><span class="letter">${theWord[2]}</span><span class="letter">${theWord[3]}</span><span class="letter">${theWord[4]}</span></p>`;
       game = false;
+      className='visible-long'
     }
     if (t == 2) messageTxt = `<p><span class="emoji">🤔</span>Ordet finns inte i listan</p>`;
     if (t == 3) messageTxt = `<p><span class="emoji">🤯</span>Du har redan gissat på det här ordet</p>`;
@@ -127,9 +129,9 @@ function message(t, time) {
       game = false;
     }
     messageDiv.innerHTML = messageTxt;
-    messageDiv.classList.add("visible");
+    messageDiv.classList.add(className);
     setTimeout(() => {
-      messageDiv.classList.remove("visible");
+      messageDiv.classList.remove(className);
     }, time);
   }
 }
@@ -234,7 +236,7 @@ function doCheck() {
           toggleEndView(rowState);
           setTimeout(() => {          
             document.getElementById("modalGameInner").innerHTML=document.getElementById("endView").innerHTML;
-          }, 1500);
+          }, 2500);
         }
       } else {
         message(2, 4000);
@@ -510,4 +512,22 @@ tabs.onclick = e => {
     element.classList.add("active");
   }
   e.preventDefault();
+}
+
+let button = document.getElementById("btnNot")
+button.addEventListener('click', () => {
+  if (!window.Notification) return;
+  Notification
+  .requestPermission()
+  .then(showNotification)
+});
+function showNotification(permission){
+  if (permission != 'granted') return;
+  let notification = new Notification('My Title', {
+    body: "Hi, how are you today",
+    icon: './images/apple-touch-icon.png'
+  })
+  notification.onclick = () => {
+    window.location.href = "https://www.sitevision.se";
+  }
 }
