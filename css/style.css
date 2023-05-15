@@ -17,7 +17,8 @@
 
 .lightMode {
   --headerBackgroundColor:var(--sectionBackgroundColor);
-  --blockBackgroundColor:#f7f7f7;
+  --env-block-background-color:#f7f7f7;
+  --env-block-secondary-background-color: #e7e7e7;
   --boxShadow:0 0 14px #33333322;
   --backgroundColor:#f7f7f7;
   --textColor:#202330;
@@ -50,13 +51,14 @@
 
 .darkMode {
   --headerBackgroundColor:var(--sectionBackgroundColor);
-  --blockBackgroundColor:#3D3D4A;
+  --env-block-background-color:#3D3E48;
+  --env-block-secondary-background-color: #5a230d;
   --boxShadow:0 0 14px #00000033;
-  --backgroundColor:#262733;
+  --backgroundColor:#272731;
   --backdropBackgroundColor:#10101eee;
   --textColor:#e5e5f1;
   --textColor-muted:#8a8a8a;
-  --sectionBackgroundColor:#31313D;
+  --sectionBackgroundColor:#31323B;
   --primary-background-color:#23897f;
   --primary-background-color-dark:#18625b;
   --modalBackgroundColor:var(--backgroundColor);
@@ -110,7 +112,7 @@ header .invisible {
 }
 
 .section {
-  background-color: var(--blockBackgroundColor);
+  background-color: var(--env-block-background-color);
   padding: 1.5em;
   border-radius: 6px;
 }
@@ -140,7 +142,6 @@ p.env-text.lead {
 }
 
 .wordle {
-  font-family: Inter;
   padding: 2em;
   width: 24vw;
   min-width: 300px;
@@ -168,6 +169,12 @@ p.env-text.lead {
   align-content: stretch;
   justify-content: space-around;
   z-index: 20;
+}
+
+.start-button p {
+  font-size: 0.75em;
+  text-align: center;
+  opacity: 0.65;
 }
 
 .word {
@@ -436,7 +443,6 @@ main {
 }
 .startView button {
   margin: 0.5em 0;
-  font-family: Inter;
 }
 .startView.visible {
   display: none;
@@ -446,7 +452,7 @@ main {
   margin: 1em 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 1.5em;
 }
 .lb__user {
   position: relative;
@@ -454,27 +460,48 @@ main {
   display: flex;
   align-items: center;
   gap: 0.5em;
-  border-bottom: 1px solid var(--borderColor);
+  background-color: var(--env-block-background-color);
+  border-radius: 12px;
 }
 .lb__user.currentuser {
-  border: 2px solid #888;
+  background-color: var(--env-block-secondary-background-color);
+}
+.lb__user.topThree img {
+  position: absolute;
+  top: -1px;
+  right: -5px;
+  width: 54px;
+  border-radius: 50%;
 }
 .lb__user__position {
-  font-size: 27px;
+  font-size: 1.25em;
   font-weight: 800;
   color: var(--textcolor);
+  padding: 0 12px;
+}
+.lb__user__position.emoji {
+  font-size: 2em;
+  padding: 0;
 }
 .lb__user__position img {
   width: 24px;
 }
 .lb__user__img {
-  width: 24px;
-  border-radius: 6px;
+  position: absolute;
+  top: -3px;
+  right: -5px;
+  width: 38px;
+  border-radius: 50%;
 }
 .lb__user__name {
   margin: 0;
-  font-size: 14px;
+  font-size: 0.875em;
   font-weight: 500;
+}
+.lb__user__name span {
+  font-size: 0.875em;
+  font-weight: 800;
+  opacity: 0.65;
 }
 .lb__user__points {
   margin: 0;
@@ -558,6 +585,7 @@ main {
 }
 .stats__stat {
   background-color: var(--element-background-color);
+  background-color: var(--env-block-background-color);
   border-radius: 8px;
   padding: 8px;
   display: flex;
@@ -612,11 +640,13 @@ main {
   cursor: pointer;
   display: flex;
   gap: 8px;
+  font-weight: 600;
   align-items: center;
   background-color: #e3e4e5;
   background-color: var(--element-background-color);
   color: var(--element-font-color);
   transition: background-color 0.2s ease-in-out;
+  font-family: "Manrope";
 }
 .btn:hover {
   background-color: var(--element-background-color-dark);
@@ -699,7 +729,7 @@ main {
 }
 
 .res {
-  background-color: var(--blockBackgroundColor);
+  background-color: var(--env-block-background-color);
   border-radius: 12px;
   margin-bottom: 2em;
 }
@@ -954,6 +984,7 @@ nav {
   padding: 0 1.5em;
   display: flex;
   gap: 1em;
+  margin-top: 1.5em;
   border-bottom: 1px solid var(--borderColor);
 }
 nav a {

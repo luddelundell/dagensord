@@ -17,7 +17,8 @@
 }
 .lightMode {
     --headerBackgroundColor:var(--sectionBackgroundColor);
-    --blockBackgroundColor:#f7f7f7;
+    --env-block-background-color:#f7f7f7;
+    --env-block-secondary-background-color: #e7e7e7;
     --boxShadow:0 0 14px #33333322;
     --backgroundColor:#f7f7f7;
     --textColor:#202330;
@@ -49,13 +50,14 @@
 }
 .darkMode {
     --headerBackgroundColor:var(--sectionBackgroundColor);
-    --blockBackgroundColor:#3D3D4A;
+    --env-block-background-color:#3D3E48;
+    --env-block-secondary-background-color: #5a230d;
     --boxShadow:0 0 14px #00000033;
-    --backgroundColor:#262733;
+    --backgroundColor:#272731;
     --backdropBackgroundColor:#10101eee;
     --textColor:#e5e5f1;
     --textColor-muted:#8a8a8a;
-    --sectionBackgroundColor:#31313D;
+    --sectionBackgroundColor:#31323B;
     --primary-background-color:#23897f;
     --primary-background-color-dark:#18625b;
     --modalBackgroundColor:var(--backgroundColor);
@@ -102,7 +104,7 @@ header {
     }
 }
 .section {
-    background-color: var(--blockBackgroundColor);
+    background-color: var(--env-block-background-color);
     padding: 1.5em;
     border-radius: 6px;
 }
@@ -138,7 +140,7 @@ p.env-text {
     font-size: 1.75em;
 }
 .wordle {
-    font-family: Inter;
+    // font-family: Inter;
     padding:2em;    
     width:24vw;
     min-width:300px;
@@ -163,7 +165,13 @@ p.env-text {
         z-index: 20;
     }
 }
-
+.start-button {
+    p{
+        font-size: .75em;
+        text-align: center;
+        opacity: .65;
+    }
+}
 .word {
     aspect-ratio: 1/1 ;
     flex-basis: 20%;
@@ -383,7 +391,7 @@ main {
     }
     button {
         margin:.5em 0;
-        font-family: Inter;
+        // font-family: Inter;
     }
     &.visible {
         display: none;
@@ -393,35 +401,56 @@ main {
     margin:1em 0;
     display: flex;
     flex-direction: column;
-    gap:.5em;
+    gap:1.5em;
     &__user {
         position: relative;
         padding:.25em .75em;
         display: flex;
         align-items: center;
         gap:.5em;
-        border-bottom:1px solid var(--borderColor);
+        background-color: var(--env-block-background-color);
+        border-radius: 12px;
         &.currentuser {
-            border:2px solid #888;
+           background-color: var(--env-block-secondary-background-color);
+        }
+        &.topThree {
+            img {
+                position: absolute;
+                top:-1px;
+                right: -5px;
+                width: 54px;
+                border-radius: 50%;            
+            }
         }
         &__position {
-            font-size: 27px;
+            font-size: 1.25em;
             font-weight: 800;
-            color:var(--textcolor);                  
-            img {
+            color:var(--textcolor);      
+            padding:0 12px;            
+            &.emoji {
+                font-size: 2em;
+                padding:0;   
+            }
+            img {               
                 width: 24px;
-                // margin-top:6px;
             }
         }
         &__img {
-            width: 24px;
-            border-radius: 6px;
-            
+            position: absolute;
+            top:-3px;
+            right: -5px;
+            width: 38px;
+            border-radius: 50%;            
         }
         &__name {
             margin:0;
-            font-size: 14px;
+            font-size: .875em;
             font-weight: 500;
+            span{
+                font-size: .875em;
+                font-weight: 800;
+                opacity: .65;
+            }
         }
         &__points {
             margin: 0;
@@ -491,6 +520,7 @@ main {
     align-items: stretch;
     &__stat{
         background-color: var(--element-background-color);
+        background-color: var(--env-block-background-color);
         border-radius: 8px;
         padding:8px;
         display: flex;
@@ -543,11 +573,13 @@ main {
     display: flex;
     gap:8px;
     // justify-content: center;
+    font-weight: 600;
     align-items: center;
     background-color: #e3e4e5;
     background-color: var(--element-background-color);
     color:var(--element-font-color);
     transition: background-color .2s ease-in-out;
+    font-family: 'Manrope';
     &:hover {
         background-color: var(--element-background-color-dark);
     }
@@ -628,7 +660,7 @@ main {
     }
 }
 .res {
-    background-color: var(--blockBackgroundColor);
+    background-color: var(--env-block-background-color);
     border-radius: 12px;
     // color:#202330;
     margin-bottom: 2em;
@@ -862,6 +894,7 @@ nav {
     padding:0 1.5em;
     display: flex;
     gap:1em;
+    margin-top:1.5em;
     border-bottom: 1px solid var(--borderColor);
     a {
         text-decoration: none;

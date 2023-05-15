@@ -1,16 +1,15 @@
-const devMode = false;
+const devMode = true;
 let allTheWords, theWord, theWordString, elements, wordBodies, keyboard, points, scoredPoints, noOfAttempts;
 let darkMode=false;
 const messageDiv = document.getElementById("message");
 const startView = document.getElementById("startView");
 const endView = document.getElementById("endView");
-// const noOfAttempts = document.getElementById("noOfAttempts");
-// const scoredPoints = document.getElementById("scoredPoints");
 const modalGame = document.getElementById("modalGame");
 const modalHelp = document.getElementById("modalHelp");
 const modalMs = document.getElementById("modalMs");
 const foo = document.getElementById("foo");
 let lostGame = false;
+let gameInProgress = false;
 const startDate = new Date("2023-04-19");
 const thisDate = new Date();
 let gameNo = Math.floor((thisDate - startDate) / 86400000);
@@ -82,16 +81,22 @@ let game = true;
 let shareArr = [];
 allTheWords = data;
 wordOfTheDay(data);
+
 function wordOfTheDay(arr) {
   theWordString = arr[gameNo];
   theWord = theWordString.split("");
-}
+};
+
 if (localStorage.getItem("gd")==gameDate && !devMode ){  
   document.getElementById("btnComeBackTomorow").style.display = "block";
 } else {
-  const startButton=`<button class="btn btn-primary w100" onclick="startGame()" id="btnPlayGame">Spela dagens ord</button>`;
-  document.getElementById("startButton").innerHTML=startButton;
+  let primaryButton =`<button class="btn btn-primary w100" onclick="startGame()" id="btnPlayGame">Spela dagens ord</button>`;
+  if(document.cookie){
+     primaryButton = `<button class="btn btn-primary w100" onclick="resumeGame()" id="btnPlayGame">Återuppta dagens spel</button><p>Du har <span>[tid]</span> på dig att spela färdigt.`
+  }
+  document.getElementById("startButton").innerHTML=primaryButton;
 };
+
 function updateKeyboard(userWord) {
   let temp = "";
   for (let i = 0; i < userWord.length; i++) {
@@ -137,20 +142,30 @@ function message(t, time) {
 }
 
 setElements();
-
-function doCheck() {
+let resume = false;
+let myBool = true;
+function doCheck(resumeArr) {
+  let userWordString;
   if (game) {
     let correctPositions = [];
     messageDiv.innerHTML = "";
     let userWord = [];
     let usedChares = [];
     let pluppar ="";
-    for (let i = 0; i < wordBodies.length; i++) {
-      userWord.push(
-        wordBodies[i].getElementsByClassName("word__body__front")[0].textContent.toLowerCase()
-      );
+    if (myBool) {
+      console.log("the return")
+      for (let i = 0; i < wordBodies.length; i++) {
+        userWord.push(
+          wordBodies[i].getElementsByClassName("word__body__front")[0].textContent.toLowerCase()
+        );
+      }
+      
+    } else {
+      userWord=resumeArr.split("");
+      resumeArr="";
+      console.log('bad return')
     }
-    let userWordString = userWord.join("");
+    userWordString = userWord.join("");
     if (guesses.includes(userWordString)) message(3, 4000);
     else {
       if (allTheWords.includes(userWordString)) {
@@ -214,12 +229,23 @@ function doCheck() {
         updateKeyboard(userWord);
         rowState++;
         guesses.push(userWordString);
+        const cname = 'gameInProgress';
+        console.log(guesses);
+        // Sätter en kaka som sparar gissningarna
+        let midnight = new Date();
+        midnight.setHours(23,59,59,0);
+        var expires = "; expires="+midnight;
+        let myGuesses = guesses.join();
+        document.cookie = cname+"="+myGuesses+expires+"; path=/";
+
         pressedKeysArr = [];
         if (userWordString == theWordString) {
           setTimeout(() => {
             elements.classList.add("win");
           }, 500);
           game = false;
+          clearCookie();
+          endGame();
           document.getElementById("lottieSuccess").style.display="block";
           setTimeout(() => {
             document.getElementById("lottieSuccess").style.display="none";
@@ -233,6 +259,8 @@ function doCheck() {
         if (rowState == 7) {
           message(1, 6000);
           lostGame = true;
+          endGame();
+          clearCookie();
           toggleEndView(rowState);
           setTimeout(() => {          
             document.getElementById("modalGameInner").innerHTML=document.getElementById("endView").innerHTML;
@@ -263,18 +291,36 @@ const countOccurrences = (arr, val) => {
 function startGame() {
   keyboard = document.getElementById("keyboard");
   startView.classList.toggle("visible");
-  document.getElementById("btnComeBackTomorow").style.display = "block";
-  document.getElementById("btnPlayGame").style.display = "none";
+  // document.getElementById("btnPlayGame").textContent = "Fortsätt spela Dagens ord";
   keyboard.addEventListener("click", (e) => {
     let key = e.target.getAttribute("data-key");
     handleKeyPress(key);
   });
   document.addEventListener("keydown", handleKeyPress);
   modalGame.classList.toggle("toggle");
-  localStorage.setItem("gd", gameDate);
+
+  gameInProgress = true;
   // message(1, 4000); // TA BORT MIG!
 }
-
+function endGame(){
+  localStorage.setItem("gd", gameDate);
+  document.getElementById("btnComeBackTomorow").style.display = "block";
+  document.getElementById("btnPlayGame").style.display = "none";
+}
+function clearCookie(){
+  document.cookie = "gameInProgress=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; 
+}
+function resumeGame(){
+  const cookieValue = document.cookie
+  .split("; ")
+  .find((row) => row.startsWith("gameInProgress="))
+  ?.split("=")[1];
+const cookieArr = cookieValue.split(",");
+myBool=false;
+cookieArr.map(doCheck);
+myBool=true;
+startGame();
+}
 function handleKeyPress(event) {
   let k;
   event.key ? (k = event.key) : (k = event);
@@ -368,18 +414,23 @@ function toggleModalMs() {
 }
 const abortGame = () => {
   if (game) {
-    const response = confirm(
-      "Avsluta spelet? Du kommer att få 0 poäng för detta spel."
-    );
-    if (response) {
-      startView.classList.toggle("visible");
-      modalGame.classList.toggle("toggle");
-      document.removeEventListener("keydown", handleKeyPress);
-    } else {
-      return;
-    }
+    // const response = confirm(
+    //   "Avsluta spelet? Du kommer att få 0 poäng för detta spel."
+    // );
+    // if (response) {
+    //   startView.classList.toggle("visible");
+    //   modalGame.classList.toggle("toggle");
+    //   document.removeEventListener("keydown", handleKeyPress);
+    // } else {
+    //   return;
+    // }
+     gameInProgress = true;
+     startView.classList.toggle("visible");
+       modalGame.classList.toggle("toggle");
+       document.removeEventListener("keydown", handleKeyPress);
   }
-  game = false;
+  // game = false;
+ 
 };
 
 function putTextInClipboard(content) {
