@@ -15,7 +15,8 @@ const startDate = new Date("2023-04-19");
 const thisDate = new Date();
 let gameNo = Math.floor((thisDate - startDate) / 86400000);
 const nowDate = new Date();
-let gameDate = nowDate.getFullYear()+''+nowDate.getMonth()+''+nowDate.getDay();
+console.log(nowDate.getDate()+' / '+nowDate);
+let gameDate = nowDate.getFullYear()+''+nowDate.getMonth()+''+nowDate.getDate();
 const btnComeBackTomorow =' <div class="btn btn-fejk">I morgon får du ett nytt dagens ord</div>'
 const alphabet = [
   "a",
