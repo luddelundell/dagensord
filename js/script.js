@@ -8,6 +8,7 @@ const modalGame = document.getElementById("modalGame");
 const modalHelp = document.getElementById("modalHelp");
 const modalMs = document.getElementById("modalMs");
 const foo = document.getElementById("foo");
+const startButton = document.getElementById("startButton");
 let lostGame = false;
 let gameInProgress = false;
 const startDate = new Date("2023-04-19");
@@ -15,6 +16,7 @@ const thisDate = new Date();
 let gameNo = Math.floor((thisDate - startDate) / 86400000);
 const nowDate = new Date();
 let gameDate = nowDate.getFullYear()+''+nowDate.getMonth()+''+nowDate.getDay();
+const btnComeBackTomorow =' <div class="btn btn-fejk">I morgon får du ett nytt dagens ord</div>'
 const alphabet = [
   "a",
   "b",
@@ -88,13 +90,14 @@ function wordOfTheDay(arr) {
 };
 
 if (localStorage.getItem("gd")==gameDate && !devMode ){  
-  document.getElementById("btnComeBackTomorow").style.display = "block";
+  startButton.innerHTML=btnComeBackTomorow;
+  // document.getElementById("btnComeBackTomorow").style.display = "block";
 } else {
-  let primaryButton =`<button class="btn btn-primary w100" onclick="startGame()" id="btnPlayGame">Spela dagens ord</button>`;
-  if(document.cookie){
-     primaryButton = `<button class="btn btn-primary w100" onclick="resumeGame()" id="btnPlayGame">Återuppta dagens spel</button><p>Du har <span>[tid]</span> på dig att spela färdigt.`
-  }
-  document.getElementById("startButton").innerHTML=primaryButton;
+    let primaryButton =`<button class="btn btn-primary w100" onclick="startGame()" id="btnPlayGame">Spela dagens ord</button>`;
+    if(document.cookie){
+      primaryButton = `<button class="btn btn-primary w100" onclick="resumeGame()" id="btnPlayGame">Återuppta dagens spel</button><p>Du har <span>[tid]</span> på dig att spela färdigt.`
+    }
+  startButton.innerHTML=primaryButton;
 };
 
 function updateKeyboard(userWord) {
@@ -304,8 +307,9 @@ function startGame() {
 }
 function endGame(){
   localStorage.setItem("gd", gameDate);
-  document.getElementById("btnComeBackTomorow").style.display = "block";
-  document.getElementById("btnPlayGame").style.display = "none";
+  // document.getElementById("btnComeBackTomorow").style.display = "block";
+  // document.getElementById("btnPlayGame").style.display = "none";
+  startButton.innerHTML=btnComeBackTomorow;
 }
 function clearCookie(){
   document.cookie = "gameInProgress=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; 

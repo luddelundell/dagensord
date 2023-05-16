@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Inconsolata:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Pacifico&display=swap");
 :root {
   --primary-background-color:rgb(31, 113, 167);
   --primary-background-color-dark:rgb(27, 89, 131);
@@ -18,7 +18,9 @@
 .lightMode {
   --headerBackgroundColor:var(--sectionBackgroundColor);
   --env-block-background-color:#f7f7f7;
-  --env-block-secondary-background-color: #e7e7e7;
+  --env-block-font-color:#f7f7f7;
+  --env-block-secondary-background-color: #333;
+  --env-block-secondary-font-color:#f7f7f7;
   --boxShadow:0 0 14px #33333322;
   --backgroundColor:#f7f7f7;
   --textColor:#202330;
@@ -52,7 +54,9 @@
 .darkMode {
   --headerBackgroundColor:var(--sectionBackgroundColor);
   --env-block-background-color:#3D3E48;
-  --env-block-secondary-background-color: #5a230d;
+  --env-block-font-color:#f7f7f7;
+  --env-block-secondary-background-color: #787878;
+  --env-block-secondary-font-color:#f7f7f7;
   --boxShadow:0 0 14px #00000033;
   --backgroundColor:#272731;
   --backdropBackgroundColor:#10101eee;
@@ -461,10 +465,10 @@ main {
   align-items: center;
   gap: 0.5em;
   background-color: var(--env-block-background-color);
-  border-radius: 12px;
+  border-radius: 22px;
 }
 .lb__user.currentuser {
-  background-color: var(--env-block-secondary-background-color);
+  border: 3px solid var(--primary-background-color);
 }
 .lb__user.topThree img {
   position: absolute;
@@ -488,7 +492,7 @@ main {
 }
 .lb__user__img {
   position: absolute;
-  top: -3px;
+  top: -2px;
   right: -5px;
   width: 38px;
   border-radius: 50%;
@@ -502,12 +506,6 @@ main {
   font-size: 0.875em;
   font-weight: 800;
   opacity: 0.65;
-}
-.lb__user__points {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 800;
-  margin-left: auto;
 }
 
 .endViewInner {
@@ -686,8 +684,9 @@ main {
 .btn.btn-fejk {
   background-color: var(--element-background-color);
   text-align: center;
-  display: none;
+  display: flex;
   cursor: default;
+  justify-content: center;
 }
 .btn.btn-link {
   background-color: transparent;
