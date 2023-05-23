@@ -15,7 +15,6 @@ const startDate = new Date("2023-04-19");
 const thisDate = new Date();
 let gameNo = Math.floor((thisDate - startDate) / 86400000);
 const nowDate = new Date();
-console.log(nowDate.getDate()+' / '+nowDate);
 let gameDate = nowDate.getFullYear()+''+nowDate.getMonth()+''+nowDate.getDate();
 const btnComeBackTomorow =' <div class="btn btn-fejk">I morgon får du ett nytt dagens ord</div>'
 const alphabet = [
@@ -96,7 +95,21 @@ if (localStorage.getItem("gd")==gameDate && !devMode ){
 } else {
     let primaryButton =`<button class="btn btn-primary w100" onclick="startGame()" id="btnPlayGame">Spela dagens ord</button>`;
     if(document.cookie){
-      primaryButton = `<button class="btn btn-primary w100" onclick="resumeGame()" id="btnPlayGame">Återuppta dagens spel</button><p>Du har <span>[tid]</span> på dig att spela färdigt.`
+      const timeToNewGame = () => {
+        let today = new Date();
+        // today.setHours(00);
+        // today.setMinutes(59);
+        let tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate()+1);
+        tomorrow.setHours(0,0,0,0);
+        let timeLeft;
+        let calcTimeLeft = Math.floor((tomorrow-today)/3600000);
+        if (calcTimeLeft < 1) timeLeft = `${Math.floor((tomorrow-today)/60000)} minuter`;
+        else if (calcTimeLeft==1) timeLeft = `${calcTimeLeft} timme`;
+        else timeLeft=`${calcTimeLeft} timmar`;
+        return timeLeft;
+      }
+      primaryButton = `<button class="btn btn-primary w100" onclick="resumeGame()" id="btnPlayGame">Återuppta dagens spel</button><p>Du har ${timeToNewGame()} på dig att spela färdigt.`
     }
   startButton.innerHTML=primaryButton;
 };
@@ -148,6 +161,7 @@ function message(t, time) {
 setElements();
 let resume = false;
 let myBool = true;
+
 function doCheck(resumeArr) {
   let userWordString;
   if (game) {
@@ -157,17 +171,14 @@ function doCheck(resumeArr) {
     let usedChares = [];
     let pluppar ="";
     if (myBool) {
-      console.log("the return")
       for (let i = 0; i < wordBodies.length; i++) {
         userWord.push(
           wordBodies[i].getElementsByClassName("word__body__front")[0].textContent.toLowerCase()
         );
-      }
-      
+      }      
     } else {
       userWord=resumeArr.split("");
       resumeArr="";
-      console.log('bad return')
     }
     userWordString = userWord.join("");
     if (guesses.includes(userWordString)) message(3, 4000);
@@ -234,7 +245,6 @@ function doCheck(resumeArr) {
         rowState++;
         guesses.push(userWordString);
         const cname = 'gameInProgress';
-        console.log(guesses);
         // Sätter en kaka som sparar gissningarna
         let midnight = new Date();
         midnight.setHours(23,59,59,0);
