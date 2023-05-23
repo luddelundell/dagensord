@@ -1014,6 +1014,7 @@ nav a.active .icon {
 }
 
 .lp {
+  width: 650px;
   position: absolute;
   margin: 0 auto;
   z-index: 1;

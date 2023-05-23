@@ -1,4 +1,4 @@
-const devMode = false;
+const devMode = true;
 let allTheWords, theWord, theWordString, elements, wordBodies, keyboard, points, scoredPoints, noOfAttempts;
 let darkMode=false;
 const messageDiv = document.getElementById("message");
