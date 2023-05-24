@@ -1,4 +1,4 @@
-const devMode = false;
+const devMode = true;
 let allTheWords, theWord, theWordString, elements, wordBodies, keyboard, points, scoredPoints, noOfAttempts;
 let darkMode=false;
 const messageDiv = document.getElementById("message");
@@ -91,7 +91,6 @@ function wordOfTheDay(arr) {
 
 if (localStorage.getItem("gd")==gameDate && !devMode ){  
   startButton.innerHTML=btnComeBackTomorow;
-  // document.getElementById("btnComeBackTomorow").style.display = "block";
 } else {
     let primaryButton =`<button class="btn btn-primary w100" onclick="startGame()" id="btnPlayGame">Spela dagens ord</button>`;
     if(document.cookie){
