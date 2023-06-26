@@ -114,7 +114,7 @@ if (localStorage.getItem("gd")==gameDate && !devMode ){
 };
 
 function updateKeyboard(userWord) {
-  let temp = "";
+  // let temp = "";
   for (let i = 0; i < userWord.length; i++) {
     let key = userWord[i];
     let myButton = document.querySelector("[data-key=" + key + "]");
@@ -167,7 +167,7 @@ function doCheck(resumeArr) {
     let correctPositions = [];
     messageDiv.innerHTML = "";
     let userWord = [];
-    let usedChares = [];
+    let usedChars = [];
     let pluppar ="";
     if (myBool) {
       for (let i = 0; i < wordBodies.length; i++) {
@@ -211,11 +211,11 @@ function doCheck(resumeArr) {
                 countOccurrences(theWord, userWord[i]) <
                 countOccurrences(userWord, userWord[i])
               ){
-                if (usedChares.includes(userWord[i])){
+                if (usedChars.includes(userWord[i])){
                   if (!darkMode) pluppar+= "⬜"; else pluppar+="⬛️";
                   return 'false'
                 } else if (!correctPositions.includes(userWord[i])) {
-                  usedChares.push(userWord[i]);
+                  usedChars.push(userWord[i]);
                   pluppar+= "🟨";
                   return 'close';
                 }
@@ -404,9 +404,9 @@ function shareResult() {
       if (rowState - 1 < 3) return ":a";
       else return ":e";
     };
-    if (lostGame) return `Jag klarade inte Dagens ord och fick`;
+    if (lostGame) return `Jag klarade inte Dagens ord #${gameNo} och fick`;
     else
-      return `Jag klarade Dagens ord på ${
+      return `Jag klarade Dagens ord #${gameNo} på ${
         rowState - 1
       }${nr()} försöket och fick`;
   };
