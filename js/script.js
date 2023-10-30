@@ -454,32 +454,40 @@ function putTextInClipboard(content) {
     console.log(e);
   }
 }
-function modeToggle(){
-  const checkBox = document.getElementById("modeToggle");
-  const body = document.body;
-  if (checkBox.checked == false){
-    body.classList.remove('darkMode');
-    body.classList.add('lightMode');
-    darkMode=false;
-    localStorage.setItem("mode", "light");
+// Ersatt av script i HTML-filen
+// function modeToggle(){
+//   const checkBox = document.getElementById("modeToggle");
+//   const body = document.body;
+//   if (checkBox.checked == false){
+//     body.classList.remove('darkMode');
+//     body.classList.add('lightMode');
+//     darkMode=false;
+//     localStorage.setItem("mode", "light");
 
-  } else {
-    body.classList.add('darkMode');
-    body.classList.remove('lightMode');
-    darkMode=true;
-    localStorage.setItem("mode", "dark");
-  }
-}
-if (!localStorage.getItem("mode")) {
-  localStorage.setItem("mode", "light");
-}
-else {
-  if (localStorage.getItem("mode")=="dark") {
-    document.getElementById("modeToggle").checked = true;
-    modeToggle();
-  }
+//   } else {
+//     body.classList.add('darkMode');
+//     body.classList.remove('lightMode');
+//     darkMode=true;
+//     localStorage.setItem("mode", "dark");
+//   }
+// }
+// if (!localStorage.getItem("mode")) {
+//   localStorage.setItem("mode", "light");
+// }
+// else {
+//   if (localStorage.getItem("mode")=="dark") {
+//     document.getElementById("modeToggle").checked = true;
+//     modeToggle();
+//   }
+// }
+function modeToggle() {
+  const checkBox = document.getElementById('modeToggle');
+  setTheme(checkBox.checked);
 }
 
+if (localStorage.getItem('mode') === 'dark') {
+  document.getElementById('modeToggle').checked = true;
+}
 const ies = document.querySelectorAll('.icon');
 function doIcons(){  
  const comment = `
@@ -578,3 +586,5 @@ tabs.onclick = e => {
   }
   e.preventDefault();
 }
+const myFirstDialog = document.getElementById("myFirstDialog");
+// myFirstDialog.showModal();

@@ -134,8 +134,7 @@ p.env-text.lead {
 .logo {
   display: flex;
   justify-content: space-around;
-  -webkit-margin-after: 0.5em;
-          margin-block-end: 0.5em;
+  margin-block-end: 0.5em;
   font-size: 2em;
   /* test */
   font-family: var(--key-font);
@@ -232,8 +231,7 @@ p.env-text.lead {
 }
 
 .keyboard {
-  -webkit-margin-before: 0.2em;
-          margin-block-start: 0.2em;
+  margin-block-start: 0.2em;
   display: flex;
   flex-direction: column;
   gap: 0.25em;
@@ -904,8 +902,7 @@ article img {
   border-start-end-radius: 8px;
   border-start-start-radius: 8px;
   width: 100%;
-  -webkit-margin-after: 20px;
-          margin-block-end: 20px;
+  margin-block-end: 20px;
 }
 article h2, article p {
   padding: 0 1.5rem;

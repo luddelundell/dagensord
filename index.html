@@ -22,6 +22,21 @@
         <meta property="og:image" content="https://joyful-blini-97982a.netlify.app/images/OGimg.png" />
     </head>
     <body class="lightMode">
+        <script>
+            function setTheme(dark) {
+              const body = document.body;
+              if (dark) {
+                body.classList.add('darkMode');
+                body.classList.remove('lightMode');
+                localStorage.setItem('mode', 'dark');
+              } else {
+                body.classList.remove('darkMode');
+                body.classList.add('lightMode');
+                localStorage.setItem('mode', 'light');
+              }
+            }
+            setTheme(localStorage.getItem('mode') === 'dark');
+            </script>
         <header>
             <button class="invisible" id="btnNot">Notis</button>
             <div class="switchContainer">
@@ -32,6 +47,7 @@
                 </label>
             </div>
         </header>
+
         <div class="modal" id="modalGame">     
             <div class="modal__inner" id="modalGameInner">
                 <div id="message" class="message"><p>All is good</p></div>
@@ -567,6 +583,7 @@
                 </div>
             </div>
         </div>
+
         <script src="/js/data.js"></script>
         <script src="/js/script.js" async defer></script>
     </body>
