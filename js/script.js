@@ -17,64 +17,8 @@ const nowDate = new Date();
 let gameDate = nowDate.getFullYear()+''+nowDate.getMonth()+''+nowDate.getDate();
 const btnComeBackTomorow =' <div class="btn btn-fejk">I morgon får du ett nytt dagens ord</div>'
 const alphabet = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-  "å",
-  "ä",
-  "ö",
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-  "Å",
-  "Ä",
-  "Ö",
+  "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "å", "ä", "ö",
+  "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Å", "Ä", "Ö"
 ];
 let guesses = [];
 let rowState = 1;
@@ -95,8 +39,6 @@ if (localStorage.getItem("gd")==gameDate && !devMode ){
     if(document.cookie){
       const timeToNewGame = () => {
         let today = new Date();
-        // today.setHours(00);
-        // today.setMinutes(59);
         let tomorrow = new Date(today);
         tomorrow.setDate(tomorrow.getDate()+1);
         tomorrow.setHours(0,0,0,0);
@@ -113,7 +55,6 @@ if (localStorage.getItem("gd")==gameDate && !devMode ){
 };
 
 function updateKeyboard(userWord) {
-  // let temp = "";
   for (let i = 0; i < userWord.length; i++) {
     let key = userWord[i];
     let myButton = document.querySelector("[data-key=" + key + "]");
@@ -307,21 +248,16 @@ const countOccurrences = (arr, val) => {
 function startGame() {
   keyboard = document.getElementById("keyboard");
   startView.classList.toggle("visible");
-  // document.getElementById("btnPlayGame").textContent = "Fortsätt spela Dagens ord";
   keyboard.addEventListener("click", (e) => {
     let key = e.target.getAttribute("data-key");
     handleKeyPress(key);
   });
   document.addEventListener("keydown", handleKeyPress);
   modalGame.classList.toggle("toggle");
-
   gameInProgress = true;
-  // message(1, 4000); // TA BORT MIG!
 }
 function endGame(){
   localStorage.setItem("gd", gameDate);
-  // document.getElementById("btnComeBackTomorow").style.display = "block";
-  // document.getElementById("btnPlayGame").style.display = "none";
   startButton.innerHTML=btnComeBackTomorow;
 }
 function clearCookie(){
@@ -431,23 +367,11 @@ function toggleModalMs() {
 }
 const abortGame = () => {
   if (game) {
-    // const response = confirm(
-    //   "Avsluta spelet? Du kommer att få 0 poäng för detta spel."
-    // );
-    // if (response) {
-    //   startView.classList.toggle("visible");
-    //   modalGame.classList.toggle("toggle");
-    //   document.removeEventListener("keydown", handleKeyPress);
-    // } else {
-    //   return;
-    // }
      gameInProgress = true;
      startView.classList.toggle("visible");
        modalGame.classList.toggle("toggle");
        document.removeEventListener("keydown", handleKeyPress);
   }
-  // game = false;
- 
 };
 
 function putTextInClipboard(content) {
