@@ -268,6 +268,10 @@ function doCheck(resumeArr) {
           }, 2500);
           return;
         }
+        if (rowState == 6) {
+          const upsale = document.getElementById("upsale");
+          upsale.style.display="block";
+        }
         if (rowState == 7) {
           message(1, 6000);
           lostGame = true;

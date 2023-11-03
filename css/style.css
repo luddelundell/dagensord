@@ -1022,4 +1022,12 @@ nav a.active .icon {
 }
 .lp lottie-player {
   margin-right: calc(50% - 650px);
+}
+
+.upsale {
+  background-color: rgba(247, 233, 29, 0.3333333333);
+  border-radius: 12px;
+  margin: 1em 0;
+  padding: 1em;
+  display: none;
 }/*# sourceMappingURL=style.css.map */
