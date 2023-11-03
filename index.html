@@ -19,16 +19,19 @@
     </head>
     <body class="lightMode">
         <script>
+            let darkMode=false;
             function setTheme(dark) {
               const body = document.body;
               if (dark) {
                 body.classList.add('darkMode');
                 body.classList.remove('lightMode');
                 localStorage.setItem('mode', 'dark');
+                darkMode=true;
               } else {
                 body.classList.remove('darkMode');
                 body.classList.add('lightMode');
                 localStorage.setItem('mode', 'light');
+                darkMode=false;
               }
             }
             setTheme(localStorage.getItem('mode') === 'dark');

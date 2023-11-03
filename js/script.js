@@ -1,6 +1,5 @@
-const devMode = false;
+const devMode = true;
 let allTheWords, theWord, theWordString, elements, wordBodies, keyboard, points, scoredPoints, noOfAttempts;
-let darkMode=false;
 const messageDiv = document.getElementById("message");
 const startView = document.getElementById("startView");
 const endView = document.getElementById("endView");
@@ -487,6 +486,7 @@ function modeToggle() {
 
 if (localStorage.getItem('mode') === 'dark') {
   document.getElementById('modeToggle').checked = true;
+  
 }
 const ies = document.querySelectorAll('.icon');
 function doIcons(){  
