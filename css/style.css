@@ -424,7 +424,7 @@ main {
 }
 @media screen and (max-width: 600px) {
   main {
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding: 4px;
   }
 }

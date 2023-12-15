@@ -375,7 +375,7 @@ main {
     margin:0 auto;
     gap:30px;
     @media screen and (max-width:600px) {
-        flex-direction: column;
+        flex-direction: column-reverse;
         padding:4px;
     }
 }
