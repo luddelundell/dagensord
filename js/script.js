@@ -1,4 +1,4 @@
-const devMode = false;
+const devMode = true;
 let allTheWords, theWord, theWordString, elements, wordBodies, keyboard, points, scoredPoints, noOfAttempts;
 const messageDiv = document.getElementById("message");
 const startView = document.getElementById("startView");
