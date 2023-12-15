@@ -39,7 +39,7 @@
     --correct-light:#6fc26f77;
     --close:#F5E355;
     --close:#ff9100;
-    --incorrect:#858585;
+    --incorrect:#acacac;
     --success:green;
     --element-background-color: rgb(227,228,229);
     --element-background-color-dark: rgb(210, 210, 210);
@@ -940,4 +940,7 @@ nav {
     margin:1em 0;
     padding:1em;
     display: none;
+}
+.preCheckError > .word > .word__body > .word__body__front{
+    color: #E34444;
 }

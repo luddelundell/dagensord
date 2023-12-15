@@ -102,6 +102,7 @@ let resume = false;
 let myBool = true;
 
 function doCheck(resumeArr) {
+  document.getElementById("row" + rowState).classList.remove("preCheckError");
   let userWordString;
   if (game) {
     let correctPositions = [];
@@ -245,16 +246,22 @@ const countOccurrences = (arr, val) => {
   }, 0);
 };
 
-function startGame() {
+function startGame(resume) {
   keyboard = document.getElementById("keyboard");
   startView.classList.toggle("visible");
-  keyboard.addEventListener("click", (e) => {
-    let key = e.target.getAttribute("data-key");
-    handleKeyPress(key);
-  });
+  keyboard.addEventListener("click", listenToKeyboard)
+  // keyboard.addEventListener("click", (e) => {
+  //   let key = e.target.getAttribute("data-key");
+  //   handleKeyPress(key);
+  // });
+
   document.addEventListener("keydown", handleKeyPress);
   modalGame.classList.toggle("toggle");
   gameInProgress = true;
+}
+function listenToKeyboard(e){
+    let key = e.target.getAttribute("data-key");
+    handleKeyPress(key);
 }
 function endGame(){
   localStorage.setItem("gd", gameDate);
@@ -268,17 +275,21 @@ function resumeGame(){
   .split("; ")
   .find((row) => row.startsWith("gameInProgress="))
   ?.split("=")[1];
-const cookieArr = cookieValue.split(",");
-myBool=false;
-cookieArr.map(doCheck);
-myBool=true;
-startGame();
+  const cookieArr = cookieValue.split(",");
+  myBool=false;
+  cookieArr.map(doCheck);
+  myBool=true;
+  let resume=1;
+  startGame(resume);
 }
 function handleKeyPress(event) {
-  let k;
+  let k ='';
   event.key ? (k = event.key) : (k = event);
+
   if (k== "Escape") abortGame();
   if (k == "Backspace" && pressedKeysArr.length > 0) {
+    // ta bort klassen här
+    document.getElementById("row" + rowState).classList.remove("preCheckError");
     pressedKeysArr.pop();
     wordBodies[pressedKeysArr.length].getElementsByClassName(
       "word__body__front"
@@ -289,6 +300,15 @@ function handleKeyPress(event) {
     wordBodies[pressedKeysArr.length - 1].getElementsByClassName(
       "word__body__front"
     )[0].innerHTML = k;
+  }
+  if (pressedKeysArr.length == 5) {
+    
+    let preCheckString = pressedKeysArr.join("").toLowerCase();
+
+    if (!allTheWords.includes(preCheckString)) {
+
+      document.getElementById("row" + rowState).classList.add("preCheckError");
+    }
   }
   if (k == "Enter") {
     if (pressedKeysArr.length == 5) doCheck();
@@ -324,6 +344,7 @@ function toggleEndView(rs) {
 }
 
 function returnToStart() {
+  // document.removeEventListener("keydown", handleKeyPress);
   modalGame.classList.toggle("toggle");
   startView.classList.toggle("visible");
 }
