@@ -54,21 +54,21 @@
 
 .darkMode {
   --headerBackgroundColor:var(--sectionBackgroundColor);
-  --env-block-background-color:#3D3E48;
+  --env-block-background-color:#3d4448;
   --env-block-font-color:#f7f7f7;
   --env-block-secondary-background-color: #787878;
   --env-block-secondary-font-color:#f7f7f7;
   --boxShadow:0 0 14px #00000033;
-  --backgroundColor:#272731;
-  --backdropBackgroundColor:#10101eee;
+  --backgroundColor:#272f31;
+  --backdropBackgroundColor:#101a1eee;
   --textColor:#e5e5f1;
   --textColor-muted:#8a8a8a;
-  --sectionBackgroundColor:#31323B;
+  --sectionBackgroundColor:#31393b;
   --primary-background-color:#23897f;
   --primary-background-color-dark:#18625b;
   --modalBackgroundColor:var(--backgroundColor);
-  --secondary-background-color:#262733;
-  --secondary-background-color-dark:#1D1D26;
+  --secondary-background-color:#262e33;
+  --secondary-background-color-dark:#1d2226;
   --secondary-background-contrast-color:var(--primary-background-color);
   --borderColor:#3D3D4A;
   --keyBackgroundColor:rgb(69, 69, 69);

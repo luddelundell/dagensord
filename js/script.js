@@ -33,7 +33,7 @@ function wordOfTheDay(arr) {
 };
 
 if (localStorage.getItem("gd")==gameDate && !devMode ){  
-  startButton.innerHTML=btnComeBackTomorow;
+    startButton.innerHTML=btnComeBackTomorow;
 } else {
     let primaryButton =`<button class="btn btn-primary w100" onclick="startGame()" id="btnPlayGame">Spela dagens ord</button>`;
     if(document.cookie){
@@ -285,7 +285,6 @@ function resumeGame(){
 function handleKeyPress(event) {
   let k ='';
   event.key ? (k = event.key) : (k = event);
-
   if (k== "Escape") abortGame();
   if (k == "Backspace" && pressedKeysArr.length > 0) {
     // ta bort klassen här
@@ -301,12 +300,9 @@ function handleKeyPress(event) {
       "word__body__front"
     )[0].innerHTML = k;
   }
-  if (pressedKeysArr.length == 5) {
-    
+  if (pressedKeysArr.length == 5) {    
     let preCheckString = pressedKeysArr.join("").toLowerCase();
-
     if (!allTheWords.includes(preCheckString)) {
-
       document.getElementById("row" + rowState).classList.add("preCheckError");
     }
   }
