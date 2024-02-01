@@ -42,14 +42,16 @@
   --close:#ff9100;
   --incorrect:#acacac;
   --success:green;
-  --element-background-color: rgb(227,228,229);
-  --element-background-color-dark: rgb(210, 210, 210);
+  --element-background-color: #e3e4e5;
+  --element-background-color-dark: #d2d2d2;
   --element-font-color:#202330;
   --keyShadow:#cdcdcd;
   --error:#f77d7d;
   --error-contrast:#fff;
   --tooltip-background-color:#333;
   --backdropBackgroundColor:#000000dd;
+  --fejk-button-background-color: #c0c3c5;
+  --fejk-button-text-color:#484d51;
 }
 
 .darkMode {
@@ -79,12 +81,14 @@
   --incorrect:#141414;
   --success:rgb(90, 228, 90);
   --element-font-color: rgb(227,228,229);
-  --element-background-color:#3e3e3e;
+  --element-background-color:#1090d1;
   --element-background-color-dark:#464646;
   --keyShadow:#323232;
   --error:#f77d7d;
   --error-contrast:#fff;
   --tooltip-background-color:#111;
+  --fejk-button-background-color: #282e33;
+  --fejk-button-text-color:#787e83;
 }
 
 * {
@@ -681,7 +685,8 @@ main {
   background-color: var(--secondary-background-color-dark);
 }
 .btn.btn-fejk {
-  background-color: var(--element-background-color);
+  background-color: var(--fejk-button-background-color);
+  color: var(--fejk-button-text-color);
   text-align: center;
   display: flex;
   cursor: default;

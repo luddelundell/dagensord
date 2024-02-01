@@ -49,8 +49,8 @@
     --error-contrast:#fff;
     --tooltip-background-color:#333;
     --backdropBackgroundColor:#000000dd;
-    --fejk-button-background-color: blue;
-    --fejk-button-text-color:lightblue;
+    --fejk-button-background-color: #c0c3c5;
+    --fejk-button-text-color:#484d51;
  
 }
 .darkMode {
@@ -87,8 +87,8 @@
     --error:#f77d7d;
     --error-contrast:#fff;
     --tooltip-background-color:#111;
-    --fejk-button-background-color: red;
-    --fejk-button-text-color:pink;
+    --fejk-button-background-color: #282e33;
+    --fejk-button-text-color:#787e83;
 
 
 }
@@ -626,7 +626,7 @@ main {
         display: flex;
         cursor:default;
         justify-content: center;
-        font-size: 3em;
+      
     }
     &.btn-link {
         background-color: transparent;
