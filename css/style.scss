@@ -41,14 +41,16 @@
     --close:#ff9100;
     --incorrect:#acacac;
     --success:green;
-    --element-background-color: rgb(227,228,229);
-    --element-background-color-dark: rgb(210, 210, 210);
+    --element-background-color: #e3e4e5;
+    --element-background-color-dark: #d2d2d2;
     --element-font-color:#202330;
     --keyShadow:#cdcdcd;
     --error:#f77d7d;
     --error-contrast:#fff;
     --tooltip-background-color:#333;
     --backdropBackgroundColor:#000000dd;
+    --fejk-button-background-color: blue;
+    --fejk-button-text-color:lightblue;
  
 }
 .darkMode {
@@ -79,47 +81,15 @@
     --incorrect:#141414;
     --success:rgb(90, 228, 90);
     --element-font-color: rgb(227,228,229);
-    --element-background-color:#3e3e3e;
+    --element-background-color:#1090d1;
     --element-background-color-dark:#464646;
     --keyShadow:#323232;
     --error:#f77d7d;
     --error-contrast:#fff;
     --tooltip-background-color:#111;
+    --fejk-button-background-color: red;
+    --fejk-button-text-color:pink;
 
-
-
-    // --headerBackgroundColor:var(--sectionBackgroundColor);
-    // --env-block-background-color:#3d4748;
-    // --env-block-font-color:#f7f7f7;
-    // --env-block-secondary-background-color: #787878;
-    // --env-block-secondary-font-color:#f7f7f7;
-    // --boxShadow:0 0 14px #00000033;
-    // --backgroundColor:#202324;
-    // --backdropBackgroundColor:#1e282aee;
-    // --textColor:#e5e5f1;
-    // --textColor-muted:#8a8a8a;
-    // --sectionBackgroundColor:#171f20;
-    // --primary-background-color:#175b54;
-    // --primary-background-color-dark:#15443f;
-    // --modalBackgroundColor:var(--backgroundColor);
-    // --secondary-background-color:#101516;
-    // --secondary-background-color-dark:#1D1D26;
-    // --secondary-background-contrast-color:var(--primary-background-color);
-    // --borderColor:#3d484a;
-    // --keyBackgroundColor:rgb(69, 69, 69);
-    // --keyTextColor:#fff;
-    // --correct:#376937;
-    // --correct-light:#37693757;
-    // --close:#c87100;
-    // --incorrect:#141414;
-    // --success:rgb(90, 228, 90);
-    // --element-font-color: rgb(227,228,229);
-    // --element-background-color:#3e3e3e;
-    // --element-background-color-dark:#464646;
-    // --keyShadow:#323232;
-    // --error:#f77d7d;
-    // --error-contrast:#fff;
-    // --tooltip-background-color:#111;
 
 }
 * {
@@ -650,11 +620,13 @@ main {
         }
     }
     &.btn-fejk {
-        background-color: var(--element-background-color);
+        background-color: var(--fejk-button-background-color);
+        color: var(--fejk-button-text-color);
         text-align: center;
         display: flex;
         cursor:default;
         justify-content: center;
+        font-size: 3em;
     }
     &.btn-link {
         background-color: transparent;
